@@ -6,18 +6,21 @@
             <h3>Register</h3>
             <hr />
         </div>
-       <form>
+       <form @submit.prevent="onLogin()">
            <div class="form-group">
                <label>Email</label>
-               <input type="text" class="form-control"/>
+               <input type="text" class="form-control" v-model="email" />
+               <div class="error" v-if="errors.email">{{errors.email}}</div>
            </div>
            <div class="form-group">
                <label>Username</label>
-               <input type="text" class="form-control"/>
+               <input type="text" class="form-control" v-model="username" />
+               <div class="error" v-if="errors.username">{{errors.username}}</div>
            </div>
            <div class="form-group">
                <label>Password</label>
-               <input type="password" class="form-control"/>
+               <input type="password" class="form-control" v-model="password" />
+               <div class="error" v-if="errors.password">{{errors.password}}</div>
            </div>
 
            <div class="my-3">
@@ -29,9 +32,28 @@
 </div>
 </template>
 <script>
+import LoginValidations from '../services/LoginValidations';
 export default {
-  name: 'Register-item',
-  components: {
+  data() {
+      return {
+          username: '',
+          password: '',
+          errors: {},
+      };
+  },
+  methods: {
+      onLogin() {
+          let validations = new LoginValidations(
+              this.email,
+              this.username, 
+              this.password,
+              );
+
+            this.errors = validations.checkValidations();
+            if (this.errors.length) {
+                return false;
+            }
+      }
   }
 }
 </script>
