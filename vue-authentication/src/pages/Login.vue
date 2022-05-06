@@ -44,7 +44,7 @@ export default {
               );
 
             this.errors = validations.checkValidations();
-            if (this.errors.length) {
+            if ('emails' in this.errors || 'password' in this.errors) {
                 return false;
             }
       }

@@ -6,7 +6,7 @@
             <h3>Register</h3>
             <hr />
         </div>
-       <form @submit.prevent="onLogin()">
+       <form @submit.prevent="onRegister()">
            <div class="form-group">
                <label>Email</label>
                <input type="text" class="form-control" v-model="email" />
@@ -42,7 +42,7 @@ export default {
       };
   },
   methods: {
-      onLogin() {
+      onRegister() {
           let validations = new LoginValidations(
               this.email,
               this.username, 
@@ -50,7 +50,7 @@ export default {
               );
 
             this.errors = validations.checkValidations();
-            if (this.errors.length) {
+            if ('emails' in this.errors || 'password' in this.errors) {
                 return false;
             }
       }
