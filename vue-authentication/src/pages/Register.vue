@@ -2,6 +2,7 @@
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <div>
+            <img alt="UALRlogo" src="../assets/ualr.png">
         <div>
             <h3>Register</h3>
             <hr />

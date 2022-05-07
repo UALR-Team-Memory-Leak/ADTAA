@@ -2,6 +2,7 @@
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <div>
+            <img alt="UALRlogo" src="../assets/ualr.png">
         <div>
             <h3>Login</h3>
             <hr />
@@ -19,7 +20,9 @@
            </div>
 
            <div class="my-3">
-               <button type="submit" class="btn btn-primary">Login</button>
+               <router-link class="nav-link" to="/homepage">
+               <login-button type="submit" class="btn btn-primary" buttonText="Login"></login-button>
+                </router-link>
            </div>
        </form>
     </div>
@@ -28,7 +31,13 @@
 </template>
 <script>
 import LoginValidations from '../services/LoginValidations';
+import LoginButton from '../components/LogButton.vue';
+
 export default {
+    name: "Login",
+    components: {
+        LoginButton,
+    },
   data() {
       return {
           username: '',
