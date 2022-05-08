@@ -1,17 +1,22 @@
 <template>
-  <v-container>
-      <v-row>
-          <v-col>
-              <button color="primary" elevation="11" x-large>Generate Schedule</button>
-          </v-col>
-      </v-row>
-  </v-container>
+  
+              <div class="my-3">
+               <router-link class="nav-link" to="/generatepage">
+               <login-button type="submit" class="btn btn-primary" buttonText="Generate Schedule"></login-button>
+                </router-link>
+           </div>
+          
 </template>
 
 <script>
+import LoginButton from '../components/LogButton.vue';
 export default {
+     name: "Login",
+    components: {
+        LoginButton,
+    },
 
-}
+};
 </script>
 
 <style>
