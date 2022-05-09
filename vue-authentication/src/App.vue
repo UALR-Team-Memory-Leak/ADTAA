@@ -1,4 +1,5 @@
 <template>
+<body>
 <div>
 <Navigation />
 <div class="contanter">
@@ -12,13 +13,14 @@
 </div>
 <div class="contanter">
 <div class="row">
-    <div class="col-md-6 offset-md-3"><b>Welcome to the ADTAA: Acedemic Department Teaching Assignment Assistant! 
-      Here you will have a schedule generated for you, or you will be able to edit the schedule yourselves.</b>
-  </div>
+    <div class="col-md-6 offset-md-3"><b>
+      Welcome to the ADTAA: Academic Department Teaching Assignment Assistant! Here you will have a schedule generated for you, or you will be able to edit the schedule yourselves.</b>
+    </div>
   </div>
 </div>
+</div>
+</body>
 <UalrFooter />
-</div>
 </template>
 
 <script>
@@ -34,3 +36,9 @@ export default {
   }
 }
 </script>
+
+<style>
+#body{
+   margin-bottom: (height of your footer);
+}
+</style>

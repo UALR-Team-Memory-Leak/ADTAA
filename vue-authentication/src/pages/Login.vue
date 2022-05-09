@@ -20,9 +20,9 @@
            </div>
 
            <div class="my-3">
-               <!--<router-link class="nav-link" to="/homepage">-->
-               <login-button @submit.prevent="onClick()" type="submit" class="btn btn-primary" buttonText="Login"></login-button>
-                <!--</router-link>-->
+               <router-link class="nav-link" to="/homepage">
+               <login-button type="submit" class="btn btn-primary" buttonText="Login"></login-button>
+                </router-link>
            </div>
        </form>
     </div>
@@ -58,9 +58,6 @@ export default {
                 return false;
             }
       },
-      // onclick() {
-        //  UserController;
-     // },
   },
 };
 </script>

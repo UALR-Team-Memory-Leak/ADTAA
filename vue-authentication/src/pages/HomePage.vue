@@ -1,9 +1,13 @@
 <template>
-  
               <div class="my-3">
+                  <div class="col-md-6 offset-md-3">
+            <div>
+            <img alt="UALRlogo" src="../assets/ualr.png">
                <router-link class="nav-link" to="/generatepage">
                <login-button type="submit" class="btn btn-primary" buttonText="Generate Schedule"></login-button>
                 </router-link>
+                </div>
+                </div>
            </div>
           
 </template>

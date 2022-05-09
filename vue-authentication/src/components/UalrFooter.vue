@@ -1,31 +1,25 @@
 
 <template>
-    <footer class="text-center text-lg-start bg-light text-muted fixed-bottom" overflow= "hide">
+    <v-footer app bottom fixed style="width: 100%;" padless>
   <!-- Section: Social media -->
   <section>
-    <!-- Left -->
-    <div class="me-5 d-none d-lg-block">
-    </div>
-    <!-- Left -->
-
-    <!-- Right -->
     <div>
-      <a href="" class="me-4 text-reset">
+      <a href="" class="me-2 text-reset">
         <i class="fab fa-facebook-f"></i>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="" class="me-2 text-reset">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="" class="me-2 text-reset">
         <i class="fab fa-google"></i>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="" class="me-2 text-reset">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="" class="me-2 text-reset">
         <i class="fab fa-linkedin"></i>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="" class="me-2 text-reset">
         <i class="fab fa-github"></i>
       </a>
     </div>
@@ -37,17 +31,17 @@
   <section class="">
     <div class="container text-center text-md-start mt-1">
       <!-- Grid row -->
-      <div class="row mt-3">
+      <div class="row mt-1">
         <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <div class="col-md-3 col-lg-4 col-xl-2 mx-auto mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
             <i class="fas fa-gem me-3"></i>Helpful Links
           </h6>
-          <ul id="menu-footer-1" class="menu"><li id="menu-item-56406" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56406"><a href="/about/">About UA Little Rock</a></li>
-<li id="menu-item-56407" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56407"><a href="/humanresources/">Jobs at UA Little Rock</a></li>
-<li id="menu-item-56408" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56408"><a href="/safety/">Emergency info</a></li>
-<li id="menu-item-56409" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56409"><a href="/privacy/">Privacy policy</a></li>
+          <ul id="menu-footer-1" class="menu"><li id="menu-item-56406" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56406"><a href="https://ualr.edu/about/">About UA Little Rock</a></li>
+<li id="menu-item-56407" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56407"><a href="https://ualr.edu/humanresources/">Jobs at UA Little Rock</a></li>
+<li id="menu-item-56408" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56408"><a href="https://ualr.edu/safety/">Emergency info</a></li>
+<li id="menu-item-56409" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56409"><a href="https://ualr.edu/policy/home/admin/electronic-media/">Privacy policy</a></li>
 </ul>
         </div>
         <!-- Grid column -->
@@ -109,7 +103,7 @@
     <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
   </div>
   <!-- Copyright -->
-</footer>
+</v-footer>
 <!-- Footer -->
 </template>
 
@@ -121,3 +115,12 @@ export default {
   }
 }
 </script>
+<style scoped>
+#footer {
+  width:100%;
+  position: fixed;
+  height: 20%;
+  bottom: 0;
+  left: 0;            /* Footer height */
+}
+</style>
