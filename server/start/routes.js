@@ -32,10 +32,12 @@ Route.group(() => {
   Route.group(() => {
     Route.get("/assistant/gen", "AssistantController.generate"); //don't know what route.xxx should be
     Route.post("/assistant/edit", "AssistantController.edit"); //check what route.xxx should be 
-  }).middleware("auth");
+  }).middleware("auth")
+    .prefix('api/v0');
   
   //Routes admin and root users can access
   Route.group(() => {
+    Route.post("/assistant/test", "AssistantController.testEnd"); 
     Route.post("/setup/add", "SetupController.setup"); //check what route.xxx should be
   }).middleware(["auth", "admin"])
     .prefix('api/v0');
