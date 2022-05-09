@@ -9,9 +9,9 @@
         </div>
        <form @submit.prevent="onLogin()">
            <div class="form-group">
-               <label>Username</label>
-               <input type="text" class="form-control" v-model="username" />
-               <div class="error" v-if="errors.username">{{errors.username}}</div>
+               <label>Email</label>
+               <input type="text" class="form-control" v-model="email" />
+               <div class="error" v-if="errors.email">{{errors.email}}</div>
            </div>
            <div class="form-group">
                <label>Password</label>
@@ -40,7 +40,7 @@ export default {
     },
   data() {
       return {
-          username: '',
+          email: '',
           password: '',
           errors: {},
       };

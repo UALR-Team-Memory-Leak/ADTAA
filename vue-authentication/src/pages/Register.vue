@@ -51,7 +51,7 @@ export default {
               );
 
             this.errors = validations.checkValidations();
-            if ('emails' in this.errors || 'password' in this.errors) {
+            if ('email' in this.errors || 'password' in this.errors || 'username' in this.errors) {
                 return false;
             }
       }
