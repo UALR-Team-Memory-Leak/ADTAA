@@ -7,6 +7,9 @@
                <login-button type="submit" class="btn btn-primary" buttonText="Generate Schedule"></login-button>
                 </router-link>
                 </div>
+                 <router-link class="nav-link" to="/myschedule">
+               <login-button type="submit" class="btn btn-primary" buttonText="View Your Schedule"></login-button>
+                </router-link>
                 </div>
            </div>
           
