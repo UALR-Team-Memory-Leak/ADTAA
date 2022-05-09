@@ -9,8 +9,11 @@ class SetupController {
 
     }
 
-    async addSection({}) {
-        
+    async addSection({request}) {
+        const {
+            Course_Reference_Number,
+
+        } = request.all();
     }
 }
 
