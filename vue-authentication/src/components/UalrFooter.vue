@@ -1,10 +1,8 @@
 
 <template>
-    <footer class="text-center text-lg-start bg-light text-muted fixed-bottom">
+    <footer class="text-center text-lg-start bg-light text-muted fixed-bottom" overflow= "visable">
   <!-- Section: Social media -->
-  <section
-    class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-  >
+  <section>
     <!-- Left -->
     <div class="me-5 d-none d-lg-block">
     </div>
@@ -37,7 +35,7 @@
 
   <!-- Section: Links  -->
   <section class="">
-    <div class="container text-center text-md-start mt-5">
+    <div class="container text-center text-md-start mt-1">
       <!-- Grid row -->
       <div class="row mt-3">
         <!-- Grid column -->
