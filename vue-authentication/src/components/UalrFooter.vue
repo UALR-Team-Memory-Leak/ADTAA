@@ -39,10 +39,10 @@
             <i class="fas fa-gem me-3"></i>Helpful Links
           </h6>
           <ul id="menu-footer-1" class="menu"><li id="menu-item-56406" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56406"><a href="https://ualr.edu/about/">About UA Little Rock</a></li>
-<li id="menu-item-56407" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56407"><a href="https://ualr.edu/humanresources/">Jobs at UA Little Rock</a></li>
-<li id="menu-item-56408" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56408"><a href="https://ualr.edu/safety/">Emergency info</a></li>
-<li id="menu-item-56409" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56409"><a href="https://ualr.edu/policy/home/admin/electronic-media/">Privacy policy</a></li>
-</ul>
+          <li id="menu-item-56407" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56407"><a href="https://ualr.edu/humanresources/">Jobs at UA Little Rock</a></li>
+          <li id="menu-item-56408" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56408"><a href="https://ualr.edu/safety/">Emergency info</a></li>
+          <li id="menu-item-56409" class="link-item menu-item menu-item-type-custom menu-item-object-custom menu-item-56409"><a href="https://ualr.edu/policy/home/admin/electronic-media/">Privacy policy</a></li>
+          </ul>
         </div>
         <!-- Grid column -->
 
