@@ -32,8 +32,6 @@ Route.group(() => {
   Route.group(() => {
     Route.get("/assistant/gen", "AssistantController.generate"); //don't know what route.xxx should be
     Route.post("/assistant/edit", "AssistantController.edit"); //check what route.xxx should be 
-    Route.post("/setup/addInstructor", "SetupController.addInstructor");
-    Route.post("/setup/addSection", "SetupController.addSection");
   }).middleware("auth")
     .prefix('api/v0');
   
@@ -41,6 +39,8 @@ Route.group(() => {
   Route.group(() => {
     Route.post("/assistant/test", "AssistantController.testEnd"); 
     Route.post("/setup/add", "SetupController.setup"); //check what route.xxx should be
+    Route.post("/setup/addInstructor", "SetupController.addInstructor");
+    Route.post("/setup/addSection", "SetupController.addSection");
   }).middleware(["auth", "admin"])
     .prefix('api/v0');
 
