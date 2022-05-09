@@ -20,9 +20,9 @@
            </div>
 
            <div class="my-3">
-               <router-link class="nav-link" to="/homepage">
-               <login-button type="submit" class="btn btn-primary" buttonText="Login"></login-button>
-                </router-link>
+               <!--<router-link class="nav-link" to="/homepage">-->
+               <login-button @submit.prevent="onClick()" type="submit" class="btn btn-primary" buttonText="Login"></login-button>
+                <!--</router-link>-->
            </div>
        </form>
     </div>
@@ -32,6 +32,7 @@
 <script>
 import LoginValidations from '../services/LoginValidations';
 import LoginButton from '../components/LogButton.vue';
+//import UserController from '../server/app/Controllers/Http/UserController';
 
 export default {
     name: "Login",
@@ -56,7 +57,10 @@ export default {
             if ('emails' in this.errors || 'password' in this.errors) {
                 return false;
             }
-      }
-  }
+      },
+      // onclick() {
+        //  UserController;
+     // },
+  },
 };
 </script>
