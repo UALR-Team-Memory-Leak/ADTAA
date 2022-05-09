@@ -1,6 +1,6 @@
 
 <template>
-    <footer class="text-center text-lg-start bg-light text-muted fixed-bottom" overflow= "visable">
+    <footer class="text-center text-lg-start bg-light text-muted fixed-bottom" overflow= "hide">
   <!-- Section: Social media -->
   <section>
     <!-- Left -->
