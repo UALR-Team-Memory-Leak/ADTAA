@@ -31,7 +31,7 @@ import LoginValidations from '../services/LoginValidations';
 import LoginButton from '../components/LogButton.vue';
 //import UserController from '../server/app/Controllers/Http/UserController';
 import axios from "axios";
-export default {
+export default ({
     name: "Login",
     components: {
         LoginButton,
@@ -92,5 +92,5 @@ export default {
     //     // console.log('here')
     //   },
   },
-};
+});
 </script>

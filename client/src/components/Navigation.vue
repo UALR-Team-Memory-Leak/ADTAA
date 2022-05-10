@@ -23,9 +23,9 @@
 </template>
 
 <script>
-export default {
+export default ({
   name: 'Navigation-item',
   components: {
   }
-}
+})
 </script>
