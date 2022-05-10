@@ -16,7 +16,7 @@
 
 const createScheduleTable = ()  => {
   const scheduleDiv = document.querySelector('div.schedule')
-  let tableHeaders = ["CRN", "Section Number", "Course Title", "Instructor Last Name"]
+  let tableHeaders = ["CRN", "Section Number", "Course Title", "Instructor"]
   
   while (scheduleDiv.firstChild)
   {
@@ -92,6 +92,12 @@ export default {
   mounted: function() {
       this.$nextTick(function () 
       {
+        const token = localStorage.getItem('user')
+        if (!token)
+        {
+          this.$router.push({path:'./login'})
+        }
+
         console.log("HI")
         this.schedule()
       })
