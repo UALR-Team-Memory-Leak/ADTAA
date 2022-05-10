@@ -25,12 +25,13 @@ Route.post('auth/dev-register', 'UserController.devRegister')
 Route.group(() => {
   Route.post('auth/register', 'UserController.register');
   Route.post('auth/login', 'UserController.login');
+  Route.get("/assistant/scheduler", "AssistantController.scheduler");
 })
   .prefix('api/v0');
 
   //Routes all authenticated users can access
   Route.group(() => {
-    Route.get("/assistant/scheduler", "AssistantController.scheduler"); //don't know what route.xxx should be
+    //Route.get("/assistant/scheduler", "AssistantController.scheduler"); //don't know what route.xxx should be
     Route.post("/assistant/edit", "AssistantController.edit"); //check what route.xxx should be 
   }).middleware("auth")
     .prefix('api/v0');
