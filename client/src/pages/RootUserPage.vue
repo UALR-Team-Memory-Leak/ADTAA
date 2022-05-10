@@ -1,5 +1,7 @@
 <template>
-<div class="row">
+    <body>
+        <NewNavigation/>
+        <div class="row">
     <div class="col-md-6 offset-md-3">
         <div>
             <img alt="UALRlogo" src="../assets/ualr.png">
@@ -40,14 +42,17 @@
     </div>
 </div>
 </div>
+    </body>
 </template>
 
 <script>
+import NewNavigation from '../components/NewNavigation.vue'
 import LoginButton from '../components/LogButton.vue';
 import axios from "axios";
 export default ({
     name: "Login",
     components: {
+        NewNavigation,
         LoginButton,
     },
     data() {
