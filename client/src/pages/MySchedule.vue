@@ -55,10 +55,10 @@
 </table>
            <div class="my-3">
                <div class="my-3">
-               <login-button type="submit" class="btn btn-primary" buttonText="Edit"></login-button>
+               <button v-on:click="onScheduling" type="submit" class="btn btn-primary" buttonText="Edit">Edit</button>
            </div>
                <router-link class="nav-link" to="/homepage">
-               <login-button type="submit" class="btn btn-primary" buttonText="Submit"></login-button>
+               <button type="submit" class="btn btn-primary" buttonText="Submit"></button>
            </router-link>
            </div>
        </form>
@@ -68,12 +68,24 @@
 </template>
 
 <script>
-import LoginButton from '../components/LogButton.vue';
+
+import axios from "axios"
 
 export default {
-    name: "Login",
-    components: {
-        LoginButton,
+    data() {
+    return {
+        schedule: null
+    }
     },
-};
+    methods: {
+      onScheduling: function(event) {
+        axios.get(
+            'http://localhost:3333/api/v0/assistant/scheduler',
+        ).then((response) => {
+          this.schedule = response;
+          console.log(response);
+        });
+      },
+  },
+}
 </script>
