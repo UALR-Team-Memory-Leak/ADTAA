@@ -32,7 +32,7 @@ Route.group(() => {
 
   //Routes all authenticated users can access
   Route.group(() => {
-    Route.get("/assistant/scheduler", "AssistantController.scheduler"); //don't know what route.xxx should be
+    //Route.get("/assistant/scheduler", "AssistantController.scheduler"); //don't know what route.xxx should be
     Route.post("/assistant/edit", "AssistantController.edit"); //check what route.xxx should be 
   }).middleware("auth")
     .prefix('api/v0');

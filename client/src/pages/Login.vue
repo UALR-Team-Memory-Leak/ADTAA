@@ -47,7 +47,14 @@ export default ({
   },
   methods: {
       onLogin() {
-          axios.post(
+          this.$store.dispatch('login', {
+                email: this.email,
+                password: this.password
+            }).then(() =>{
+                this.$router.push({path:'./homepage'})
+            })
+          
+          /*axios.post(
                'http://localhost:3333/api/v0/auth/login',
               {email: this.email, password: this.password}
           ).then((response) => {
@@ -62,6 +69,7 @@ export default ({
             console.log(localStorage)
             //console.log(localStorage.getItem("this is in local storage "+ "SavedToken"))
           });
+          */
       },
             
 
