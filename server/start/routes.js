@@ -26,6 +26,7 @@ Route.get("/requests", "ApprovalController.listRequests");//delete this later
 Route.group(() => {
   Route.post('auth/register', 'UserController.register');
   Route.post('auth/login', 'UserController.login');
+  Route.get("/assistant/scheduler", "AssistantController.scheduler");
 })
   .prefix('api/v0');
 
