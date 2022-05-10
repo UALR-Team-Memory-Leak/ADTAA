@@ -1,5 +1,7 @@
 <template>
-              <div class="my-3">
+    <body>
+        <NewNavigation/>
+        <div class="my-3">
                   <div class="col-md-6 offset-md-3">
             <div>
             <img alt="UALRlogo" src="../assets/ualr.png">
@@ -9,14 +11,17 @@
                 </router-link>
                 </div>
            </div>
+    </body>
           
 </template>
 
 <script>
+import NewNavigation from '../components/NewNavigation.vue'
 import LoginButton from '../components/LogButton.vue';
 export default ({
      name: "Login",
     components: {
+        NewNavigation,
         LoginButton,
     },
 
