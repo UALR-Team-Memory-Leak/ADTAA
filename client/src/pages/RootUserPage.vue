@@ -45,7 +45,7 @@
 <script>
 import LoginButton from '../components/LogButton.vue';
 import axios from "axios";
-export default {
+export default ({
     name: "Login",
     components: {
         LoginButton,
@@ -80,7 +80,7 @@ export default {
       },
     }
       
-    };
+    });
     
 </script>
 

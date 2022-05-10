@@ -84,7 +84,7 @@ const getSchedules = () => {
   })
 }
 
-export default {
+export default ({
   data() {
       return {
       };
@@ -101,6 +101,6 @@ export default {
           getSchedules()
           }
       },
-  }
+  })
 
 </script>
