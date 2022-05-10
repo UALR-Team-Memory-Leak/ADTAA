@@ -26,7 +26,7 @@ class ApprovalController {
         //checking to see if array is populated
         if(requestUser.length !== 1) {
             return {
-            message: 'Not found',
+            message: 'The request queue is empty',
             status: 404
             }    
         }
