@@ -19,7 +19,7 @@
 import NewNavigation from '../components/NewNavigation.vue'
 import LoginButton from '../components/LogButton.vue';
 export default ({
-     name: "Login",
+     name: "HomePage",
     components: {
         NewNavigation,
         LoginButton,
