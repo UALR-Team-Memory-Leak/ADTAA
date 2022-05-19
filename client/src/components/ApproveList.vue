@@ -2,9 +2,9 @@
   <div>
       <table border="5px" >
           <tr>
-                <td>ID</td>
-                <td>Username</td>
-                <td>Email</td>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
           </tr>
           <tr v-for="user in list" v-bind:key="user.id">
                 <td>{{user.id}}</td>
