@@ -3,7 +3,7 @@
 </template>
 
 <script>
-export default {
+export default ({
     props: {
         buttonText: {
             type: String,
@@ -19,5 +19,5 @@ export default {
             console.log("hello")
         },
     },
-};
+});
 </script>

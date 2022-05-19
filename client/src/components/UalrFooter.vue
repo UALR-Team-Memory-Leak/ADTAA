@@ -109,11 +109,11 @@
 
 <script>
 
-export default {
+export default ({
   name: 'UalrFooter',
   components: {
   }
-}
+})
 </script>
 <style scoped>
 #footer {

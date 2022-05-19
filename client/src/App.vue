@@ -24,17 +24,15 @@
 </template>
 
 <script>
-import Navigation from './components/Navigation.vue'
-import LogButton from './components/LogButton.vue'
+import Navigation from './components/Navigation.vue';
 import UalrFooter from './components/UalrFooter.vue'
-export default {
+export default ({
   name: 'App',
   components: {
     Navigation,
-    LogButton,
     UalrFooter,
   }
-}
+})
 </script>
 
 <style>
