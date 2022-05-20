@@ -108,11 +108,17 @@ class SetupController {
         await Database
             .query()
             .from('courses')
-            .where('id', params.id)
+            .where('Course_Reference_Number', params.CRN)
             .delete()
 
-        console.log("The row id: "+ params.id + " has been deleted.")
-        return{message: "Course_id: "+ params.id + " has been deleted."}
+        await Database
+            .query()
+            .from('course_disciplines')
+            .where('Course_Reference_Number', params.CRN)
+            .delete()
+
+        console.log("The row CRN: "+ params.CRN + " has been deleted.")
+        return{message: "Course_CRN: "+ params.CRN + " has been deleted."}
     }
 
     async listSections({request}) {

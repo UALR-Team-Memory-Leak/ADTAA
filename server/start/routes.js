@@ -46,7 +46,7 @@ Route.group(() => {
     Route.post("/setup/addSection", "SetupController.addSection");
     Route.delete("/setup/delete-section/:id", "SetupController.deleteSection");
     Route.delete("/setup/delete-instructor/:id", "SetupController.deleteInstructor");
-    Route.delete("/setup/delete-course/:id", "SetupController.deleteCourse");
+    Route.delete("/setup/delete-course/:CRN", "SetupController.deleteCourse");
     Route.get("/setup/sections/", "SetupController.listSections");
     Route.get("/setup/instructors/", "SetupController.listInstructors");
     Route.get("/setup/courses/", "SetupController.listCourses");
