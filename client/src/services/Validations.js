@@ -20,5 +20,5 @@ export default class Validations {
             return false;
         }
         return true;
-    };
+    }
 }

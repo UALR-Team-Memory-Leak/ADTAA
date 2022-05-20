@@ -68,7 +68,7 @@
 import LoginButton from '../components/LogButton.vue';
 
 export default ({
-    name: "Login",
+    name: "GeneratePage",
     components: {
         LoginButton,
     },

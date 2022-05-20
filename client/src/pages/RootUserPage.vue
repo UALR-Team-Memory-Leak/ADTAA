@@ -5,18 +5,11 @@
     <div class="col-md-6 offset-md-3">
         <div>
             <img alt="UALRlogo" src="../assets/ualr.png">
-       <div class="request queue" style="display: block;">
-           <table class="ListRequestTable">
-               <thread class="ListRequestTableHead">
-                   <tr class="ListRequestTableRow">
-                       <th>ID</th>
-                       <th>Username</th>
-                       <th>Email</th>
-                   </tr>
-               </thread>
-               <tbody class="ListRequestTable-Body"></tbody>
-           </table>
-       </div>
+       <table>
+           <div>
+               <ApproveList/>
+           </div>
+       </table>
     <div>
             <h3>Registration Approval</h3>
             <hr />
@@ -24,15 +17,15 @@
        <form @submit.prevent="onApprove()">
            <div class="form-group">
                <label>ID</label>
-               <input type="ID" class="form-control" v-model="id" />
+               <input type="ID" class="form-control" v-model="id"/>
            </div>
            <div class="form-group">
                <label>Role</label>
-               <input type="text" class="form-control" v-model="role" />
+               <input type="text" class="form-control" v-model="role"/>
            </div>
            <div class="form-group">
                <label>Approve</label>
-               <input type="checkbox" v-model="approve" />
+               <input type="checkbox" v-model="approve"/>
            </div>
 
            <div class="my-3">
@@ -46,14 +39,14 @@
 </template>
 
 <script>
-import NewNavigation from '../components/NewNavigation.vue'
-import LoginButton from '../components/LogButton.vue';
+import NewNavigation from '../components/NewNavigation.vue';
+import ApproveList from '../components/ApproveList.vue';
 import axios from "axios";
 export default ({
-    name: "Login",
+    name: "RootUserPage",
     components: {
+        ApproveList,
         NewNavigation,
-        LoginButton,
     },
     data() {
         return {
@@ -61,13 +54,13 @@ export default ({
         };
       },
       methods: {
-          next() {
-    axios.get('http://localhost:3333/api/v0/requests')
-      .then(response => {
-         this.rows = response.data
-      }) 
-      .catch(error => console.log(error))
-        },
+    //       next() {
+    // axios.get('http://localhost:3333/api/v0/requests')
+    //   .then(response => {
+    //      this.rows = response.data
+    //   }) 
+    //   .catch(error => console.log(error))
+    //     },
 
 
     onApprove() {

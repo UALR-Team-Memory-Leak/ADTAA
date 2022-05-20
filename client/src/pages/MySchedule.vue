@@ -18,7 +18,7 @@
 
 const createScheduleTable = ()  => {
   const scheduleDiv = document.querySelector('div.schedule')
-  let tableHeaders = ["CRN", "Section Number", "Course Title", "Instructor Last Name"]
+  let tableHeaders = ["CRN", "Section Number", "Course Title", "Instructor"]
   
   while (scheduleDiv.firstChild)
   {

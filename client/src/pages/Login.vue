@@ -29,12 +29,12 @@
 </div>
 </template>
 <script>
-import LoginValidations from '../services/LoginValidations';
+//import LoginValidations from '../services/LoginValidations';
 import LoginButton from '../components/LogButton.vue';
 //import UserController from '../server/app/Controllers/Http/UserController';
 import axios from "axios";
 export default ({
-    name: "Login",
+    name: "LoginPage",
     components: {
         LoginButton,
     },

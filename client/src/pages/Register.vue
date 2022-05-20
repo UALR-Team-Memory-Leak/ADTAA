@@ -33,9 +33,10 @@
 </div>
 </template>
 <script>
-import LoginValidations from '../services/LoginValidations';
+//import LoginValidations from '../services/LoginValidations';
 import axios from "axios";
 export default ({
+    name: "RegisterPage",
   data() {
       return {
           username: '',

@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage.vue';
 import GeneratePage from './pages/GeneratePage.vue';
 import MySchedule from './pages/MySchedule.vue';
 import RootUserPage from './pages/RootUserPage.vue';
+import Setup from './pages/Setup.vue';
 
 const routes = [
     { path: '/login', component: Login},
@@ -13,6 +14,7 @@ const routes = [
     { path: '/generatepage', component: GeneratePage},
     { path: '/myschedule', component: MySchedule},
     { path: '/rootuserpage', component: RootUserPage},
+    { path: '/setup', component: Setup},
 ];
 
 const router = createRouter({
