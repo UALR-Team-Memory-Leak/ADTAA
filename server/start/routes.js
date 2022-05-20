@@ -22,6 +22,7 @@ Route.post('import/multi','ImportMultiController.importMulti')
 Route.post('auth/dev-register', 'UserController.devRegister')
 Route.get("/requests", "ApprovalController.listRequests");//delete this later
 
+
 //All users can use these controllers
 Route.group(() => {
   Route.post('auth/register', 'UserController.register');
