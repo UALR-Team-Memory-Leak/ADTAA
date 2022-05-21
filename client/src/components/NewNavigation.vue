@@ -8,13 +8,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link class="nav-link" to="/app">Home</router-link>
+          <router-link class="nav-link" to="/homepage">Home Page</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/login">Login</router-link>
+          <router-link class="nav-link" to="/rootuserpage">Register Approval</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/register">Register</router-link>
+          <router-link class="nav-link" to="/myschedule">View Schedule</router-link>
         </li>
       </ul>
     </div>
@@ -24,7 +24,7 @@
 
 <script>
 export default ({
-  name: 'Navigation-item',
+  name: 'NewNavigation-item',
   components: {
   }
 })

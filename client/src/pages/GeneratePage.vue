@@ -67,10 +67,10 @@
 <script>
 import LoginButton from '../components/LogButton.vue';
 
-export default {
-    name: "Login",
+export default ({
+    name: "GeneratePage",
     components: {
         LoginButton,
     },
-};
+});
 </script>

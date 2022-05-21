@@ -1,4 +1,4 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
-lintOnSave:false
+lintOnSave:process.env.NODE_ENV !== 'production'
 })

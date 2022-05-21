@@ -24,6 +24,7 @@ class ApprovalController {
         
         //checking to see if array is populated
         if(requestUser.length !== 1) {
+
             return response.status(404).json({
                 message: 'Not found',
                 status: 404

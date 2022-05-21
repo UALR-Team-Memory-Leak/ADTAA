@@ -5,6 +5,7 @@ import router from './router';
 import LoginValidations from './services/LoginValidations';
 import store from './store/store';
 import axios from 'axios';
+
 //import UserController from '../server/app/Controllers/Http/UserController';
 axios.defaults.headers.common['Content-Type'] = 'application/json'
 const token = sessionStorage.getItem("token")

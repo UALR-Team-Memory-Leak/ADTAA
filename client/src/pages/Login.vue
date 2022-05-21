@@ -1,4 +1,5 @@
 <template>
+<div>
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <div>
@@ -25,14 +26,15 @@
     </div>
     </div>
 </div>
+</div>
 </template>
 <script>
-import LoginValidations from '../services/LoginValidations';
+//import LoginValidations from '../services/LoginValidations';
 import LoginButton from '../components/LogButton.vue';
 //import UserController from '../server/app/Controllers/Http/UserController';
 import axios from "axios";
-export default {
-    name: "Login",
+export default ({
+    name: "LoginPage",
     components: {
         LoginButton,
     },
@@ -45,7 +47,14 @@ export default {
   },
   methods: {
       onLogin() {
-          axios.post(
+          this.$store.dispatch('login', {
+                email: this.email,
+                password: this.password
+            }).then(() =>{
+                this.$router.push({path:'./homepage'})
+            })
+          
+          /*axios.post(
                'http://localhost:3333/api/v0/auth/login',
               {email: this.email, password: this.password}
           ).then((response) => {
@@ -67,6 +76,7 @@ export default {
             // console.log(localStorage)
             // console.log(localStorage.getItem("this is in local storage "+ "SavedToken"))
           });
+          */
       },
             
 
@@ -99,5 +109,5 @@ export default {
     //     // console.log('here')
     //   },
   },
-};
+});
 </script>
