@@ -3,7 +3,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import LoginValidations from './services/LoginValidations';
-import store from './store/store';
+import store from './store';
 import axios from 'axios';
 
 //import UserController from '../server/app/Controllers/Http/UserController';
