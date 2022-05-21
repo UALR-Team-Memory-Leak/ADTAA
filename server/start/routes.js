@@ -44,6 +44,7 @@ Route.group(() => {
     Route.post("/setup/add", "SetupController.setup"); //check what route.xxx should be
     Route.post("/setup/addInstructor", "SetupController.addInstructor");
     Route.post("/setup/addSection", "SetupController.addSection");
+    Route.post("/setup/addCourse", "SetupController.addCourse");
     Route.delete("/setup/delete-section/:id", "SetupController.deleteSection");
     Route.delete("/setup/delete-instructor/:id", "SetupController.deleteInstructor");
     Route.delete("/setup/delete-course/:CRN", "SetupController.deleteCourse");

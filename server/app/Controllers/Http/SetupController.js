@@ -3,34 +3,14 @@
 const AddInstructor = use('App/Models/AddInstructor');
 const AddDisciplineArea = use('App/Models/AddDisciplineArea')
 const AddSection = use('App/Models/AddSection');
+const AddCourse = use('App/Models/AddCourse');
+const AddCourseDiscipline = use('App/Models/AddCourseDiscipline')
 const Database = use('Database')
 
 class SetupController {
     async setup({request}) {
         return 'Some test';
     }
-
-    async addInstructor({request}) 
-    {
-        const {Last_Name, Max_Course_Load} = request.all();
-        console.log(Last_Name, Max_Course_Load);
-        const userInstructor = await AddInstructor.create(
-            {
-                Last_Name,
-                Max_Course_Load,
-            });
-        //return{ userInstructor, message: 'Added ' + userInstructor.Last_Name + ' to the database'};
-        const{Discipline_ID} = request.all();
-        console.log(Discipline_ID);
-        const userDisciplineArea = await AddDisciplineArea.create(
-        {
-            Instructor_ID : userInstructor.id, Discipline_ID 
-        });
-
-        return{ userInstructor, userDisciplineArea,  message: 'Thank you for your input'};  
-    }  
-        
-    
 
     async addSection({request}) {
         const {
@@ -77,7 +57,158 @@ class SetupController {
         };
     }
 
-  async deleteSection({request, params}) {
+    async addInstructor({request}) 
+    {
+        const {Last_Name, Max_Course_Load} = request.all();
+        console.log(Last_Name, Max_Course_Load);
+        const userInstructor = await AddInstructor.create(
+            {
+                Last_Name,
+                Max_Course_Load,
+            });
+        //return{ userInstructor, message: 'Added ' + userInstructor.Last_Name + ' to the database'};
+
+        let userDisciplineArea1;
+        let userDisciplineArea2;
+        let userDisciplineArea3;
+        let userDisciplineArea4;
+
+        const{Discipline_ID_1} = request.all();
+        console.log(Discipline_ID_1);
+        if (Discipline_ID_1 != undefined)
+        {
+            userDisciplineArea1 = await AddDisciplineArea.create(
+            {
+                Instructor_ID : userInstructor.id, Discipline_ID : Discipline_ID_1 
+            });
+        }
+
+        const{Discipline_ID_2} = request.all();
+        console.log(Discipline_ID_2);
+        if (Discipline_ID_2 != undefined)
+        {
+            userDisciplineArea2 = await AddDisciplineArea.create(
+            {
+                Instructor_ID : userInstructor.id, Discipline_ID : Discipline_ID_2 
+            });
+        }
+
+        const{Discipline_ID_3} = request.all();
+        console.log(Discipline_ID_3);
+        if (Discipline_ID_3 != undefined)
+        {
+            userDisciplineArea3 = await AddDisciplineArea.create(
+            {
+                Instructor_ID : userInstructor.id, Discipline_ID : Discipline_ID_3 
+            });
+        }
+
+        const{Discipline_ID_4} = request.all();
+        console.log(Discipline_ID_4);
+        if (Discipline_ID_4 != undefined)
+        {
+            userDisciplineArea4 = await AddDisciplineArea.create(
+            {
+                Instructor_ID : userInstructor.id, Discipline_ID : Discipline_ID_4 
+            });
+        }     
+
+        const DisciplineAreas = []
+        if (Discipline_ID_1 != undefined)
+        {
+            DisciplineAreas.push(userDisciplineArea1)
+        }
+        if (Discipline_ID_2 != undefined)
+        {
+            DisciplineAreas.push(userDisciplineArea2)
+        }
+        if (Discipline_ID_3 != undefined)
+        {
+            DisciplineAreas.push(userDisciplineArea3)
+        }
+        if (Discipline_ID_4 != undefined)
+        {
+            DisciplineAreas.push(userDisciplineArea4)
+        }
+
+        return{ userInstructor, DisciplineAreas,  message: 'Thank you for your input'};  
+    }   
+
+    
+    async addCourse({request}) {
+        
+        const {Course_Reference_Number, Department_Code, Course_Number, Course_Title} = request.all();
+        console.log(Course_Reference_Number, Department_Code, Course_Number, Course_Title)
+
+        const userCourse = await AddCourse.create({Course_Reference_Number, Department_Code, Course_Number, Course_Title});
+
+        let userDisciplineArea1;
+        let userDisciplineArea2;
+        let userDisciplineArea3;
+        let userDisciplineArea4;
+
+        const{Discipline_ID_1} = request.all();
+        console.log(Discipline_ID_1);
+        if (Discipline_ID_1 != undefined)
+        {
+            userDisciplineArea1 = await AddCourseDiscipline.create(
+            {
+                Course_Reference_Number : userCourse.Course_Reference_Number, Discipline_ID : Discipline_ID_1 
+            });
+        }
+
+        const{Discipline_ID_2} = request.all();
+        console.log(Discipline_ID_2);
+        if (Discipline_ID_2 != undefined)
+        {
+            userDisciplineArea2 = await AddCourseDiscipline.create(
+            {
+                Course_Reference_Number : userCourse.Course_Reference_Number, Discipline_ID : Discipline_ID_2
+            });
+        }
+
+        const{Discipline_ID_3} = request.all();
+        console.log(Discipline_ID_3);
+        if (Discipline_ID_3 != undefined)
+        {
+            userDisciplineArea3 = await AddCourseDiscipline.create(
+            {
+                Course_Reference_Number : userCourse.Course_Reference_Number, Discipline_ID : Discipline_ID_3
+            });
+        }
+
+        const{Discipline_ID_4} = request.all();
+        console.log(Discipline_ID_4);
+        if (Discipline_ID_4 != undefined)
+        {
+            userDisciplineArea4 = await AddCourseDiscipline.create(
+            {
+                Course_Reference_Number : userCourse.Course_Reference_Number, Discipline_ID : Discipline_ID_4
+            });
+        }
+        
+        const DisciplineAreas = []
+        if (Discipline_ID_1 != undefined)
+        {
+            DisciplineAreas.push(userDisciplineArea1)
+        }
+        if (Discipline_ID_2 != undefined)
+        {
+            DisciplineAreas.push(userDisciplineArea2)
+        }
+        if (Discipline_ID_3 != undefined)
+        {
+            DisciplineAreas.push(userDisciplineArea3)
+        }
+        if (Discipline_ID_4 != undefined)
+        {
+            DisciplineAreas.push(userDisciplineArea4)
+        }
+
+        return {userCourse, DisciplineAreas, message: 'Thank you for your input'};
+    }
+
+    async deleteSection({request, params}) {
         await Database
             .query()
             .from('sections')
