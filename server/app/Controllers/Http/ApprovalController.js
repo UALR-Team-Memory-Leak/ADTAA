@@ -4,18 +4,17 @@ const User = use('App/Models/User');
 const Database = use('Database')
 class ApprovalController {
     //display a list of requests for approval
-    async listRequests({request}){
+    async listRequests({request, response}){
         const users = await Database
             .query()
             .from('request_ques')
             .select('id', 'username', 'email')
-        return {
+        return response.status(200).json({
             users,
-           // message: 'listRequest v2 test'
-        }
+        })
     }
 
-    async approveRegistration({request, params}) {
+    async approveRegistration({request, response, params}) {
         const requestUser = await Database
             .query()
             .from('request_ques')
@@ -25,10 +24,10 @@ class ApprovalController {
         
         //checking to see if array is populated
         if(requestUser.length !== 1) {
-            return {
-            message: 'Not found',
-            status: 404
-            }    
+            return response.status(404).json({
+                message: 'Not found',
+                status: 404
+            })  
         }
         const user = requestUser[0]
 
@@ -46,10 +45,9 @@ class ApprovalController {
             .from('request_ques')
             .where('id', params.id)
             .delete()
-        return{ 
+        return response.status(200).json({ 
             user: newUser,
-            //message: 'Mic check, approval working?',
-        };
+        });
     }
     
 }

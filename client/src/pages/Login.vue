@@ -51,8 +51,11 @@ export default {
           ).then((response) => {
                 console.log(response);
                 //localStorage.setItem('projectToken', response.token);
-                if (response.data.accessToken) {
+                if (response.data.token) {
                     localStorage.setItem('user', JSON.stringify(response.data));
+                    localStorage.setItem('token', response.data.token);
+                    axios.defaults.headers.common.Authorization = response.data.token
+                       this.$router.push({path:'./homepage'});
                 }
                 return response.data;
 
@@ -62,7 +65,7 @@ export default {
             // (this.$router.push({path:'./homepage'}));
             // console.log("this is the token "+token)
             // console.log(localStorage)
-            //console.log(localStorage.getItem("this is in local storage "+ "SavedToken"))
+            // console.log(localStorage.getItem("this is in local storage "+ "SavedToken"))
           });
       },
             

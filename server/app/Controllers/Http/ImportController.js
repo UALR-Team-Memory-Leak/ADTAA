@@ -18,7 +18,11 @@ class ImportController {
 
         if (!upload.moved()) {
             console.log('error')
-            return (upload.error(), 'Error moving files', 500)
+            return response.status(500).json({
+                error: upload.error(),
+                message: 'Error moving files'
+            })
+            //return (upload.error(), 'Error moving files', 500)
         }
 
         let send = await ImportService.ImportClassification('tmp/' + dir + fname)

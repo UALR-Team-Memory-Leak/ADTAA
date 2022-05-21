@@ -16,11 +16,16 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+Route.get("/", ({request, response}) => {
+  response.send("Welcome to my Backend Application")
+})
+
 //Dev requests for importing test data
 Route.post('import','ImportController.import')
 Route.post('import/multi','ImportMultiController.importMulti')
 Route.post('auth/dev-register', 'UserController.devRegister')
 Route.get("/requests", "ApprovalController.listRequests");//delete this later
+Route.get('auth/listUsers', 'UserController.listUsers');
 
 //All users can use these controllers
 Route.group(() => {

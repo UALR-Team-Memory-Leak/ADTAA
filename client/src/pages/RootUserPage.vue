@@ -67,15 +67,17 @@ export default {
 
     onApprove() {
           axios.post(
-               'http://localhost:3333/api/v0/approval/:id',
-              {id: this.id, role: this.role, approve: this.approve}
+               'http://localhost:3333/api/v0/approval/' + this.id,
+              {id: this.id, role: this.role, approve: this.approve},{
+                    headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+              }
               
-            //   headers= {
-            //     Authorization: `bearer ${token}`
-            //     }
+            
           ).then((response) => {
               console.log(response);
-              axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+              //axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
           });
       },
     }
