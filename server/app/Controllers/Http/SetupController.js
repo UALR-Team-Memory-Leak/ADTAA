@@ -134,7 +134,6 @@ class SetupController {
         return{ userInstructor, DisciplineAreas,  message: 'Thank you for your input'};  
     }   
 
-    
     async addCourse({request}) {
         
         const {Course_Reference_Number, Department_Code, Course_Number, Course_Title} = request.all();
@@ -206,6 +205,280 @@ class SetupController {
         }
 
         return {userCourse, DisciplineAreas, message: 'Thank you for your input'};
+    }
+
+    async modifySection({request, params})
+    {
+        const {
+            Course_Reference_Number, 
+            Section_Number,
+
+            Meeting_Period_1_Days,
+            Meeting_Period_1_Start,
+            Meeting_Period_1_End,
+
+            Meeting_Period_2_Days,
+            Meeting_Period_2_Start,
+            Meeting_Period_2_End,
+
+            Meeting_Period_3_Days,
+            Meeting_Period_3_Start,
+            Meeting_Period_3_End
+        } = request.all();
+
+        //prints data to console
+        console.log( Course_Reference_Number, Section_Number, Meeting_Period_1_Days, Meeting_Period_1_Start, Meeting_Period_1_End,
+                     Meeting_Period_2_Days,Meeting_Period_2_Start,Meeting_Period_2_End, 
+                     Meeting_Period_3_Days, Meeting_Period_3_Start, Meeting_Period_3_End) 
+
+        
+        if (!(Course_Reference_Number == undefined && Section_Number == undefined && Meeting_Period_1_Days == undefined && Meeting_Period_1_Start == undefined && Meeting_Period_1_End == undefined && Meeting_Period_2_Days == undefined && Meeting_Period_2_Start == undefined && Meeting_Period_2_End == undefined && Meeting_Period_3_Days == undefined && Meeting_Period_3_Start == undefined && Meeting_Period_3_End == undefined))
+        {
+            await Database
+                .query()
+                .from('sections')
+                .where('id', params.id)
+                .update({
+                    'Course_Reference_Number': Course_Reference_Number, 
+                    'Section_Number': Section_Number, 
+                    'Meeting_Period_1_Days': Meeting_Period_1_Days, 
+                    'Meeting_Period_1_Start': Meeting_Period_1_Start,
+                    'Meeting_Period_1_End' : Meeting_Period_1_End,
+                    'Meeting_Period_2_Days' : Meeting_Period_2_Days,
+                    'Meeting_Period_2_Start' : Meeting_Period_2_Start,
+                    'Meeting_Period_2_End' : Meeting_Period_2_End,
+                    'Meeting_Period_3_Days' : Meeting_Period_3_Days,
+                    'Meeting_Period_3_Start' : Meeting_Period_3_Start,
+                    'Meeting_Period_3_End' : Meeting_Period_3_End
+                })
+        }
+
+        console.log("The row id: "+ params.id + " has been updated.")
+        return{message: "Section_id: "+ params.id + " has been updated."}
+    }
+
+    async modifyInstructor({request, params})
+    {
+        const {Last_Name, Max_Course_Load} = request.all();
+        console.log(Last_Name, Max_Course_Load);
+        if (!(Last_Name == undefined && Max_Course_Load == undefined))
+        {
+            await Database
+                .query()
+                .from('instructors')
+                .where('id', params.id)
+                .update({'Last_Name': Last_Name, 'Max_Course_Load': Max_Course_Load})
+        }
+
+        const instructorDisciplines = await Database
+            .query()
+            .from('instructor_disciplines')
+            .where('Instructor_ID', params.id)
+            .select('id')
+        console.log(instructorDisciplines)
+        
+        const{Discipline_ID_1} = request.all();
+        console.log(Discipline_ID_1);
+        if (Discipline_ID_1 != undefined)
+        {
+            if (instructorDisciplines[0] != undefined)
+            {
+            await Database
+                .query()
+                .from('instructor_disciplines')
+                .where({'Instructor_ID': params.id, 'id': instructorDisciplines[0].id})
+                .update({'Discipline_ID': Discipline_ID_1})
+            }
+            else
+            {
+                await AddDisciplineArea.create(
+                {
+                    Instructor_ID : params.id, Discipline_ID : Discipline_ID_1 
+                });
+            }
+        }
+
+        const{Discipline_ID_2} = request.all();
+        console.log(Discipline_ID_2);
+        if (Discipline_ID_2 != undefined)
+        {
+            if (instructorDisciplines[1] != undefined)
+            {
+            await Database
+                .query()
+                .from('instructor_disciplines')
+                .where({'Instructor_ID': params.id, 'id': instructorDisciplines[1].id})
+                .update({'Discipline_ID': Discipline_ID_2})
+            }
+            else
+            {
+                await AddDisciplineArea.create(
+                {
+                    Instructor_ID : params.id, Discipline_ID : Discipline_ID_2 
+                });
+            }
+        }
+
+        const{Discipline_ID_3} = request.all();
+        console.log(Discipline_ID_3);
+        if (Discipline_ID_3 != undefined)
+        {
+            if (instructorDisciplines[2] != undefined)
+            {
+            await Database
+                .query()
+                .from('instructor_disciplines')
+                .where({'Instructor_ID': params.id, 'id': instructorDisciplines[2].id})
+                .update({'Discipline_ID': Discipline_ID_3})
+            }
+            else
+            {
+                await AddDisciplineArea.create(
+                {
+                    Instructor_ID : params.id, Discipline_ID : Discipline_ID_3 
+                });
+            }
+        }
+
+        const{Discipline_ID_4} = request.all();
+        console.log(Discipline_ID_4);
+        if (Discipline_ID_4 != undefined)
+        {
+            if (instructorDisciplines[3] != undefined)
+            {
+            await Database
+                .query()
+                .from('instructor_disciplines')
+                .where({'Instructor_ID': params.id, 'id': instructorDisciplines[3].id})
+                .update({'Discipline_ID': Discipline_ID_4})
+            }
+            else
+            {
+                await AddDisciplineArea.create(
+                {
+                    Instructor_ID : params.id, Discipline_ID : Discipline_ID_4 
+                });
+            }
+        }
+        
+            console.log("The row id: "+ params.id + " has been updated.")
+            return{message: "Instructor_id: "+ params.id + " has been updated."}
+        
+    }
+
+    async modifyCourse({request, params})
+    {
+        const {Course_Reference_Number, Department_Code, Course_Number, Course_Title} = request.all();
+        console.log(Course_Reference_Number, Department_Code, Course_Number, Course_Title)
+
+        if (!(Course_Reference_Number == undefined && Department_Code == undefined && Course_Number == undefined && Course_Title == undefined && Course_Title == undefined))
+        {
+            await Database
+                .query()
+                .from('courses')
+                .where('Course_Reference_Number', params.CRN)
+                .update({
+                    'Course_Reference_Number': Course_Reference_Number,
+                    'Department_Code': Department_Code,
+                    'Course_Number': Course_Number,
+                    'Course_Title': Course_Title
+            })
+        }
+
+        const courseDisciplines = await Database   
+            .query()
+            .from('course_disciplines')
+            .where('Course_Reference_Number', params.CRN)
+            .select('id')
+        console.log(courseDisciplines)
+
+        const{Discipline_ID_1} = request.all();
+        console.log(Discipline_ID_1);
+        if (Discipline_ID_1 != undefined)
+        {
+            if (courseDisciplines[0] != undefined)
+            {
+                await Database
+                    .query()
+                    .from('course_disciplines')
+                    .where({'Course_Reference_Number': params.CRN, 'id': courseDisciplines[0].id})
+                    .update({'Course_Reference_Number': Course_Reference_Number, 'Discipline_ID': Discipline_ID_1})
+            }
+            else
+            {
+                await AddCourseDiscipline.create(
+                {
+                    Course_Reference_Number, Discipline_ID : Discipline_ID_1
+                });
+            }
+        }
+
+        const{Discipline_ID_2} = request.all();
+        console.log(Discipline_ID_2);
+        if (Discipline_ID_2 != undefined)
+        {
+            if (courseDisciplines[1] != undefined)
+            {
+                await Database
+                    .query()
+                    .from('course_disciplines')
+                    .where({'Course_Reference_Number': params.CRN, 'id': courseDisciplines[1].id})
+                    .update({'Course_Reference_Number': Course_Reference_Number, 'Discipline_ID': Discipline_ID_2})
+            }
+            else
+            {
+                await AddCourseDiscipline.create(
+                {
+                    Course_Reference_Number, Discipline_ID : Discipline_ID_2
+                });
+            }
+        }
+
+        const{Discipline_ID_3} = request.all();
+        console.log(Discipline_ID_3);
+        if (Discipline_ID_3 != undefined)
+        {
+            if (courseDisciplines[2] != undefined)
+            {
+                await Database
+                    .query()
+                    .from('course_disciplines')
+                    .where({'Course_Reference_Number': params.CRN, 'id': courseDisciplines[2].id})
+                    .update({'Course_Reference_Number': Course_Reference_Number, 'Discipline_ID': Discipline_ID_3})
+            }
+            else
+            {
+                await AddCourseDiscipline.create(
+                {
+                    Course_Reference_Number, Discipline_ID : Discipline_ID_3
+                });
+            }
+        }
+
+        const{Discipline_ID_4} = request.all();
+        console.log(Discipline_ID_4);
+        if (Discipline_ID_4 != undefined)
+        {
+            if (courseDisciplines[3] != undefined)
+            {
+                await Database
+                    .query()
+                    .from('course_disciplines')
+                    .where({'Course_Reference_Number': params.CRN, 'id': courseDisciplines[3].id})
+                    .update({'Course_Reference_Number': Course_Reference_Number, 'Discipline_ID': Discipline_ID_4})
+            }
+            else
+            {
+                await AddCourseDiscipline.create(
+                {
+                    Course_Reference_Number, Discipline_ID : Discipline_ID_4
+                });
+            }
+        }
+
+
+        console.log("The row id: "+ params.CRN + " has been updated.")
+        return{message: "Course_id: "+ params.CRN + " has been updated."}
     }
 
     async deleteSection({request, params}) {
