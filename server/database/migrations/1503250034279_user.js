@@ -22,3 +22,12 @@ class UserSchema extends Schema {
 }
 
 module.exports = UserSchema
+
+// CREATE TABLE users (
+//   id int NOT NULL,
+//   username varchar(80) NOT NULL UNIQUE ,
+//   email varchar(255) NOT NULL UNIQUE,
+//   password varchar(60) NOT NULL,
+//   role int(4) NOT NULL,
+//   PRIMARY KEY (id)
+// );
