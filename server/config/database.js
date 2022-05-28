@@ -80,7 +80,8 @@ module.exports = {
       database: Env.get('DB_DATABASE', 'adonis'),
       ssl: {
         rejectUnauthorized: false
-      }
+      },
+     // ssl: false //this is only for locally importing
     },
     migrations: {
       naturalSort: true,
