@@ -7,7 +7,7 @@ const Database = use('Database')
 class RoleSchema extends Schema {
   up () {
     this.create('roles', (table) => {
-      table.int('id', 4).notNullable().unsigned().primary()
+      table.integer('id', 4).notNullable().unsigned().primary()
       table.string('role', 16).notNullable()
     })
     this.schedule(async (trx) => {

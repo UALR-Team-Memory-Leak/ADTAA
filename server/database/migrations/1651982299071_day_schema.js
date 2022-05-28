@@ -7,7 +7,7 @@ class DaySchema extends Schema {
   up () {
     this.create('days', (table) => {
       table.string('Day', 16).notNullable().unsigned().primary()
-      table.int('Value', 16).notNullable()
+      table.integer('Value', 16).notNullable()
     })
     this.schedule(async (trx) => {
       const days = ['F', 'R', 'W', 'T', 'M']

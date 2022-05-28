@@ -7,8 +7,8 @@ class CourseDisciplineSchema extends Schema {
   up () {
     this.create('course_disciplines', (table) => {
       table.increments()
-      table.int('Course_Reference_Number', 60)
-      table.int('Discipline_ID', 60)
+      table.integer('Course_Reference_Number', 60)
+      table.integer('Discipline_ID', 60)
       table.timestamps()
     })
   }
