@@ -1,6 +1,6 @@
 <template>
     <body>
-        <NewNavigation/>
+        <RootNavigation/>
         <div class="row">
     <div class="col-md-6 offset-md-3">
         <div>
@@ -39,14 +39,14 @@
 </template>
 
 <script>
-import NewNavigation from '../components/NewNavigation.vue';
+import RootNavigation from '../components/RootNavigation.vue'
 import ApproveList from '../components/ApproveList.vue';
 import axios from "axios";
 export default ({
     name: "RootUserPage",
     components: {
         ApproveList,
-        NewNavigation,
+        RootNavigation,
     },
     data() {
         return {

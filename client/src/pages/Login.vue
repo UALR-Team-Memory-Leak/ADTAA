@@ -49,9 +49,15 @@ export default ({
       onLogin() {
           this.$store.dispatch('login', {
                 email: this.email,
-                password: this.password
+                password: this.password,
+                role: this.role
             }).then(() =>{
+                if (this.role == 4){
+                    this.$router.push({path:'./rootuserhomepage'})
+                } else {
                 this.$router.push({path:'./homepage'})
+                console.log(this.role);
+                }
             })
           
           /*axios.post(
