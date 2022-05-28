@@ -7,6 +7,7 @@ import MySchedule from './pages/MySchedule.vue';
 import RootUserPage from './pages/RootUserPage.vue';
 import RootUserHomePage from './pages/RootUserHomePage.vue';
 import RootUserSchedule from './pages/RootUserSchedule.vue';
+import Setup from './pages/Setup.vue';
 
 const routes = [
     { path: '/login', component: Login},
@@ -17,6 +18,7 @@ const routes = [
     { path: '/rootuserpage', component: RootUserPage},
     { path: '/rootuserhomepage', component: RootUserHomePage},
     { path: '/rootuserschedule', component: RootUserSchedule},
+    { path: '/setup', component: Setup},
 ];
 
 const router = createRouter({

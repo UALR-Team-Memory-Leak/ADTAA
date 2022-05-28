@@ -16,6 +16,9 @@
         <li class="nav-item">
           <router-link class="nav-link" to="/myschedule">View Schedule</router-link>
         </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/setup">Setup</router-link>
+        </li>
       </ul>
     </div>
   </div>

@@ -22,6 +22,7 @@ Route.post('import/multi','ImportMultiController.importMulti')
 Route.post('auth/dev-register', 'UserController.devRegister')
 Route.get("/requests", "ApprovalController.listRequests");//delete this later
 
+
 //All users can use these controllers
 Route.group(() => {
   Route.post('auth/register', 'UserController.register');
@@ -43,10 +44,16 @@ Route.group(() => {
     Route.post("/setup/add", "SetupController.setup"); //check what route.xxx should be
     Route.post("/setup/addInstructor", "SetupController.addInstructor");
     Route.post("/setup/addSection", "SetupController.addSection");
+    Route.post("/setup/addCourse", "SetupController.addCourse");
+    Route.post("/setup/modify-section/:id", "SetupController.modifySection");
+    Route.post("/setup/modify-instructor/:id", "SetupController.modifyInstructor");
+    Route.post("/setup/modify-course/:CRN", "SetupController.modifyCourse");
     Route.delete("/setup/delete-section/:id", "SetupController.deleteSection");
     Route.delete("/setup/delete-instructor/:id", "SetupController.deleteInstructor");
+    Route.delete("/setup/delete-course/:CRN", "SetupController.deleteCourse");
     Route.get("/setup/sections/", "SetupController.listSections");
     Route.get("/setup/instructors/", "SetupController.listInstructors");
+    Route.get("/setup/courses/", "SetupController.listCourses");
   }).middleware(["auth", "admin"])
     .prefix('api/v0');
 
