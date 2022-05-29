@@ -16,6 +16,21 @@
         <li class="nav-item">
           <router-link class="nav-link" to="/register">Register</router-link>
         </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/homepage">Home Page</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/rootuserpage">Register Approval</router-link>
+        </li>
+        <li class="nav-item" v-if="isScheduleAllowed">
+          <router-link class="nav-link" to="/myschedule">View Schedule</router-link>
+        </li>
+        <li class="nav-item" v-if="isSetupAllowed">
+          <router-link class="nav-link" to="/setup">Setup</router-link>
+        </li>
+        <li class="nav-item" v-if="showLogout">
+          <router-link class="nav-link" to="#" @click="logout">Logout</router-link>
+        </li>
       </ul>
     </div>
   </div>
@@ -26,6 +41,36 @@
 export default ({
   name: 'Navigation-item',
   components: {
+  },
+  data() {
+    return {
+      isScheduleAllowed: false,
+      isSetupAllowed: false,
+      showLogout: false
+    }
+  },
+  methods: {
+    logout() {
+      localStorage.clear();
+      setTimeout(() => {
+        this.$router.push("/login")
+      }, 2000);
+    }
+  },
+  mounted() {
+    if (localStorage.getItem('role')) {
+      this.showLogout = true
+    }
+    var data = localStorage.getItem('role');
+    console.log("User role", data)
+    if (localStorage.getItem('role') === 4 || localStorage.getItem('role') === 3) {
+      this.isSetupAllowed = true
+    } else if (localStorage.getItem('role') === 2 || localStorage.getItem('role') === 3 || localStorage.getItem('role') === 4) {
+      this.isScheduleAllowed = true
+    } else {
+      this.isScheduleAllowed = false
+      this.isSetupAllowed = false
+    }
   }
 })
 </script>

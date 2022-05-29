@@ -14,9 +14,9 @@
           <router-link class="nav-link" to="/rootuserpage">Register Approval</router-link>
         </li> -->
         <li class="nav-item">
-          <router-link class="nav-link" to="/myschedule">View Schedule</router-link>
+          <router-link class="nav-link" to="/myschedule" v-if="localStorage.getItem('role') === 2 || localStorage.getItem('role') === 3 || localStorage.getItem('role') === 4">View Schedule</router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" v-if="localStorage.getItem('role') === 4 || localStorage.getItem('role') === 3">
           <router-link class="nav-link" to="/setup">Setup</router-link>
         </li>
       </ul>

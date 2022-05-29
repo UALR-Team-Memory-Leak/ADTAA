@@ -1,6 +1,5 @@
 <template>
     <body>
-        <NewNavigation/>
         <div class="my-3">
                   <div class="col-md-6 offset-md-3">
             <div>
@@ -16,12 +15,10 @@
 </template>
 
 <script>
-import NewNavigation from '../components/NewNavigation.vue'
 import LoginButton from '../components/LogButton.vue';
 export default ({
      name: "HomePage",
-    components: {
-        NewNavigation,
+    components:{
         LoginButton,
     },
 
