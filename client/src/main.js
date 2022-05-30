@@ -17,7 +17,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresRole4)) {
     if (localStorage.getItem('role') != 4) {
       next({
-        path: '/login'
+        path: '/'
       })
     } else {
       next()
@@ -31,7 +31,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresRole3or4)) {
     if (localStorage.getItem('role') != 3 || localStorage.getItem('role') != 4) {
       next({
-        path: '/login'
+        path: '/'
       })
     } else {
       next()
@@ -45,7 +45,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresRole3)) {
     if (localStorage.getItem('role') != 3) {
       next({
-        path: '/login'
+        path: '/'
       })
     } else {
       next()
@@ -59,7 +59,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresRole2)) {
     if (localStorage.getItem('role') != 2) {
       next({
-        path: '/login'
+        path: '/'
       })
     } else {
       next()
@@ -73,7 +73,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresRole1)) {
     if (localStorage.getItem('role') != 1) {
       next({
-        path: '/login'
+        path: '/'
       })
     } else {
       next()

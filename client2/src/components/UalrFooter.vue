@@ -1,6 +1,6 @@
 
 <template>
-    <v-footer app bottom fixed style="width: 100%;" padless>
+    <footer app bottom fixed style="width: 100%;" padless>
   <!-- Section: Social media -->
   <section>
     <div>
@@ -103,7 +103,7 @@
     <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
   </div>
   <!-- Copyright -->
-</v-footer>
+</footer>
 <!-- Footer -->
 </template>
 
