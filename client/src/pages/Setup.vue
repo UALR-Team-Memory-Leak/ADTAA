@@ -1,6 +1,5 @@
 <template>
 <body>
-  <NewNavigation/>
   <div class="row">
     <div class="col-md-6 offset-md-3">
            <div>
@@ -15,11 +14,9 @@
 </template>
 
 <script>
-import NewNavigation from '../components/NewNavigation.vue'
 export default ({
      name: "Setup",
     components: {
-        NewNavigation,
     },
 
 });

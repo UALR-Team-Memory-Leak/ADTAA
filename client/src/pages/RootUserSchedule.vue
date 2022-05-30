@@ -1,6 +1,5 @@
 <template>
 <body>
-  <RootNavigation/>
   <div class="row">
     <div class="col-md-6 offset-md-3">
            <div>
@@ -85,11 +84,9 @@ const getSchedules = () => {
     }
   })
 }
-import RootNavigation from '../components/RootNavigation.vue'
 export default ({
   name: "RootUserSchedule",
   components: {
-    RootNavigation,
   },
   data() {
       return {

@@ -8,7 +8,15 @@ class UserController {
     async login({request, auth, response }) {
         const { email, password } = request.all();
         const token = await auth.attempt(email, password);
-        return response.status(200).json({token});
+        const userRole = await Database 
+            .query()
+            .from('users')
+            .where('email', email)
+            .select('role')
+        return response.status(200).json({
+            token,
+            userRole
+        });
     }
 
     //Register method

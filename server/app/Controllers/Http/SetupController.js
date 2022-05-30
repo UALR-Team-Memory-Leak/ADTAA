@@ -12,37 +12,7 @@ class SetupController {
         return 'Some test';
     }
 
-<<<<<<< HEAD
-    async addInstructor({request, response}) 
-    {
-        const {Last_Name, Max_Course_Load} = request.all();
-        console.log(Last_Name, Max_Course_Load);
-        const userInstructor = await AddInstructor.create(
-            {
-                Last_Name,
-                Max_Course_Load,
-            });
-        //return{ userInstructor, message: 'Added ' + userInstructor.Last_Name + ' to the database'};
-        const{Discipline_ID} = request.all();
-        console.log(Discipline_ID);
-        const userDisciplineArea = await AddDisciplineArea.create(
-        {
-            Instructor_ID : userInstructor.id, Discipline_ID 
-        });
-
-        return response.status(200).json({ 
-            userInstructor,
-            userDisciplineArea,
-            message: 'Thank you for your input'
-        });  
-    }  
-        
-    
-
-    async addSection({request, response}) {
-=======
     async addSection({request}) {
->>>>>>> 8dca921cf853a25ef93d301607894c4f5e1957e0
         const {
             Course_Reference_Number, 
             Section_Number,
@@ -87,9 +57,6 @@ class SetupController {
         });
     }
 
-<<<<<<< HEAD
-  async deleteSection({request, params, response}) {
-=======
     async addInstructor({request}) 
     {
         const {Last_Name, Max_Course_Load} = request.all();
@@ -515,7 +482,6 @@ class SetupController {
     }
 
     async deleteSection({request, params}) {
->>>>>>> 8dca921cf853a25ef93d301607894c4f5e1957e0
         await Database
             .query()
             .from('sections')
@@ -546,15 +512,6 @@ class SetupController {
         })
     }
 
-<<<<<<< HEAD
-    async listSections({request, response}) {
-        const sectionList = await Database
-            .query()
-            .from('sections')
-            .select('Course_Reference_Number', 'Section_Number','Meeting_Period_1_Days','Meeting_Period_1_Start','Meeting_Period_1_End',
-    'Meeting_Period_2_Days','Meeting_Period_2_Start','Meeting_Period_2_End','Meeting_Period_3_Days','Meeting_Period_3_Start','Meeting_Period_3_End')
-        return response.status(200).json({sectionList});
-=======
     async deleteCourse({request, params}) {
         await Database
             .query()
@@ -579,7 +536,6 @@ class SetupController {
             .select('id', 'Course_Reference_Number', 'Section_Number','Meeting_Period_1_Days','Meeting_Period_1_Start','Meeting_Period_1_End',
             'Meeting_Period_2_Days','Meeting_Period_2_Start','Meeting_Period_2_End','Meeting_Period_3_Days','Meeting_Period_3_Start','Meeting_Period_3_End')
         return sectionList;
->>>>>>> 8dca921cf853a25ef93d301607894c4f5e1957e0
     }
     
     async listInstructors({request, response}) {
@@ -587,9 +543,6 @@ class SetupController {
             .query()
             .from('instructors')
             .select('id', 'Last_Name', 'Max_Course_Load')
-<<<<<<< HEAD
-        return response.status(200).json({instructorList});
-=======
 
         const instructorDisciplineList = await Database
             .query()
@@ -612,7 +565,6 @@ class SetupController {
         }
 
         return instructorList;
->>>>>>> 8dca921cf853a25ef93d301607894c4f5e1957e0
     }
 
     async listCourses({request}) {

@@ -47,10 +47,9 @@ export default ({
   },
   methods: {
       onLogin() {
-          this.$store.dispatch('login', {
+          /* this.$store.dispatch('login', {
                 email: this.email,
                 password: this.password,
-                role: this.role
             }).then(() =>{
                 if (this.role == 4){
                     this.$router.push({path:'./rootuserhomepage'})
@@ -58,17 +57,18 @@ export default ({
                 this.$router.push({path:'./homepage'})
                 console.log(this.role);
                 }
-            })
+            } */
           
          axios.post(
                'http://localhost:3333/api/v0/auth/login',
               {email: this.email, password: this.password}
           ).then((response) => {
-                console.log(response);
+                //console.log(response.data.userRole[0].role);
                 //localStorage.setItem('projectToken', response.token);
                 if (response.data.token) {
                     localStorage.setItem('user', JSON.stringify(response.data));
                     localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('role', response.data.userRole[0].role);
                     axios.defaults.headers.common.Authorization = response.data.token
                        this.$router.push({path:'./homepage'});
                 }
