@@ -23,7 +23,13 @@ export default ({
         return{list: undefined}
     },
     mounted(){
-        axios.get('http://localhost:3333/requests')
+        var url = ''
+    if (process.env.NODE_ENV === 'development') {
+      url = 'http://localhost:3333'
+    } else {
+      url = 'https://test-adoni.herokuapp.com'
+    }
+        axios.get(`${url}/requests`)
         .then((resp)=>{
             this.list=resp.data.users;
             console.warn(resp.data.users)

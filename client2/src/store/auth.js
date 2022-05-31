@@ -30,7 +30,13 @@ export default {
     },
     actions: {
         login ({commit}, credentials) {
-            return axios.post('http://localhost:3333/api/v0/auth/login', credentials)
+            var url = ''
+            if (process.env.NODE_ENV === 'development') {
+            url = 'http://localhost:3333'
+            } else {
+            url = 'https://test-adoni.herokuapp.com'
+            }
+            return axios.post(`${url}/api/v0/auth/login`, credentials)
                 .then(({data}) => {
                     commit('SET_USER_DATA', data)
                 })
