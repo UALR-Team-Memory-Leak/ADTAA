@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import LoginButton from '../components/LogButton.vue';
 import axios from "axios";
 export default ({
@@ -45,6 +46,7 @@ export default ({
       };
   },
   methods: {
+    ...mapActions('auth', ['saveRoleToStore']),
       onLogin() {
           /* this.$store.dispatch('login', {
                 email: this.email,
@@ -68,6 +70,7 @@ export default ({
                     localStorage.setItem('user', JSON.stringify(response.data));
                     localStorage.setItem('token', JSON.stringify(response.data.token));
                     localStorage.setItem('role', response.data.userRole[0].role);
+                    this.saveRoleToStore(response.data.userRole[0].role);
                     axios.defaults.headers.common.Authorization = response.data.token
                        this.$router.push({path:'./homepage'});
                 }
