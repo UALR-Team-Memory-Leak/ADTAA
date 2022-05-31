@@ -81,7 +81,7 @@ module.exports = {
       // ssl: { //use this block for deployment on heroku
       //   rejectUnauthorized: false
       // },
-     ssl: false //this is only for local testing
+      ssl: false //this is only for local testing
     },
     migrations: {
       naturalSort: true,
