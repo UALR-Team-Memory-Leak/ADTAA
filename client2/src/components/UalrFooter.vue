@@ -119,7 +119,7 @@ export default ({
 #footer {
   width:100%;
   position: fixed;
-  height: 20%;
+  height: 100px;
   bottom: 0;
   left: 0;            /* Footer height */
 }
