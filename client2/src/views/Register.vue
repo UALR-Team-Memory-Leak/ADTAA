@@ -47,8 +47,14 @@ export default ({
   },
   methods: {
       onRegister() {
+    var url = ''
+    if (process.env.NODE_ENV === 'development') {
+      url = 'http://localhost:3333'
+    } else {
+      url = 'https://test-adoni.herokuapp.com'
+    }
           axios.post(
-              'http://localhost:3333/api/v0/auth/register',
+              `${url}/api/v0/auth/register`,
               {email: this.email, username:this.username, password: this.password}
           ).then((response) => {
               console.log(response);

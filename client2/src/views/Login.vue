@@ -51,6 +51,12 @@ export default ({
   methods: {
     ...mapActions('auth', ['saveRoleToStore']),
       onLogin() {
+          var url = ''
+            if (process.env.NODE_ENV === 'development') {
+                url = 'http://localhost:3333'
+            } else {
+                url = 'https://test-adoni.herokuapp.com'
+            }
           /* this.$store.dispatch('login', {
                 email: this.email,
                 password: this.password,
@@ -64,7 +70,7 @@ export default ({
             } */
           
          axios.post(
-               'http://localhost:3333/api/v0/auth/login',
+               `${url}/api/v0/auth/login`,
               {email: this.email, password: this.password}
           ).then((response) => {
                 //console.log(response.data.userRole[0].role);

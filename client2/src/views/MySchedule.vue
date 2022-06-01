@@ -72,7 +72,13 @@ const createScheduleTable = ()  => {
 }
 
 const getSchedules = () => {
-  fetch('http://localhost:3333/api/v0/assistant/scheduler')
+  var url = ''
+    if (process.env.NODE_ENV === 'development') {
+      url = 'http://localhost:3333'
+    } else {
+      url = 'https://test-adoni.herokuapp.com'
+    }
+  fetch(`${url}/api/v0/assistant/scheduler`)
   .then(res => res.json())
   .then(sections => {
     createScheduleTable()
