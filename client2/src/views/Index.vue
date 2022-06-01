@@ -1,22 +1,20 @@
 <template>
-    <div class="my-3">
-        <div class="col-md-6 offset-md-3">
-            <div>
-                <img alt="UALRlogo" src="../assets/ualr.png">
-            </div>
-            <router-link class="nav-link" to="/myschedule">
-                <login-button type="submit" class="btn btn-primary" buttonText="View Your Schedule"></login-button>
-            </router-link>
-        </div>
+<body>
+    <div style="background-color:#640309;">
+        <img alt="UALRlogo" src="../assets/ualr.png">
     </div>
+    <center>
+        <div style="padding-top: 50px;">
+            <img alt="ADTAA" src="../assets/homepage.png">
+        </div>
+    </center>
+</body>
 </template>
 
 <script>
-import LoginButton from '../components/LogButton.vue';
 export default {
     name: "HomePage",
     components:{
-        LoginButton,
     },
 }
 </script>

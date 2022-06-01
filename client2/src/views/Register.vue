@@ -1,9 +1,12 @@
 <template>
+<div>
+    <div style="background-color:#640309;">
+        <img alt="UALRlogo" src="../assets/ualr.png">
+    </div>
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <div>
-            <img alt="UALRlogo" src="../assets/ualr.png">
-        <div>
+        <div style="padding-top: 50px;">
             <h3>Register</h3>
             <hr />
         </div>
@@ -31,6 +34,7 @@
     </div>
     </div>
 </div>
+</div>
 </template>
 <script>
 //import LoginValidations from '../services/LoginValidations';
@@ -47,8 +51,14 @@ export default ({
   },
   methods: {
       onRegister() {
+    var url = ''
+    if (process.env.NODE_ENV === 'development') {
+      url = 'http://localhost:3333'
+    } else {
+      url = 'https://test-adoni.herokuapp.com'
+    }
           axios.post(
-              'http://localhost:3333/api/v0/auth/register',
+              `${url}/api/v0/auth/register`,
               {email: this.email, username:this.username, password: this.password}
           ).then((response) => {
               console.log(response);

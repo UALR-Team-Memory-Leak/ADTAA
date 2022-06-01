@@ -1,32 +1,6 @@
 
 <template>
-    <footer app bottom fixed style="width: 100%;" padless>
-  <!-- Section: Social media -->
-  <section>
-    <div>
-      <a href="" class="me-2 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="me-2 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-2 text-reset">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-2 text-reset">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-2 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-2 text-reset">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
-
+    <v-footer style="width: 100%; position: sticky; bottom: 0; flex-shrink: 0;">
   <!-- Section: Links  -->
   <section class="">
     <div class="container text-center text-md-start mt-1">
@@ -45,24 +19,22 @@
           </ul>
         </div>
         <!-- Grid column -->
-
-        <!-- Grid column -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
             Tools Used
           </h6>
           <p>
-            <a href="#!" class="text-reset">Adonis</a>
+            <em class="text-reset">Adonis</em>
           </p>
           <p>
-            <a href="#!" class="text-reset">Vue</a>
+            <em class="text-reset">Vue</em>
           </p>
           <p>
-            <a href="#!" class="text-reset">Vuex</a>
+            <em class="text-reset">Vuex</em>
           </p>
           <p>
-            <a href="#!" class="text-reset">Bootstrap</a>
+            <em class="text-reset">Bootstrap</em>
           </p>
         </div>
         <!-- Grid column -->
@@ -103,7 +75,7 @@
     <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
   </div>
   <!-- Copyright -->
-</footer>
+</v-footer>
 <!-- Footer -->
 </template>
 
@@ -115,12 +87,13 @@ export default ({
   }
 })
 </script>
-<style scoped>
+<!-- <style scoped>
 #footer {
   width:100%;
   position: fixed;
-  height: 20%;
+  height: 100px;
   bottom: 0;
   left: 0;            /* Footer height */
+  background: gray;
 }
-</style>
+</style> -->

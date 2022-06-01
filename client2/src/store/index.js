@@ -1,33 +1,20 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios'
+import { VuexPersistence } from 'vuex-persist';
+import auth from './auth'
 
 Vue.use(Vuex)
 
+const vuexLocalStorage = new VuexPersistence({
+  key: 'state.adtaa',
+  storage: window.localStorage
+})
+
 export default new Vuex.Store({
-  state: {
-    user: null
-  },
-  getters: {
-  },
-  mutations: {
-    SET_USER_DATA(state, userData) {
-      state.user = userData
-      localStorage.setItem('user', JSON.stringify(userData))
-      axios.defaults.headers.common['Authorization'] = `Bearer ${
-          userData.token
-      }`
-      console.log(userData.token)
-  }
-  },
-  actions: {
-    login ({commit}, credentials) {
-      return axios.post('http://localhost:3333/api/v0/auth/login', credentials)
-          .then(({data}) => {
-              commit('SET_USER_DATA', data)
-          })
-  }
-  },
   modules: {
-  }
+    auth
+  },
+  
+plugins: [vuexLocalStorage.plugin]
+
 })

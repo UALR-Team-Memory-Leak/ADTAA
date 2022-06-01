@@ -1,6 +1,25 @@
 <template>
   <div>
-      <table border= 1>
+      <form>
+           <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="user in list" v-bind:key="user.id" >
+      <!-- <th scope="row"></th> -->
+      <td scope="row">{{user.id}}</td>
+      <td scope="row">{{user.username}}</td>
+      <td scope="row">{{user.email}}</td>
+    </tr>
+    </tbody>
+    </table>
+       </form>
+      <!-- <table border= 1>
           <tr border= 1>
                 <th>ID</th>
                 <th>Username</th>
@@ -11,7 +30,7 @@
                 <td>{{user.username}}</td>
                 <td>{{user.email}}</td>
           </tr>
-      </table>
+      </table> -->
   </div>
 </template>
 
@@ -23,7 +42,13 @@ export default ({
         return{list: undefined}
     },
     mounted(){
-        axios.get('http://localhost:3333/requests')
+        var url = ''
+    if (process.env.NODE_ENV === 'development') {
+      url = 'http://localhost:3333'
+    } else {
+      url = 'https://test-adoni.herokuapp.com'
+    }
+        axios.get(`${url}/requests`)
         .then((resp)=>{
             this.list=resp.data.users;
             console.warn(resp.data.users)

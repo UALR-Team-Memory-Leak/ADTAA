@@ -75,6 +75,7 @@ router.beforeEach((to, from, next) => {
         path: '/'
       })
     } else {
+      console.log("I was taken here")
       next()
     }
   } else {

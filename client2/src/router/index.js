@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/homepage',
     name: 'HomePage',
     component: Index
   },
@@ -24,9 +24,9 @@ const routes = [
     path: '/myschedule',
     name: 'SchedulePage',
     component: () => import('../views/MySchedule.vue'),
-    meta: {
+/*     meta: {
       requiresRole2Or3or4: true
-    }
+    } */
   },
   {
     path: '/rootuserpage',
@@ -40,9 +40,9 @@ const routes = [
     path: '/setup',
     name: 'SetupPage',
     component: () => import('../views/Setup.vue'),
-    meta: {
+  /*   meta: {
       requiresRole3or4: true
-    }
+    } */
   }
   
 ]

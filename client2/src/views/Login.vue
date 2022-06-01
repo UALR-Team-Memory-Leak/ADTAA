@@ -1,10 +1,13 @@
 <template>
+<!-- <body style="background-color:#640309;"> -->
   <div>
+      <div style="background-color:#640309;">
+        <img alt="UALRlogo" src="../assets/ualr.png">
+    </div>
     <div class="row">
       <div class="col-md-6 offset-md-3">
           <div>
-              <img alt="UALRlogo" src="../assets/ualr.png">
-          <div>
+          <div style="padding-top: 50px;">
               <h3>Login</h3>
               <hr />
           </div>
@@ -27,9 +30,11 @@
       </div>
   </div>
   </div>
+  <!-- </body> -->
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import LoginButton from '../components/LogButton.vue';
 import axios from "axios";
 export default ({
@@ -45,74 +50,31 @@ export default ({
       };
   },
   methods: {
+    ...mapActions('auth', ['saveRoleToStore']),
       onLogin() {
-          /* this.$store.dispatch('login', {
-                email: this.email,
-                password: this.password,
-            }).then(() =>{
-                if (this.role == 4){
-                    this.$router.push({path:'./rootuserhomepage'})
-                } else {
-                this.$router.push({path:'./homepage'})
-                console.log(this.role);
-                }
-            } */
+          var url = ''
+            if (process.env.NODE_ENV === 'development') {
+                url = 'http://localhost:3333'
+            } else {
+                url = 'https://test-adoni.herokuapp.com'
+            }
           
          axios.post(
-               'http://localhost:3333/api/v0/auth/login',
+               `${url}/api/v0/auth/login`,
               {email: this.email, password: this.password}
           ).then((response) => {
-                //console.log(response.data.userRole[0].role);
-                //localStorage.setItem('projectToken', response.token);
                 if (response.data.token) {
                     localStorage.setItem('user', JSON.stringify(response.data));
                     localStorage.setItem('token', JSON.stringify(response.data.token));
                     localStorage.setItem('role', response.data.userRole[0].role);
+                    this.saveRoleToStore(response.data.userRole[0].role);
                     axios.defaults.headers.common.Authorization = response.data.token
-                       this.$router.push({path:'./homepage'});
+                       this.$router.push({path:'/homepage'});
                 }
                 return response.data;
-
-            // let token = response.data.access;
-            // localStorage.setItem("SavedToken", 'Bearer ' + token);
-            // axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-            // (this.$router.push({path:'./homepage'}));
-            // console.log("this is the token "+token)
-            // console.log(localStorage)
-            // console.log(localStorage.getItem("this is in local storage "+ "SavedToken"))
           });
           
       },
-            
-
-//         token = localStorage.getItem('projectToken'),
-       
-//         if (!token) {
-//   // navigate to login page
-        
-//        }
-    // onLogin() {
-    //       console.log('onLogin called')
-    //        axios.get('http://jsonplaceholder.typicode.com/posts').then((response) => {
-    //         console.log(response)
-    //        })
-    //         // axios.post('http://localhost:3333/auth/register', {
-    //         //         "email": "testemail4@test.com",
-    //         //         "password": "password4"
-    //         //     }
-    //         // ).then(response => {
-    //         //     console.log(response)
-    //         // })
-    //     //   let validations = new LoginValidations(
-    //     //       this.username, 
-    //     //       this.password,
-    //     //       );
-    //     //     this.errors = validations.checkValidations();
-    //     //     if ('emails' in this.errors || 'password' in this.errors) {
-    //     //         return false;
-    //     //     }
-    //     // console.log('here')
-    //   },
   },
 });
 </script>

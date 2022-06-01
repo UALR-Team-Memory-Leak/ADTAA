@@ -1,15 +1,16 @@
 <template>
 <body>
+  <div style="background-color:#640309;">
+        <img alt="UALRlogo" src="../assets/ualr.png">
+    </div>
   <div class="row">
     <div class="col-md-6 offset-md-3">
-           <div>
-            <img alt="UALRlogo" src="../assets/ualr.png">
-    </div>
     </div>
 </div>
-
-<div class='schedule'></div>
+<center>
+<div style="padding-top: 50px;" class='schedule'></div>
 <br>
+</center>
 </body>
 </template>
 
@@ -72,7 +73,13 @@ const createScheduleTable = ()  => {
 }
 
 const getSchedules = () => {
-  fetch('http://localhost:3333/api/v0/assistant/scheduler')
+  var url = ''
+    if (process.env.NODE_ENV === 'development') {
+      url = 'http://localhost:3333'
+    } else {
+      url = 'https://test-adoni.herokuapp.com'
+    }
+  fetch(`${url}/api/v0/assistant/scheduler`)
   .then(res => res.json())
   .then(sections => {
     createScheduleTable()
