@@ -93,19 +93,18 @@ export default ({
   mounted: function() {
       this.$nextTick(function () 
       {
+        /*
         const token = localStorage.getItem('user')
         if (!token)
         {
           this.$router.push({path:'./login'})
         }
+        */
         console.log("HI")
-        this.schedule()
+        getSchedules()
       })
   },
   methods: {
-      schedule() {
-          getSchedules()
-          }
       },
   })
 
