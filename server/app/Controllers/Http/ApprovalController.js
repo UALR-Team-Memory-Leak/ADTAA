@@ -40,6 +40,15 @@ class ApprovalController {
                 password: user.password,
                 role
             });
+
+            const Mail = use('Mail')
+            await Mail.send('emails.welcome', {newUser}, (message) => {
+                console.log('The entire object: ' + newUser)
+                message.from('memory.adtaa@gmail.com')
+                message.to(newUser.email)
+                console.log('Attempting to call email here: ' + newUser.email)
+                .subject('Welcome to ADTAA')
+            })
         }
         await Database
             .query()
@@ -48,6 +57,7 @@ class ApprovalController {
             .delete()
         return response.status(200).json({ 
             user: newUser,
+            message: 'We hitting this at all?',
         });
     }
     
