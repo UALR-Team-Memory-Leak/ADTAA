@@ -1,19 +1,23 @@
 <template>
-    <body>
-        <div class="row">
-    <div class="col-md-6 offset-md-3">
-        <div>
-            <img alt="UALRlogo" src="../assets/ualr.png">
-       <table>
+<div>
+<div style="background-color:#640309;">
+        <img alt="UALRlogo" src="../assets/ualr.png">
+    </div>
+<div id="container" style="width:100%; padding-top: 50px;">                                   
+    <div id="left" style="float:left; width:50%;">
+    <center>
+        <table>
            <div>
-               <ApproveList/>
-           </div>
+                <ApproveList/>
+            </div> 
        </table>
-    <div>
+    </center>
+    </div>                     
+    <div id="right" style="float:right; width:50%;">
+        <div> 
             <h3>Registration Approval</h3>
             <hr />
-        </div>
-       <form @submit.prevent="onApprove()">
+            <form @submit.prevent="onApprove()">
            <div class="form-group">
                <label>ID</label>
                <input type="ID" class="form-control" v-model="id"/>
@@ -31,10 +35,11 @@
                <button type="submit" class="btn btn-primary">Register</button>
            </div>
        </form>
-    </div>
+        </div>
+    </div>                   
 </div>
+<div style="padding:150px"></div>
 </div>
-    </body>
 </template>
 
 <script>
@@ -43,6 +48,9 @@ import axios from "axios";
 export default ({
     name: "RootUserPage",
     components: {
+        // id: '',
+        // role: '',
+        // approve: '',
         ApproveList,
     },
     data() {
