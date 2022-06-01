@@ -6,7 +6,9 @@
     <div>
       <router-view/>
     </div>
+    <div style="padding-top: 50px;">
     <Footer /> 
+    </div>
   </div>
 </template>
 

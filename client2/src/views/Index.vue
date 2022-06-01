@@ -1,12 +1,13 @@
 <template>
-<body style="background-color:#640309;">
-    <div class="my-3">
-        <div class="col-md-6 offset-md-3">
-            <div>
-                <img alt="UALRlogo" src="../assets/ualr.png">
-            </div>
-        </div>
+<body>
+    <div style="background-color:#640309;">
+        <img alt="UALRlogo" src="../assets/ualr.png">
     </div>
+    <center>
+        <div style="padding-top: 50px;">
+            <img alt="ADTAA" src="../assets/homepage.png">
+        </div>
+    </center>
 </body>
 </template>
 

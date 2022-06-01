@@ -1,15 +1,16 @@
 <template>
 <body>
+  <div style="background-color:#640309;">
+        <img alt="UALRlogo" src="../assets/ualr.png">
+    </div>
   <div class="row">
     <div class="col-md-6 offset-md-3">
-           <div>
-            <img alt="UALRlogo" src="../assets/ualr.png">
-    </div>
     </div>
 </div>
-
-<div class='schedule'></div>
+<center>
+<div style="padding-top: 50px;" class='schedule'></div>
 <br>
+</center>
 </body>
 </template>
 

@@ -1,10 +1,11 @@
 <template>
-<div id="container" style="width:100%;">                                   
+<div>
+<div style="background-color:#640309;">
+        <img alt="UALRlogo" src="../assets/ualr.png">
+    </div>
+<div id="container" style="width:100%; padding-top: 50px;">                                   
     <div id="left" style="float:left; width:50%;">
     <center>
-        <div>
-            <img alt="UALRlogo" src="../assets/ualr.png">
-        </div>
         <table>
            <div>
                 <ApproveList/>
@@ -36,7 +37,9 @@
        </form>
         </div>
     </div>                   
-</div>  
+</div>
+<div style="padding:150px"></div>
+</div>
 </template>
 
 <script>
