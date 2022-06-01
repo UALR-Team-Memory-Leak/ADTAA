@@ -67,9 +67,9 @@
         </li>
       </ul> -->
       <ul class="navbar-nav">
-        <li class="nav-item" v-if="!isLoggedIn">
+        <!-- <li class="nav-item" v-if="!isLoggedIn">
           <router-link class="nav-link" to="/app">Home</router-link>
-        </li>
+        </li> -->
         <li class="nav-item" v-if="!isLoggedIn">
           <router-link class="nav-link" to="/login">Login</router-link>
         </li>
