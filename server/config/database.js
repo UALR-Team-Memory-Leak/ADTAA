@@ -78,9 +78,9 @@ module.exports = {
       user: Env.get('DB_USER', 'root'),
       password: Env.get('DB_PASSWORD', ''),
       database: Env.get('DB_DATABASE', 'adonis'),
-      ssl: { //use this block for deployment on heroku
-        rejectUnauthorized: false
-      },
+      // ssl: { //use this block for deployment on heroku
+      //   rejectUnauthorized: false
+      // },
       // ssl: false //this is only for local testing
     },
     migrations: {

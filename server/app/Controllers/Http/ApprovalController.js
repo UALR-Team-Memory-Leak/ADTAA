@@ -15,13 +15,15 @@ class ApprovalController {
     }
 
     async approveRegistration({request, response, params}) {
+        console.log('Top of approval building')
         const requestUser = await Database
             .query()
             .from('request_ques')
             .where('id', params.id)
             .select('username', 'email', 'password')
         const {approve, role} = request.all();
-        
+        console.log('Some text:', request.all())
+        console.log('requestlength', requestUser.length)
         //checking to see if array is populated
         if(requestUser.length !== 1) {
 
@@ -34,6 +36,7 @@ class ApprovalController {
 
         let newUser;
         if(approve){
+            console.log('We are in the approve block')
             newUser = await User.create({ //creates user profile in database
                 email: user.email,
                 username: user.username, //can set this to email if we want: username: email,
