@@ -68,7 +68,7 @@ export default ({
     //     },
 
 
-    onApprove() {
+    onApprove() { //why does this work?
         var url = ''
     if (process.env.NODE_ENV === 'development') {
       url = 'http://localhost:3333'
