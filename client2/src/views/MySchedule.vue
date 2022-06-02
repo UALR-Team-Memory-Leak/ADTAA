@@ -37,6 +37,8 @@ const createScheduleTable = ()  => {
   tableHeaders.forEach(header => {
     let scheduleHeader = document.createElement('th')
     scheduleHeader.innerText = header
+    scheduleHeader.style.textAlign = 'center'
+    scheduleHeader.style.padding = '10px'
     scheduleTableHeaderRow.append(scheduleHeader)
   })
   
@@ -58,15 +60,21 @@ const createScheduleTable = ()  => {
 
   let sectionCRN = document.createElement('td')
   sectionCRN.innerText = singleSection.section.course.courseReferenceNumber;
+  sectionCRN.style.textAlign = 'center'
 
   let section_Number = document.createElement('td')
   section_Number.innerText = singleSection.section.sectionNumber
+  section_Number.style.textAlign = 'center'
 
   let sectionCourseTitle = document.createElement('td')
-  sectionCourseTitle.innerHTML = singleSection.section.course.courseTitle
+  sectionCourseTitle.innerText = singleSection.section.course.courseTitle
+  sectionCourseTitle.style.textAlign = 'center'
+  sectionCourseTitle.style.width = '25em'
 
   let instructorName = document.createElement('td')
-  instructorName.innerHTML = singleSection.instructor.lastName
+  instructorName.innerText = singleSection.instructor.lastName
+  instructorName.style.textAlign = 'center'
+  instructorName.style.width = '10em'
 
   scheduleTableByBodyRow.append(sectionCRN, section_Number, sectionCourseTitle, instructorName)
   scheduleTable.append(scheduleTableByBodyRow)

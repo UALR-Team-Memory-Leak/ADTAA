@@ -80,13 +80,11 @@ export default ({
               {id: this.id, role: this.role, approve: this.approve},{
                     headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
-                //Authorization: 'bearer ' + `${localStorage.getItem('token')}`
                 },
               }    
           ).then((response) => {
              window.location.reload();
               console.log(response);
-              //axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
           });
       },
     }

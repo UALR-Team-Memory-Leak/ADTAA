@@ -1,6 +1,6 @@
 
 <template>
-    <v-footer style="width: 100%; position: sticky; bottom: 0; flex-shrink: 0;">
+    <footer style="width: 100%; position: sticky; bottom: 0; flex-shrink: 0; background-color: lightgrey;">
   <!-- Section: Links  -->
   <section class="">
     <div class="container text-center text-md-start mt-1">
@@ -75,7 +75,7 @@
     <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
   </div>
   <!-- Copyright -->
-</v-footer>
+</footer>
 <!-- Footer -->
 </template>
 
