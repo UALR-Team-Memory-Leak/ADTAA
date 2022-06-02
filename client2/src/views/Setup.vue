@@ -1,14 +1,9 @@
 <template>
 <body>
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-           <div>
-            <img alt="UALRlogo" src="../assets/ualr.png">
-            
+  <div style="background-color:#640309;">
+        <img alt="UALRlogo" src="../assets/ualr.png">
     </div>
-    </div>
-</div>
-
+ <center>  
 <div class="tab">
     <button id="openInstructors" class="tablinks" @click="openTab(event, 'InstructorsTab')">Instructors</button>
     <button id="openCourses" class="tablinks" @click="openTab(event, 'CoursesTab')">Courses</button>
@@ -504,7 +499,7 @@
   <div class="sections"></div>
 
 </div>
-
+</center>
 </body>
 </template>
 

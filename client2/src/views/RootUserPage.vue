@@ -68,20 +68,23 @@ export default ({
 
 
     onApprove() { //why does this work?
+    //const test = localStorage.getItem('token');
         var url = ''
     if (process.env.NODE_ENV === 'development') {
       url = 'http://localhost:3333'
-    } else {
+    } 
+    else {
       url = 'https://test-adoni.herokuapp.com'
     }
           axios.post(`${url}/api/v0/approval/${this.id}`,
               {id: this.id, role: this.role, approve: this.approve},{
                     headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
+                //Authorization: 'bearer ' + `${localStorage.getItem('token')}`
+                },
               }    
           ).then((response) => {
-              this.$router.push({path:'/rootuserpage'});
+             window.location.reload();
               console.log(response);
               //axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
           });
