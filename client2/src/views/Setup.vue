@@ -121,8 +121,8 @@
           <option value="Hardware Designs">Hardware Designs</option>
         </select>
       </div>
-      <button type="submit" value="submit">Submit</button>
-      <button type="button" onclick="let dialogBox = document.getElementById('addInstructorDialogBox'); dialogBox.close()">Cancel</button>
+      <button type="submit" class="btn btn-primary" style="margin: 10px;" value="submit">Submit</button>
+      <button type="button" class="btn btn-primary" style="background-color: red; border-color: red" onclick="let dialogBox = document.getElementById('addInstructorDialogBox'); dialogBox.close()">Cancel</button>
     </form>
   </dialog>
 
@@ -235,12 +235,12 @@
           <option value="Hardware Designs">Hardware Designs</option>
         </select>
       </div>
-      <button type="submit" value="submit">Submit</button>
-      <button type="button" onclick="let dialogBox = document.getElementById('modifyInstructorDialogBox'); dialogBox.close()">Cancel</button>
+      <button type="submit" class="btn btn-primary" style="margin: 10px;" value="submit">Submit</button>
+      <button type="button" class="btn btn-primary" style="background-color: red; border-color: red" onclick="let dialogBox = document.getElementById('modifyInstructorDialogBox'); dialogBox.close()">Cancel</button>
     </form>
   </dialog>
   <div style="padding-bottom: 25px;">
-  <button id="addInstructorButton">Add Instructor</button>
+  <button id="addInstructorButton" class="btn btn-primary">Add Instructor</button>
   </div>
   <div class="instructors"></div>
   <br>
@@ -364,8 +364,8 @@
           <option value="Hardware Designs">Hardware Designs</option>
         </select>
       </div>
-      <button type="submit" value="submit">Submit</button>
-      <button type="button" onclick="let dialogBox = document.getElementById('addCourseDialogBox'); dialogBox.close()">Cancel</button>
+      <button type="submit" class="btn btn-primary" style="margin: 10px;" value="submit">Submit</button>
+      <button type="button" class="btn btn-primary" style="background-color: red; border-color: red" onclick="let dialogBox = document.getElementById('addCourseDialogBox'); dialogBox.close()">Cancel</button>
     </form>
   </dialog>
 
@@ -486,12 +486,12 @@
           <option value="Hardware Designs">Hardware Designs</option>
         </select>
       </div>
-      <button type="submit" value="submit">Submit</button>
-      <button type="button" onclick="let dialogBox = document.getElementById('modifyCourseDialogBox'); dialogBox.close()">Cancel</button>
+      <button type="submit" class="btn btn-primary" style="margin: 10px;" value="submit">Submit</button>
+      <button type="button" class="btn btn-primary" style="background-color: red; border-color: red" onclick="let dialogBox = document.getElementById('modifyCourseDialogBox'); dialogBox.close()">Cancel</button>
     </form>
   </dialog>
 
-  <button id="addCourseButton">Add Course</button>
+  <button id="addCourseButton" class="btn btn-primary">Add Course</button>
   <div class="courses"></div>
 
 </div>
@@ -685,6 +685,8 @@ export default ({
         tableHeaders.forEach(header => {
           let instructorHeader = document.createElement('th')
           instructorHeader.innerText = header
+          instructorHeader.style.textAlign = 'center'
+          instructorHeader.style.padding = '10px'
           instructorTableHeaderRow.append(instructorHeader)
         })
         
@@ -706,14 +708,20 @@ export default ({
 
         let instructorID = document.createElement('td')
         instructorID.innerText = singleInstructor.id;
+        instructorID.style.textAlign = 'center'
 
         let instructorLastName = document.createElement('td')
         instructorLastName.innerText = singleInstructor.Last_Name
+        instructorLastName.style.textAlign = 'center'
+        instructorLastName.style.width = '10em'
 
         let instructorMaxLoad = document.createElement('td')
         instructorMaxLoad.innerText = singleInstructor.Max_Course_Load
+        instructorMaxLoad.style.textAlign = 'center'
 
         let instructorDisciplineArea1 = document.createElement('td')
+        instructorDisciplineArea1.style.textAlign = 'center'
+        instructorDisciplineArea1.style.width = '10em'
         if (singleInstructor.Discipline_Area1 == undefined)
         {
             instructorDisciplineArea1.innerText = ""
@@ -724,6 +732,8 @@ export default ({
         }
 
         let instructorDisciplineArea2 = document.createElement('td')
+        instructorDisciplineArea2.style.textAlign = 'center'
+        instructorDisciplineArea2.style.width = '10em'
         if (singleInstructor.Discipline_Area2 == undefined)
         {
             instructorDisciplineArea2.innerText = ""
@@ -734,6 +744,8 @@ export default ({
         }
 
         let instructorDisciplineArea3 = document.createElement('td')
+        instructorDisciplineArea3.style.textAlign = 'center'
+        instructorDisciplineArea3.style.width = '10em'
         if (singleInstructor.Discipline_Area3 == undefined)
         {
             instructorDisciplineArea3.innerText = ""
@@ -744,6 +756,8 @@ export default ({
         }
 
         let instructorDisciplineArea4 = document.createElement('td')
+        instructorDisciplineArea4.style.textAlign = 'center'
+        instructorDisciplineArea4.style.width = '10em'
         if (singleInstructor.Discipline_Area4 == undefined)
         {
             instructorDisciplineArea4.innerText = ""
@@ -756,6 +770,7 @@ export default ({
         let modifyInstructorButton = document.createElement("button")
         modifyInstructorButton.innerText = "Modify Instructor " + singleInstructor.id
         modifyInstructorButton.style.margin = "10px"
+        modifyInstructorButton.className = "btn btn-primary"
         modifyInstructorButton.onclick = function () 
         {
           const modifyInstructorDialogBox = document.getElementById('modifyInstructorDialogBox')
@@ -785,6 +800,9 @@ export default ({
 
         let deleteInstructorButton = document.createElement("button")
         deleteInstructorButton.innerText = "Delete Instructor " + singleInstructor.id
+        deleteInstructorButton.className = "btn btn-primary"
+        deleteInstructorButton.style.backgroundColor = "red"
+        deleteInstructorButton.style.border = "red"
         deleteInstructorButton.onclick = function () {
           alert("Instructor " + singleInstructor.id + " deleted")
           axios.delete('http://localhost:3333/api/v0/setup/delete-instructor/' + singleInstructor.id)
@@ -871,7 +889,7 @@ export default ({
       //Course Importing
       createCourseTable() {
         const courseDiv = document.querySelector('div.courses')
-        let tableHeaders = ["ID", "CRN", "Department Code","Course Number", "Course Title", "Discipline Area 1", "Discipline Area 2", "Discipline Area 3", "Discipline Area 4"]
+        let tableHeaders = ["CRN", "Department Code","Course Number", "Course Title", "Discipline Area 1", "Discipline Area 2", "Discipline Area 3", "Discipline Area 4"]
         while (courseDiv.firstChild)
         {
           courseDiv.removeChild(courseDiv.firstChild);
@@ -889,6 +907,8 @@ export default ({
         tableHeaders.forEach(header => {
           let courseHeader = document.createElement('th')
           courseHeader.innerText = header
+          courseHeader.style.textAlign = 'center'
+          courseHeader.style.padding = '10px'
           courseTableHeaderRow.append(courseHeader)
         })
         
@@ -908,22 +928,27 @@ export default ({
         let courseTableByBodyRow = document.createElement('tr')
         courseTableByBodyRow.className = 'courseTableByBodyRow'
 
-        let courseID = document.createElement('td')
-        courseID.innerText = singleCourse.id;
-
         let courseCRN = document.createElement('td')
         courseCRN.innerText = singleCourse.Course_Reference_Number
+        courseCRN.style.textAlign = 'center'
 
         let courseDepartmentCode = document.createElement('td')
         courseDepartmentCode.innerText = singleCourse.Department_Code
+        courseDepartmentCode.style.textAlign = 'center'
+        courseDepartmentCode.style.width = '10em'
 
         let courseNumber = document.createElement('td')
         courseNumber.innerText = singleCourse.Course_Number
+        courseNumber.style.textAlign = 'center'
 
         let courseTitle = document.createElement('td')
         courseTitle.innerText = singleCourse.Course_Title
+        courseTitle.style.textAlign = 'center'
+        courseTitle.style.width = '10em'
 
         let courseDisciplineArea1 = document.createElement('td')
+        courseDisciplineArea1.style.textAlign = 'center'
+        courseDisciplineArea1.style.width = '10em'
         if (singleCourse.Discipline_Area1 == undefined)
         {
             courseDisciplineArea1.innerText = ""
@@ -934,6 +959,8 @@ export default ({
         }
 
         let courseDisciplineArea2 = document.createElement('td')
+        courseDisciplineArea2.style.textAlign = 'center'
+        courseDisciplineArea2.style.width = '10em'
         if (singleCourse.Discipline_Area2 == undefined)
         {
             courseDisciplineArea2.innerText = ""
@@ -944,6 +971,8 @@ export default ({
         }
 
         let courseDisciplineArea3 = document.createElement('td')
+        courseDisciplineArea3.style.textAlign = 'center'
+        courseDisciplineArea3.style.width = '10em'
         if (singleCourse.Discipline_Area3 == undefined)
         {
             courseDisciplineArea3.innerText = ""
@@ -954,6 +983,8 @@ export default ({
         }
 
         let courseDisciplineArea4 = document.createElement('td')
+        courseDisciplineArea4.style.textAlign = 'center'
+        courseDisciplineArea4.style.width = '10em'
         if (singleCourse.Discipline_Area4 == undefined)
         {
             courseDisciplineArea4.innerText = ""
@@ -965,6 +996,8 @@ export default ({
 
         let modifyCourseButton = document.createElement("button")
         modifyCourseButton.innerText = "Modify Course " + singleCourse.id
+        modifyCourseButton.style.margin = "10px"
+        modifyCourseButton.className = "btn btn-primary"
         modifyCourseButton.onclick = function () 
         {
           const modifyCourseDialogBox = document.getElementById('modifyCourseDialogBox')
@@ -1001,12 +1034,15 @@ export default ({
 
         let deleteCourseButton = document.createElement("button")
         deleteCourseButton.innerText = "Delete Course " + singleCourse.id
+        deleteCourseButton.className = "btn btn-primary"
+        deleteCourseButton.style.backgroundColor = "red"
+        deleteCourseButton.style.border = "red"
         deleteCourseButton.onclick = function () {
           alert("Course " + singleCourse.id + " deleted")
           axios.delete('http://localhost:3333/api/v0/setup/delete-course/' + singleCourse.Course_Reference_Number)
         }
 
-        courseTableByBodyRow.append(courseID, courseCRN, courseDepartmentCode, courseNumber, courseTitle, courseDisciplineArea1, courseDisciplineArea2, courseDisciplineArea3, courseDisciplineArea4, modifyCourseButton, deleteCourseButton)
+        courseTableByBodyRow.append(courseCRN, courseDepartmentCode, courseNumber, courseTitle, courseDisciplineArea1, courseDisciplineArea2, courseDisciplineArea3, courseDisciplineArea4, modifyCourseButton, deleteCourseButton)
         courseTable.append(courseTableByBodyRow)
       },
 
