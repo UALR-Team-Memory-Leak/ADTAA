@@ -613,13 +613,21 @@ export default ({
       //Instructor Functions
       onAddInstructor()
       {
+      var url = ''
+        if (process.env.NODE_ENV === 'development') {
+        url = 'http://localhost:3333'
+        } 
+        else {
+        url = 'https://test-adoni.herokuapp.com'
+        }
+
         console.log(this.add_last_name, this.add_max_course_load, this.add_instructor_discipline_area1, this.add_instructor_discipline_area2, this.add_instructor_discipline_area3, this.add_instructor_discipline_area4)
         let disciplineID1 = this.convertDisciplineToId(this.add_instructor_discipline_area1)
         let disciplineID2 = this.convertDisciplineToId(this.add_instructor_discipline_area2)
         let disciplineID3 = this.convertDisciplineToId(this.add_instructor_discipline_area3)
         let disciplineID4 = this.convertDisciplineToId(this.add_instructor_discipline_area4)
 
-        axios.post('http://localhost:3333/api/v0/setup/addInstructor', 
+        axios.post(`${url}/api/v0/setup/addInstructor`, 
         {
           Last_Name: this.add_last_name, 
           Max_Course_Load: this.add_max_course_load, 
@@ -636,6 +644,14 @@ export default ({
       },
       onModifyInstructor()
       {
+        var url = ''
+        if (process.env.NODE_ENV === 'development') {
+          url = 'http://localhost:3333'
+        } 
+        else {
+          url = 'https://test-adoni.herokuapp.com'
+        }
+
         const lastName = document.getElementById("modify_last_name").value
         const maxCourseLoad = document.getElementById("modify_max_course_load").value
         const disciplineArea1 = document.getElementById("modify_instructor_discipline_area1").value
@@ -649,7 +665,7 @@ export default ({
         let disciplineID3 = this.convertDisciplineToId(disciplineArea3)
         let disciplineID4 = this.convertDisciplineToId(disciplineArea4)
         
-        axios.post('http://localhost:3333/api/v0/setup/modify-instructor/' + currentInstructorID,
+        axios.post(`${url}/api/v0/setup/modify-instructor/` + currentInstructorID,
         {
           Last_Name: lastName, 
           Max_Course_Load: maxCourseLoad, 
@@ -701,6 +717,13 @@ export default ({
       },
 
       appendInstructors(singleInstructor) {
+        var url = ''
+        if (process.env.NODE_ENV === 'development') {
+          url = 'http://localhost:3333'
+        } 
+        else {
+          url = 'https://test-adoni.herokuapp.com'
+        }
         const instructorTable = document.querySelector('.instructorTable')
 
         let instructorTableByBodyRow = document.createElement('tr')
@@ -805,7 +828,7 @@ export default ({
         deleteInstructorButton.style.border = "red"
         deleteInstructorButton.onclick = function () {
           alert("Instructor " + singleInstructor.id + " deleted")
-          axios.delete('http://localhost:3333/api/v0/setup/delete-instructor/' + singleInstructor.id)
+          axios.delete(`${url}/api/v0/setup/delete-instructor/` + singleInstructor.id)
         }
 
         instructorTableByBodyRow.append(instructorID, instructorLastName, instructorMaxLoad, instructorDisciplineArea1, instructorDisciplineArea2, instructorDisciplineArea3, instructorDisciplineArea4, modifyInstructorButton, deleteInstructorButton)
@@ -829,13 +852,20 @@ export default ({
       //Course Functions
       onAddCourse()
       {
+        var url = ''
+        if (process.env.NODE_ENV === 'development') {
+          url = 'http://localhost:3333'
+        } 
+        else {
+          url = 'https://test-adoni.herokuapp.com'
+        }
         console.log(this.add_course_reference_number, this.add_department_code, this.add_course_number, this.add_course_title, this.add_course_discipline_area1, this.add_course_discipline_area2, this.add_course_discipline_area3, this.add_course_discipline_area4)
         let disciplineID1 = this.convertDisciplineToId(this.add_course_discipline_area1)
         let disciplineID2 = this.convertDisciplineToId(this.add_course_discipline_area2)
         let disciplineID3 = this.convertDisciplineToId(this.add_course_discipline_area3)
         let disciplineID4 = this.convertDisciplineToId(this.add_course_discipline_area4)
 
-        axios.post('http://localhost:3333/api/v0/setup/addCourse', 
+        axios.post(`${url}/api/v0/setup/addCourse`, 
         {
           Course_Reference_Number: this.add_course_reference_number, 
           Department_Code: this.add_department_code,
@@ -854,6 +884,13 @@ export default ({
 
       onModifyCourse()
       {
+        var url = ''
+        if (process.env.NODE_ENV === 'development') {
+          url = 'http://localhost:3333'
+        } 
+        else {
+          url = 'https://test-adoni.herokuapp.com'
+        }
         const CRN = document.getElementById("modify_course_reference_number").value
         const departmentCode = document.getElementById("modify_department_code").value
         const courseNumber = document.getElementById("modify_course_number").value
@@ -869,7 +906,7 @@ export default ({
         let disciplineID3 = this.convertDisciplineToId(disciplineArea3)
         let disciplineID4 = this.convertDisciplineToId(disciplineArea4)
         
-        axios.post('http://localhost:3333/api/v0/setup/modify-course/' + currentCourseCRN,
+        axios.post(`${url}/api/v0/setup/modify-course/` + currentCourseCRN,
         {
           Course_Reference_Number: CRN, 
           Department_Code: departmentCode,
@@ -923,6 +960,13 @@ export default ({
       },
 
       appendCourses(singleCourse) {
+        var url = ''
+        if (process.env.NODE_ENV === 'development') {
+          url = 'http://localhost:3333'
+        } 
+        else {
+          url = 'https://test-adoni.herokuapp.com'
+        }
         const courseTable = document.querySelector('.courseTable')
 
         let courseTableByBodyRow = document.createElement('tr')
@@ -1039,7 +1083,7 @@ export default ({
         deleteCourseButton.style.border = "red"
         deleteCourseButton.onclick = function () {
           alert("Course " + singleCourse.id + " deleted")
-          axios.delete('http://localhost:3333/api/v0/setup/delete-course/' + singleCourse.Course_Reference_Number)
+          axios.delete(`${url}/api/v0/setup/delete-course/` + singleCourse.Course_Reference_Number)
         }
 
         courseTableByBodyRow.append(courseCRN, courseDepartmentCode, courseNumber, courseTitle, courseDisciplineArea1, courseDisciplineArea2, courseDisciplineArea3, courseDisciplineArea4, modifyCourseButton, deleteCourseButton)
@@ -1047,7 +1091,14 @@ export default ({
       },
 
       getCourses() {
-        fetch('http://localhost:3333/api/v0/setup/courses')
+        var url = ''
+        if (process.env.NODE_ENV === 'development') {
+          url = 'http://localhost:3333'
+        } 
+        else {
+          url = 'https://test-adoni.herokuapp.com'
+        }
+        fetch(`${url}/api/v0/setup/courses`)
         .then(res => res.json())
         .then(courses => {
           this.createCourseTable()
