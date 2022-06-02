@@ -28,7 +28,7 @@
       </div>
       <div class="form-group">
         <label for="add_max_course_load">Max Course Load</label>
-        <input type="text" class="form-control" name="add_max_course_load" v-model="add_max_course_load"/>
+        <input type="number" class="form-control" name="add_max_course_load" v-model="add_max_course_load" min="0" max="10"/>
       </div>
       <div class="form-group">
         <label for="add_instructor_discipline_area1">Discipline Area 1</label>
@@ -127,21 +127,22 @@
         </select>
       </div>
       <button type="submit" value="submit">Submit</button>
+      <button type="button" onclick="let dialogBox = document.getElementById('addInstructorDialogBox'); dialogBox.close()">Cancel</button>
     </form>
   </dialog>
 
   <dialog id="modifyInstructorDialogBox">
     <p>
-      Modify the data for the instructor:
+      Input the new data for the instructor:
     </p>
     <form method="dialog" @submit="onModifyInstructor()">
       <div class="form-group">
         <label for="modify_last_name">Last Name</label>
-        <input type="text" class="form-control" name="modify_last_name" id = "modify_last_name"/>
+        <input type="text" class="form-control" name="modify_last_name" id ="modify_last_name"/>
       </div>
       <div class="form-group">
         <label for="modify_max_course_load">Max Course Load</label>
-        <input type="text" class="form-control" name="modify_max_course_load" id="modify_max_course_load"/>
+        <input type="number" class="form-control" name="modify_max_course_load" id="modify_max_course_load" min="0" max="10"/>
       </div>
       <div class="form-group">
         <label for="modify_instructor_discipline_area1">Discipline Area 1</label>
@@ -240,6 +241,7 @@
         </select>
       </div>
       <button type="submit" value="submit">Submit</button>
+      <button type="button" onclick="let dialogBox = document.getElementById('modifyInstructorDialogBox'); dialogBox.close()">Cancel</button>
     </form>
   </dialog>
 
@@ -249,11 +251,257 @@
 </div>
 
 <div id="CoursesTab" class="tabcontent" style="display: none">
-  <p>Courses go here!</p>
+  <dialog id="addCourseDialogBox">
+    <p>
+      Input the data for the new course:
+    </p>
+    <form method="dialog" @submit="onAddCourse()">
+      <div class="form-group">
+        <label for="add_course_reference_number">Course Reference Number</label>
+        <input type="number" class="form-control" name="add_course_reference_number" v-model="add_course_reference_number" min="100" max="500"/>
+      </div>
+      <div class="form-group">
+        <label for="add_department_code">Department Code</label>
+        <input type="text" class="form-control" name="add_department_code" v-model="add_department_code"/>
+      </div>
+      <div class="form-group">
+        <label for="add_course_number">Course Number</label>
+        <input type="number" class="form-control" name="add_course_number" v-model="add_course_number" min="1000" max="9999"/>
+      </div>
+      <div>
+        <label for="add_course_title">Course Title</label>
+        <input type="text" class="form-control" name="add_course_title" v-model="add_course_title"/>
+      </div>
+      <div class="form-group">
+        <label for="add_course_discipline_area1">Discipline Area 1</label>
+        <br>
+        <select v-model="add_course_discipline_area1" name="add_course_discipline_area1">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="add_course_discipline_area2">Discipline Area 2</label>
+        <br>
+        <select v-model="add_course_discipline_area2" name="add_course_discipline_area2">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="add_course_discipline_area3">Discipline Area 3</label>
+        <br>
+        <select v-model="add_course_discipline_area3" name="add_course_discipline_area3">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="add_course_discipline_area4">Discipline Area 4</label>
+        <br>
+        <select v-model="add_course_discipline_area4" name="add_course_discipline_area4">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <button type="submit" value="submit">Submit</button>
+      <button type="button" onclick="let dialogBox = document.getElementById('addCourseDialogBox'); dialogBox.close()">Cancel</button>
+    </form>
+  </dialog>
+
+  <dialog id="modifyCourseDialogBox">
+    <p>
+      Input the new data for the course:
+    </p>
+    <form method="dialog" @submit="onModifyCourse()">
+      <div class="form-group">
+        <label for="modify_course_reference_number">Course Reference Number</label>
+        <input type="number" class="form-control" name="modify_course_reference_number" id="modify_course_reference_number" min="100" max="500"/>
+      </div>
+      <div class="form-group">
+        <label for="modify_department_code">Department Code</label>
+        <input type="text" class="form-control" name="modify_department_code" id="modify_department_code"/>
+      </div>
+      <div class="form-group">
+        <label for="modify_course_number">Course Number</label>
+        <input type="number" class="form-control" name="modify_course_number" id="modify_course_number" min="1000" max="9999"/>
+      </div>
+      <div>
+        <label for="modify_course_title">Course Title</label>
+        <input type="text" class="form-control" name="modify_course_title" id="modify_course_title"/>
+      </div>
+      <div class="form-group">
+        <label for="modify_course_discipline_area1">Discipline Area 1</label>
+        <br>
+        <select id="modify_course_discipline_area1" name="modify_course_discipline_area1">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="modify_course_discipline_area2">Discipline Area 2</label>
+        <br>
+        <select id="modify_course_discipline_area2" name="modify_course_discipline_area2">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="modify_course_discipline_area3">Discipline Area 3</label>
+        <br>
+        <select id="modify_course_discipline_area3" name="modify_course_discipline_area3">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="modify_course_discipline_area4">Discipline Area 4</label>
+        <br>
+        <select id="modify_course_discipline_area4" name="modify_course_discipline_area4">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <button type="submit" value="submit">Submit</button>
+      <button type="button" onclick="let dialogBox = document.getElementById('modifyCourseDialogBox'); dialogBox.close()">Cancel</button>
+    </form>
+  </dialog>
+
+  <button id="addCourseButton">Add Course</button>
+  <div class="courses"></div>
 
 </div>
 <div id="SectionsTab" class="tabcontent" style="display: none">
-  <p>Sections go here!</p>
+  <button id="addSectionButton">Add Section</button>
+  <div class="sections"></div>
 
 </div>
 
@@ -265,6 +513,7 @@
 
   //Global Variables
   var currentInstructorID
+  var currentCourseCRN
 
 export default ({
     name: "Setup-Page",
@@ -272,6 +521,7 @@ export default ({
     //Methods to call at page creation
     mounted: function() {
       
+      //Add instructor
       const addInstructorButton = document.getElementById('addInstructorButton')
       const addInstructorDialogBox = document.getElementById('addInstructorDialogBox')
 
@@ -280,9 +530,20 @@ export default ({
         addInstructorDialogBox.showModal()
       }
 
+      //Add Course
+      const addCourseButton = document.getElementById('addCourseButton')
+      const addCourseDialogBox = document.getElementById('addCourseDialogBox')
+
+      addCourseButton.onclick = function()
+      {
+        addCourseDialogBox.showModal()
+      }
+
+      //List data and set default tab
       this.$nextTick(function ()
       {
         this.getInstructors()
+        this.getCourses()
         this.openTab(event, 'InstructorsTab')
       })
     },
@@ -375,40 +636,39 @@ export default ({
         {
           console.log(response)
         })
-
        
       },
       onModifyInstructor()
       {
-      const lastName = document.getElementById("modify_last_name").value
-      const maxCourseLoad = document.getElementById("modify_max_course_load").value
-      const disciplineArea1 = document.getElementById("modify_instructor_discipline_area1").value
-      const disciplineArea2 = document.getElementById("modify_instructor_discipline_area2").value
-      const disciplineArea3 = document.getElementById("modify_instructor_discipline_area3").value
-      const disciplineArea4 = document.getElementById("modify_instructor_discipline_area4").value
-      console.log(lastName, maxCourseLoad, disciplineArea1, disciplineArea2, disciplineArea3, disciplineArea4)
+        const lastName = document.getElementById("modify_last_name").value
+        const maxCourseLoad = document.getElementById("modify_max_course_load").value
+        const disciplineArea1 = document.getElementById("modify_instructor_discipline_area1").value
+        const disciplineArea2 = document.getElementById("modify_instructor_discipline_area2").value
+        const disciplineArea3 = document.getElementById("modify_instructor_discipline_area3").value
+        const disciplineArea4 = document.getElementById("modify_instructor_discipline_area4").value
+        console.log(lastName, maxCourseLoad, disciplineArea1, disciplineArea2, disciplineArea3, disciplineArea4)
 
-      let disciplineID1 = this.convertDisciplineToId(disciplineArea1)
-      let disciplineID2 = this.convertDisciplineToId(disciplineArea2)
-      let disciplineID3 = this.convertDisciplineToId(disciplineArea3)
-      let disciplineID4 = this.convertDisciplineToId(disciplineArea4)
-      
-      axios.post('http://localhost:3333/api/v0/setup/modify-instructor/' + currentInstructorID,
-      {
-        Last_Name: lastName, 
-        Max_Course_Load: maxCourseLoad, 
-        Discipline_ID_1: disciplineID1, 
-        Discipline_ID_2: disciplineID2, 
-        Discipline_ID_3: disciplineID3, 
-        Discipline_ID_4: disciplineID4
-      })
-      .then((response) =>
-      {
-        console.log(response)
-      })
-
+        let disciplineID1 = this.convertDisciplineToId(disciplineArea1)
+        let disciplineID2 = this.convertDisciplineToId(disciplineArea2)
+        let disciplineID3 = this.convertDisciplineToId(disciplineArea3)
+        let disciplineID4 = this.convertDisciplineToId(disciplineArea4)
+        
+        axios.post('http://localhost:3333/api/v0/setup/modify-instructor/' + currentInstructorID,
+        {
+          Last_Name: lastName, 
+          Max_Course_Load: maxCourseLoad, 
+          Discipline_ID_1: disciplineID1, 
+          Discipline_ID_2: disciplineID2, 
+          Discipline_ID_3: disciplineID3, 
+          Discipline_ID_4: disciplineID4
+        })
+        .then((response) =>
+        {
+          console.log(response)
+        })
       },
 
+      //Instructor Importing
       createInstructorTable() {
         const instructorDiv = document.querySelector('div.instructors')
         let tableHeaders = ["ID", "Last Name", "Max Course Load", "Discipline Area 1", "Discipline Area 2", "Discipline Area 3", "Discipline Area 4"]
@@ -549,10 +809,224 @@ export default ({
             this.appendInstructors(instructor, instructorIndex)
           }
         })
-      } 
+      },
+      
+      //Course Functions
+      onAddCourse()
+      {
+        console.log(this.add_course_reference_number, this.add_department_code, this.add_course_number, this.add_course_title, this.add_course_discipline_area1, this.add_course_discipline_area2, this.add_course_discipline_area3, this.add_course_discipline_area4)
+        let disciplineID1 = this.convertDisciplineToId(this.add_course_discipline_area1)
+        let disciplineID2 = this.convertDisciplineToId(this.add_course_discipline_area2)
+        let disciplineID3 = this.convertDisciplineToId(this.add_course_discipline_area3)
+        let disciplineID4 = this.convertDisciplineToId(this.add_course_discipline_area4)
+
+        axios.post('http://localhost:3333/api/v0/setup/addCourse', 
+        {
+          Course_Reference_Number: this.add_course_reference_number, 
+          Department_Code: this.add_department_code,
+          Course_Number: this.add_course_number,
+          Course_Title: this.add_course_title,
+          Discipline_ID_1: disciplineID1, 
+          Discipline_ID_2: disciplineID2, 
+          Discipline_ID_3: disciplineID3, 
+          Discipline_ID_4: disciplineID4
+        })
+        .then((response) => 
+        {
+          console.log(response)
+        })       
+      },
+
+      onModifyCourse()
+      {
+        const CRN = document.getElementById("modify_course_reference_number").value
+        const departmentCode = document.getElementById("modify_department_code").value
+        const courseNumber = document.getElementById("modify_course_number").value
+        const courseTitle = document.getElementById("modify_course_title").value
+        const disciplineArea1 = document.getElementById("modify_course_discipline_area1").value
+        const disciplineArea2 = document.getElementById("modify_course_discipline_area2").value
+        const disciplineArea3 = document.getElementById("modify_course_discipline_area3").value
+        const disciplineArea4 = document.getElementById("modify_course_discipline_area4").value
+        console.log(CRN, departmentCode, courseNumber, courseTitle, disciplineArea1, disciplineArea2, disciplineArea3, disciplineArea4)
+
+        let disciplineID1 = this.convertDisciplineToId(disciplineArea1)
+        let disciplineID2 = this.convertDisciplineToId(disciplineArea2)
+        let disciplineID3 = this.convertDisciplineToId(disciplineArea3)
+        let disciplineID4 = this.convertDisciplineToId(disciplineArea4)
+        
+        axios.post('http://localhost:3333/api/v0/setup/modify-course/' + currentCourseCRN,
+        {
+          Course_Reference_Number: CRN, 
+          Department_Code: departmentCode,
+          Course_Number: courseNumber,
+          Course_Title: courseTitle,
+          Discipline_ID_1: disciplineID1, 
+          Discipline_ID_2: disciplineID2, 
+          Discipline_ID_3: disciplineID3, 
+          Discipline_ID_4: disciplineID4
+        })
+        .then((response) =>
+        {
+          console.log(response)
+        })
+      },
+
+      //Course Importing
+      createCourseTable() {
+        const courseDiv = document.querySelector('div.courses')
+        let tableHeaders = ["ID", "CRN", "Department Code","Course Number", "Course Title", "Discipline Area 1", "Discipline Area 2", "Discipline Area 3", "Discipline Area 4"]
+        while (courseDiv.firstChild)
+        {
+          courseDiv.removeChild(courseDiv.firstChild);
+        }
+
+          let courseTable = document.createElement('table')
+          courseTable.className = 'courseTable'
+
+          let courseTableHead = document.createElement('thead')
+          courseTableHead.className = 'courseTableHead'
+
+          let courseTableHeaderRow = document.createElement('tr')
+          courseTableHeaderRow.className = 'courseTableHeaderRow'
+
+        tableHeaders.forEach(header => {
+          let courseHeader = document.createElement('th')
+          courseHeader.innerText = header
+          courseTableHeaderRow.append(courseHeader)
+        })
+        
+        courseTableHead.append(courseTableHeaderRow)
+        courseTable.append(courseTableHead)
+
+        let courseTableBody = document.createElement('tbody')
+        courseTableBody.className = 'courseTable-Body'
+        courseTable.append(courseTableBody)
+
+        courseDiv.append(courseTable)
+      },
+
+      appendCourses(singleCourse) {
+        const courseTable = document.querySelector('.courseTable')
+
+        let courseTableByBodyRow = document.createElement('tr')
+        courseTableByBodyRow.className = 'courseTableByBodyRow'
+
+        let courseID = document.createElement('td')
+        courseID.innerText = singleCourse.id;
+
+        let courseCRN = document.createElement('td')
+        courseCRN.innerText = singleCourse.Course_Reference_Number
+
+        let courseDepartmentCode = document.createElement('td')
+        courseDepartmentCode.innerText = singleCourse.Department_Code
+
+        let courseNumber = document.createElement('td')
+        courseNumber.innerText = singleCourse.Course_Number
+
+        let courseTitle = document.createElement('td')
+        courseTitle.innerText = singleCourse.Course_Title
+
+        let courseDisciplineArea1 = document.createElement('td')
+        if (singleCourse.Discipline_Area1 == undefined)
+        {
+            courseDisciplineArea1.innerText = ""
+        }
+        else
+        {
+        courseDisciplineArea1.innerText = singleCourse.Discipline_Area1
+        }
+
+        let courseDisciplineArea2 = document.createElement('td')
+        if (singleCourse.Discipline_Area2 == undefined)
+        {
+            courseDisciplineArea2.innerText = ""
+        }
+        else
+        {
+          courseDisciplineArea2.innerText = singleCourse.Discipline_Area2
+        }
+
+        let courseDisciplineArea3 = document.createElement('td')
+        if (singleCourse.Discipline_Area3 == undefined)
+        {
+            courseDisciplineArea3.innerText = ""
+        }
+        else
+        {
+          courseDisciplineArea3.innerText = singleCourse.Discipline_Area3
+        }
+
+        let courseDisciplineArea4 = document.createElement('td')
+        if (singleCourse.Discipline_Area4 == undefined)
+        {
+            courseDisciplineArea4.innerText = ""
+        }
+        else
+        {
+          courseDisciplineArea4.innerText = singleCourse.Discipline_Area4
+        }
+
+        let modifyCourseButton = document.createElement("button")
+        modifyCourseButton.innerText = "Modify Course " + singleCourse.id
+        modifyCourseButton.onclick = function () 
+        {
+          const modifyCourseDialogBox = document.getElementById('modifyCourseDialogBox')
+
+          const CRNField = document.getElementById("modify_course_reference_number")
+          CRNField.value = singleCourse.Course_Reference_Number
+
+          const departmentCodeField = document.getElementById("modify_department_code")
+          departmentCodeField.value = singleCourse.Department_Code
+
+          const courseNumberField = document.getElementById("modify_course_number")
+          courseNumberField.value = singleCourse.Course_Number
+
+          const courseTitleField = document.getElementById("modify_course_title")
+          courseTitleField.value = singleCourse.Course_Title
+
+          const disciplineAreaField1 = document.getElementById("modify_course_discipline_area1")
+          disciplineAreaField1.value = singleCourse.Discipline_Area1
+
+          const disciplineAreaField2 = document.getElementById("modify_course_discipline_area2")
+          disciplineAreaField2.value = singleCourse.Discipline_Area2
+
+          const disciplineAreaField3 = document.getElementById("modify_course_discipline_area3")
+          disciplineAreaField3.value = singleCourse.Discipline_Area3
+
+          const disciplineAreaField4 = document.getElementById("modify_course_discipline_area4")
+          disciplineAreaField4.value = singleCourse.Discipline_Area4
+
+          currentCourseCRN = singleCourse.Course_Reference_Number
+          console.log(currentCourseCRN)
+
+          modifyCourseDialogBox.showModal()
+        }
+
+        let deleteCourseButton = document.createElement("button")
+        deleteCourseButton.innerText = "Delete Course " + singleCourse.id
+        deleteCourseButton.onclick = function () {
+          alert("Course " + singleCourse.id + " deleted")
+          axios.delete('http://localhost:3333/api/v0/setup/delete-course/' + singleCourse.Course_Reference_Number)
+        }
+
+        courseTableByBodyRow.append(courseID, courseCRN, courseDepartmentCode, courseNumber, courseTitle, courseDisciplineArea1, courseDisciplineArea2, courseDisciplineArea3, courseDisciplineArea4, modifyCourseButton, deleteCourseButton)
+        courseTable.append(courseTableByBodyRow)
+      },
+
+      getCourses() {
+        fetch('http://localhost:3333/api/v0/setup/courses')
+        .then(res => res.json())
+        .then(courses => {
+          this.createCourseTable()
+
+          for (const course of courses) {
+            let courseIndex = courses.indexOf(course) + 1
+            console.log(course)
+            this.appendCourses(course, courseIndex)
+          }
+        })
+      },
     }
-
-
 })
 
 </script>
