@@ -9,244 +9,261 @@
     </div>
 </div>
 
-<dialog id="addDialogBox">
-  <p>
-    Input the data for the new instructor:
-  </p>
-  <form method="dialog" @submit="onAdd()">
-    <div class="form-group">
-      <label for="add_last_name">Last Name</label>
-      <input type="text" class="form-control" name="add_last_name" v-model="add_last_name"/>
-    </div>
-    <div class="form-group">
-      <label for="add_max_course_load">Max Course Load</label>
-      <input type="text" class="form-control" name="add_max_course_load" v-model="add_max_course_load"/>
-    </div>
-    <div class="form-group">
-      <label for="add_discipline_area1">Discipline Area 1</label>
-      <br>
-      <select v-model="add_discipline_area1" name="add_discipline_area1">
-        <option value="None">None</option>
-        <option value="Programming-C++">Programming-C++</option>
-        <option value="Programming-Python">Programming-Python</option>
-        <option value="Software Engineering">Software Engineering</option>
-        <option value="Software Development Methodologies">Software Development Methodologies</option>
-        <option value="Game Development">Game Development</option>
-        <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
-        <option value="Computer Organization">Computer Organization</option>
-        <option value="Operating Systems">Operating Systems</option>
-        <option value="Programming Languages">Programming Languages</option>
-        <option value="Cybersecurity">Cybersecurity</option>
-        <option value="Mobile Applications">Mobile Applications</option>
-        <option value="Artificial Intelligence">Artificial Intelligence</option>
-        <option value="Networks">Networks</option>
-        <option value="Theory of Computation">Theory of Computation</option>
-        <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
-        <option value="Virtual Reality">Virtual Reality</option>
-        <option value="Hardware Designs">Hardware Designs</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="add_discipline_area2">Discipline Area 2</label>
-      <br>
-      <select v-model="add_discipline_area2" name="add_discipline_area2">
-        <option value="None">None</option>
-        <option value="Programming-C++">Programming-C++</option>
-        <option value="Programming-Python">Programming-Python</option>
-        <option value="Software Engineering">Software Engineering</option>
-        <option value="Software Development Methodologies">Software Development Methodologies</option>
-        <option value="Game Development">Game Development</option>
-        <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
-        <option value="Computer Organization">Computer Organization</option>
-        <option value="Operating Systems">Operating Systems</option>
-        <option value="Programming Languages">Programming Languages</option>
-        <option value="Cybersecurity">Cybersecurity</option>
-        <option value="Mobile Applications">Mobile Applications</option>
-        <option value="Artificial Intelligence">Artificial Intelligence</option>
-        <option value="Networks">Networks</option>
-        <option value="Theory of Computation">Theory of Computation</option>
-        <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
-        <option value="Virtual Reality">Virtual Reality</option>
-        <option value="Hardware Designs">Hardware Designs</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="add_discipline_area3">Discipline Area 3</label>
-      <br>
-      <select v-model="add_discipline_area3" name="add_discipline_area3">
-        <option value="None">None</option>
-        <option value="Programming-C++">Programming-C++</option>
-        <option value="Programming-Python">Programming-Python</option>
-        <option value="Software Engineering">Software Engineering</option>
-        <option value="Software Development Methodologies">Software Development Methodologies</option>
-        <option value="Game Development">Game Development</option>
-        <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
-        <option value="Computer Organization">Computer Organization</option>
-        <option value="Operating Systems">Operating Systems</option>
-        <option value="Programming Languages">Programming Languages</option>
-        <option value="Cybersecurity">Cybersecurity</option>
-        <option value="Mobile Applications">Mobile Applications</option>
-        <option value="Artificial Intelligence">Artificial Intelligence</option>
-        <option value="Networks">Networks</option>
-        <option value="Theory of Computation">Theory of Computation</option>
-        <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
-        <option value="Virtual Reality">Virtual Reality</option>
-        <option value="Hardware Designs">Hardware Designs</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="add_discipline_area4">Discipline Area 4</label>
-      <br>
-      <select v-model="add_discipline_area4" name="add_discipline_area4">
-        <option value="None">None</option>
-        <option value="Programming-C++">Programming-C++</option>
-        <option value="Programming-Python">Programming-Python</option>
-        <option value="Software Engineering">Software Engineering</option>
-        <option value="Software Development Methodologies">Software Development Methodologies</option>
-        <option value="Game Development">Game Development</option>
-        <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
-        <option value="Computer Organization">Computer Organization</option>
-        <option value="Operating Systems">Operating Systems</option>
-        <option value="Programming Languages">Programming Languages</option>
-        <option value="Cybersecurity">Cybersecurity</option>
-        <option value="Mobile Applications">Mobile Applications</option>
-        <option value="Artificial Intelligence">Artificial Intelligence</option>
-        <option value="Networks">Networks</option>
-        <option value="Theory of Computation">Theory of Computation</option>
-        <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
-        <option value="Virtual Reality">Virtual Reality</option>
-        <option value="Hardware Designs">Hardware Designs</option>
-      </select>
-    </div>
-    <button type="submit" value="submit">Submit</button>
-  </form>
-</dialog>
-
-
-<dialog id="modifyDialogBox">
-  <p>
-    Modify the data for the instructor:
-  </p>
-  <form method="dialog" @submit="onModify()">
-    <div class="form-group">
-      <label for="modify_last_name">Last Name</label>
-      <input type="text" class="form-control" name="modify_last_name" id = "modify_last_name"/>
-    </div>
-    <div class="form-group">
-      <label for="modify_max_course_load">Max Course Load</label>
-      <input type="text" class="form-control" name="modify_max_course_load" id="modify_max_course_load"/>
-    </div>
-    <div class="form-group">
-      <label for="modify_discipline_area1">Discipline Area 1</label>
-      <br>
-      <select id="modify_discipline_area1" name="modify_discipline_area1">
-        <option value="None">None</option>
-        <option value="Programming-C++">Programming-C++</option>
-        <option value="Programming-Python">Programming-Python</option>
-        <option value="Software Engineering">Software Engineering</option>
-        <option value="Software Development Methodologies">Software Development Methodologies</option>
-        <option value="Game Development">Game Development</option>
-        <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
-        <option value="Computer Organization">Computer Organization</option>
-        <option value="Operating Systems">Operating Systems</option>
-        <option value="Programming Languages">Programming Languages</option>
-        <option value="Cybersecurity">Cybersecurity</option>
-        <option value="Mobile Applications">Mobile Applications</option>
-        <option value="Artificial Intelligence">Artificial Intelligence</option>
-        <option value="Networks">Networks</option>
-        <option value="Theory of Computation">Theory of Computation</option>
-        <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
-        <option value="Virtual Reality">Virtual Reality</option>
-        <option value="Hardware Designs">Hardware Designs</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="modify_discipline_area2">Discipline Area 2</label>
-      <br>
-      <select id="modify_discipline_area2" name="modify_discipline_area2">
-        <option value="None">None</option>
-        <option value="Programming-C++">Programming-C++</option>
-        <option value="Programming-Python">Programming-Python</option>
-        <option value="Software Engineering">Software Engineering</option>
-        <option value="Software Development Methodologies">Software Development Methodologies</option>
-        <option value="Game Development">Game Development</option>
-        <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
-        <option value="Computer Organization">Computer Organization</option>
-        <option value="Operating Systems">Operating Systems</option>
-        <option value="Programming Languages">Programming Languages</option>
-        <option value="Cybersecurity">Cybersecurity</option>
-        <option value="Mobile Applications">Mobile Applications</option>
-        <option value="Artificial Intelligence">Artificial Intelligence</option>
-        <option value="Networks">Networks</option>
-        <option value="Theory of Computation">Theory of Computation</option>
-        <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
-        <option value="Virtual Reality">Virtual Reality</option>
-        <option value="Hardware Designs">Hardware Designs</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="modify_discipline_area3">Discipline Area 3</label>
-      <br>
-      <select id="modify_discipline_area3" name="modify_discipline_area3">
-        <option value="None">None</option>
-        <option value="Programming-C++">Programming-C++</option>
-        <option value="Programming-Python">Programming-Python</option>
-        <option value="Software Engineering">Software Engineering</option>
-        <option value="Software Development Methodologies">Software Development Methodologies</option>
-        <option value="Game Development">Game Development</option>
-        <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
-        <option value="Computer Organization">Computer Organization</option>
-        <option value="Operating Systems">Operating Systems</option>
-        <option value="Programming Languages">Programming Languages</option>
-        <option value="Cybersecurity">Cybersecurity</option>
-        <option value="Mobile Applications">Mobile Applications</option>
-        <option value="Artificial Intelligence">Artificial Intelligence</option>
-        <option value="Networks">Networks</option>
-        <option value="Theory of Computation">Theory of Computation</option>
-        <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
-        <option value="Virtual Reality">Virtual Reality</option>
-        <option value="Hardware Designs">Hardware Designs</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="modify_discipline_area4">Discipline Area 4</label>
-      <br>
-      <select id="modify_discipline_area4" name="modify_discipline_area4">
-        <option value="None">None</option>
-        <option value="Programming-C++">Programming-C++</option>
-        <option value="Programming-Python">Programming-Python</option>
-        <option value="Software Engineering">Software Engineering</option>
-        <option value="Software Development Methodologies">Software Development Methodologies</option>
-        <option value="Game Development">Game Development</option>
-        <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
-        <option value="Computer Organization">Computer Organization</option>
-        <option value="Operating Systems">Operating Systems</option>
-        <option value="Programming Languages">Programming Languages</option>
-        <option value="Cybersecurity">Cybersecurity</option>
-        <option value="Mobile Applications">Mobile Applications</option>
-        <option value="Artificial Intelligence">Artificial Intelligence</option>
-        <option value="Networks">Networks</option>
-        <option value="Theory of Computation">Theory of Computation</option>
-        <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
-        <option value="Virtual Reality">Virtual Reality</option>
-        <option value="Hardware Designs">Hardware Designs</option>
-      </select>
-    </div>
-    <button type="submit" value="submit">Submit</button>
-  </form>
-</dialog>
-
-
-<button id="addButton">Add Instructor</button>
-<div class="instructors"></div>
+<div class="tab">
+    <button id="openInstructors" class="tablinks" @click="openTab(event, 'InstructorsTab')">Instructors</button>
+    <button id="openCourses" class="tablinks" @click="openTab(event, 'CoursesTab')">Courses</button>
+    <button id="openSection" class="tablinks" @click="openTab(event, 'SectionsTab')">Sections</button>
+</div>
 <br>
+
+<div id="InstructorsTab" class="tabcontent" style="display: none">
+  <dialog id="addDialogBox">
+    <p>
+      Input the data for the new instructor:
+    </p>
+    <form method="dialog" @submit="onAdd()">
+      <div class="form-group">
+        <label for="add_last_name">Last Name</label>
+        <input type="text" class="form-control" name="add_last_name" v-model="add_last_name"/>
+      </div>
+      <div class="form-group">
+        <label for="add_max_course_load">Max Course Load</label>
+        <input type="text" class="form-control" name="add_max_course_load" v-model="add_max_course_load"/>
+      </div>
+      <div class="form-group">
+        <label for="add_discipline_area1">Discipline Area 1</label>
+        <br>
+        <select v-model="add_discipline_area1" name="add_discipline_area1">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="add_discipline_area2">Discipline Area 2</label>
+        <br>
+        <select v-model="add_discipline_area2" name="add_discipline_area2">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="add_discipline_area3">Discipline Area 3</label>
+        <br>
+        <select v-model="add_discipline_area3" name="add_discipline_area3">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="add_discipline_area4">Discipline Area 4</label>
+        <br>
+        <select v-model="add_discipline_area4" name="add_discipline_area4">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <button type="submit" value="submit">Submit</button>
+    </form>
+  </dialog>
+
+  <dialog id="modifyDialogBox">
+    <p>
+      Modify the data for the instructor:
+    </p>
+    <form method="dialog" @submit="onModify()">
+      <div class="form-group">
+        <label for="modify_last_name">Last Name</label>
+        <input type="text" class="form-control" name="modify_last_name" id = "modify_last_name"/>
+      </div>
+      <div class="form-group">
+        <label for="modify_max_course_load">Max Course Load</label>
+        <input type="text" class="form-control" name="modify_max_course_load" id="modify_max_course_load"/>
+      </div>
+      <div class="form-group">
+        <label for="modify_discipline_area1">Discipline Area 1</label>
+        <br>
+        <select id="modify_discipline_area1" name="modify_discipline_area1">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="modify_discipline_area2">Discipline Area 2</label>
+        <br>
+        <select id="modify_discipline_area2" name="modify_discipline_area2">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="modify_discipline_area3">Discipline Area 3</label>
+        <br>
+        <select id="modify_discipline_area3" name="modify_discipline_area3">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="modify_discipline_area4">Discipline Area 4</label>
+        <br>
+        <select id="modify_discipline_area4" name="modify_discipline_area4">
+          <option value="None">None</option>
+          <option value="Programming-C++">Programming-C++</option>
+          <option value="Programming-Python">Programming-Python</option>
+          <option value="Software Engineering">Software Engineering</option>
+          <option value="Software Development Methodologies">Software Development Methodologies</option>
+          <option value="Game Development">Game Development</option>
+          <option value="Data Structures and Algorithms">Data Structures and Algorithms</option>
+          <option value="Computer Organization">Computer Organization</option>
+          <option value="Operating Systems">Operating Systems</option>
+          <option value="Programming Languages">Programming Languages</option>
+          <option value="Cybersecurity">Cybersecurity</option>
+          <option value="Mobile Applications">Mobile Applications</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Networks">Networks</option>
+          <option value="Theory of Computation">Theory of Computation</option>
+          <option value="Parallel and Distributed Systems">Parallel and Distributed Systems</option>
+          <option value="Virtual Reality">Virtual Reality</option>
+          <option value="Hardware Designs">Hardware Designs</option>
+        </select>
+      </div>
+      <button type="submit" value="submit">Submit</button>
+    </form>
+  </dialog>
+
+  <button id="addButton">Add Instructor</button>
+  <div class="instructors"></div>
+  <br>
+</div>
+
+<div id="CoursesTab" class="tabcontent" style="display: none">
+  <p>Courses go here!</p>
+
+</div>
+<div id="SectionsTab" class="tabcontent" style="display: none">
+  <p>Sections go here!</p>
+
+</div>
+
 </body>
 </template>
 
 <script>
-import axios from "axios";  
+  import axios from "axios";  
 
-  var oldInstructorID
+  var currentInstructorID
 
   const createInstructorTable = ()  => {
 
@@ -282,7 +299,7 @@ import axios from "axios";
   instructorDiv.append(instructorTable)
 }
 
- const appendInstructors = (singleInstructor) => {//singleInstructorIndex
+ const appendInstructors = (singleInstructor) => {
   const instructorTable = document.querySelector('.instructorTable')
 
   let instructorTableByBodyRow = document.createElement('tr')
@@ -361,7 +378,7 @@ import axios from "axios";
       const disciplineAreaField4 = document.getElementById("modify_discipline_area4")
       disciplineAreaField4.value = singleInstructor.Discipline_Area4
 
-      oldInstructorID = singleInstructor.id
+      currentInstructorID = singleInstructor.id
 
       modifyDialogBox.showModal()
   }
@@ -410,10 +427,28 @@ export default ({
       this.$nextTick(function ()
       {
         getInstructors()
+        this.openTab(event, 'InstructorsTab')
       })
     },
     methods:
     {
+      openTab(evt, dataName)
+      {
+        console.log("wow")
+        var i, tabcontent, tablinks
+        tabcontent = document.getElementsByClassName("tabcontent")
+        for (i = 0; i < tabcontent.length; i++)
+        {
+          tabcontent[i].style.display = "none"
+        }
+        tablinks = document.getElementsByClassName("tablinks")
+        for (i = 0; i < tablinks.length; i++)
+        {
+          tablinks[i].className = tablinks[i].className.replace(" active", "")
+        }
+        document.getElementById(dataName).style.display = "block"
+        evt.currentTarget.className += "active"
+      },
       onAdd()
       {
         console.log(this.add_last_name, this.add_max_course_load, this.add_discipline_area1, this.add_discipline_area2, this.add_discipline_area3, this.add_discipline_area4)
@@ -453,7 +488,7 @@ export default ({
       let disciplineID3 = this.convertDisciplineToId(disciplineArea3)
       let disciplineID4 = this.convertDisciplineToId(disciplineArea4)
       
-      axios.post('http://localhost:3333/api/v0/setup/modify-instructor/' + oldInstructorID,
+      axios.post('http://localhost:3333/api/v0/setup/modify-instructor/' + currentInstructorID,
       {
         Last_Name: lastName, 
         Max_Course_Load: maxCourseLoad, 
