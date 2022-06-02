@@ -35,37 +35,46 @@ class SetupController {
                      Meeting_Period_2_Days,Meeting_Period_2_Start,Meeting_Period_2_End, 
                      Meeting_Period_3_Days, Meeting_Period_3_Start, Meeting_Period_3_End) 
 
-        const userSection = await AddSection.create({ //instead of creating a User, create a Request
-            Course_Reference_Number, 
-            Section_Number,
+        let userSection;
+        if (!(Course_Reference_Number == undefined && Section_Number == undefined && Meeting_Period_1_Days == undefined && Meeting_Period_1_Start == undefined && Meeting_Period_1_End == undefined && Meeting_Period_2_Days == undefined && Meeting_Period_2_Start == undefined && Meeting_Period_2_End == undefined && Meeting_Period_3_Days == undefined && Meeting_Period_3_Start == undefined && Meeting_Period_3_End == undefined))
+        {
+            userSection = await AddSection.create({ //instead of creating a User, create a Request
+                Course_Reference_Number, 
+                Section_Number,
 
-            Meeting_Period_1_Days,
-            Meeting_Period_1_Start,
-            Meeting_Period_1_End,
+                Meeting_Period_1_Days,
+                Meeting_Period_1_Start,
+                Meeting_Period_1_End,
 
-            Meeting_Period_2_Days,
-            Meeting_Period_2_Start,
-            Meeting_Period_2_End,
+                Meeting_Period_2_Days,
+                Meeting_Period_2_Start,
+                Meeting_Period_2_End,
 
-            Meeting_Period_3_Days,
-            Meeting_Period_3_Start,
-            Meeting_Period_3_End
-        });
-        return response.status(200).json({ 
+                Meeting_Period_3_Days,
+                Meeting_Period_3_Start,
+                Meeting_Period_3_End
+            });
+        }   
+        return { 
             userSection,
             message: 'Thank you for your input',
-        });
+        };
     }
 
     async addInstructor({request}) 
     {
         const {Last_Name, Max_Course_Load} = request.all();
         console.log(Last_Name, Max_Course_Load);
-        const userInstructor = await AddInstructor.create(
-            {
-                Last_Name,
-                Max_Course_Load,
-            });
+
+        let userInstructor;
+        if (!(Last_Name == undefined && Max_Course_Load == undefined))
+        {
+            userInstructor = await AddInstructor.create(
+                {
+                    Last_Name,
+                    Max_Course_Load,
+                });
+            }
         //return{ userInstructor, message: 'Added ' + userInstructor.Last_Name + ' to the database'};
 
         let userDisciplineArea1;
@@ -139,7 +148,11 @@ class SetupController {
         const {Course_Reference_Number, Department_Code, Course_Number, Course_Title} = request.all();
         console.log(Course_Reference_Number, Department_Code, Course_Number, Course_Title)
 
-        const userCourse = await AddCourse.create({Course_Reference_Number, Department_Code, Course_Number, Course_Title});
+        let userCourse;
+        if (!(Course_Reference_Number == undefined && Department_Code == undefined && Course_Number == undefined && Course_Title == undefined && Course_Title == undefined))
+        {
+            userCourse = await AddCourse.create({Course_Reference_Number, Department_Code, Course_Number, Course_Title});
+        }
 
         let userDisciplineArea1;
         let userDisciplineArea2;
