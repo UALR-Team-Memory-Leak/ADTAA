@@ -4,14 +4,14 @@
         <img alt="UALRlogo" src="../assets/ualr.png">
     </div>
  <center>  
-<div class="tab">
-    <button id="openInstructors" class="tablinks" @click="openTab(event, 'InstructorsTab')">Instructors</button>
-    <button id="openCourses" class="tablinks" @click="openTab(event, 'CoursesTab')">Courses</button>
-    <button id="openSection" class="tablinks" @click="openTab(event, 'SectionsTab')">Sections</button>
+<div class="tab" style="padding-top: 25px;">
+    <button style="margin: 15px" id="openInstructors" class="tablinks" @click="openTab(event, 'InstructorsTab')">Instructors</button>
+    <button style="margin: 15px" id="openCourses" class="tablinks" @click="openTab(event, 'CoursesTab')">Courses</button>
+    <button style="margin: 15px" id="openSection" class="tablinks" @click="openTab(event, 'SectionsTab')">Sections</button>
 </div>
 <br>
 
-<div id="InstructorsTab" class="tabcontent" style="display: none">
+<div id="InstructorsTab" class="tabcontent" style="display: none; padding-bottom: 50px;">
   <dialog id="addInstructorDialogBox">
     <p>
       Input the data for the new instructor:
@@ -239,8 +239,9 @@
       <button type="button" onclick="let dialogBox = document.getElementById('modifyInstructorDialogBox'); dialogBox.close()">Cancel</button>
     </form>
   </dialog>
-
+  <div style="padding-bottom: 25px;">
   <button id="addInstructorButton">Add Instructor</button>
+  </div>
   <div class="instructors"></div>
   <br>
 </div>
@@ -754,6 +755,7 @@ export default ({
 
         let modifyInstructorButton = document.createElement("button")
         modifyInstructorButton.innerText = "Modify Instructor " + singleInstructor.id
+        modifyInstructorButton.style.margin = "10px"
         modifyInstructorButton.onclick = function () 
         {
           const modifyInstructorDialogBox = document.getElementById('modifyInstructorDialogBox')
