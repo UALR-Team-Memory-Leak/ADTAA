@@ -45,8 +45,8 @@ class ApprovalController {
             });
 
             // const Mail = use('Mail')
-            // await Mail.send('emails.welcome', {newUser}, (message) => {
-            //     console.log('The entire object: ' + newUser)
+            // await Mail.send('emails.welcome', {username}, (message) => {
+            //     console.log('The entire object: ' + username)
             //     message.from('memory.adtaa@gmail.com')
             //     message.to(newUser.email)
             //     console.log('Attempting to call email here: ' + newUser.email)
