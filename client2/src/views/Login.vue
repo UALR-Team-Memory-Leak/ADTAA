@@ -71,8 +71,8 @@ export default ({
                     this.saveRoleToStore(response.data.userRole[0].role);
                     axios.defaults.headers.common.Authorization = response.data.token.token
                        this.$router.push({path:'/homepage'});
-                }
-                return response.data;
+                } 
+                //return response.data;
           });
           
       },
