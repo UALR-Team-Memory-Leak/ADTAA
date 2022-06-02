@@ -63,12 +63,13 @@ export default ({
                `${url}/api/v0/auth/login`,
               {email: this.email, password: this.password}
           ).then((response) => {
+              //console.log(response.data.token.token)
                 if (response.data.token) {
                     localStorage.setItem('user', JSON.stringify(response.data));
-                    localStorage.setItem('token', JSON.stringify(response.data.token));
+                    localStorage.setItem('token', response.data.token.token);
                     localStorage.setItem('role', response.data.userRole[0].role);
                     this.saveRoleToStore(response.data.userRole[0].role);
-                    axios.defaults.headers.common.Authorization = response.data.token
+                    axios.defaults.headers.common.Authorization = response.data.token.token
                        this.$router.push({path:'/homepage'});
                 }
                 return response.data;
