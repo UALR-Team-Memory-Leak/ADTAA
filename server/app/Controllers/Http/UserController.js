@@ -7,16 +7,6 @@ class UserController {
     //Login method
     async login({request, auth, response }) {
         const { email, password } = request.all();
-        const checkUser = await Database
-            .query()
-            .from('users')
-            .where('email', email)
-            .select('id')
-        if (!checkUser.id) {
-            return response.status(404).json({
-                message: 'Email or Password is incorrect, please try again.',
-            })
-        }
         const token = await auth.attempt(email, password);
         const userRole = await Database 
             .query()
