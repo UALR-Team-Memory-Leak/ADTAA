@@ -61,6 +61,7 @@ export default ({
               `${url}/api/v0/auth/register`,
               {email: this.email, username:this.username, password: this.password}
           ).then((response) => {
+               this.$router.push({path:'/homepage'});
               console.log(response);
           });
       },

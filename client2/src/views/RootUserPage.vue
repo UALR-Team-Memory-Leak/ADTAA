@@ -20,7 +20,7 @@
             <form @submit.prevent="onApprove()">
            <div class="form-group">
                <label>ID</label>
-               <input type="ID" class="form-control" v-model="id"/>
+               <input type="text" class="form-control" v-model="id"/>
            </div>
            <div class="form-group">
                <label>Role</label>
@@ -48,14 +48,13 @@ import axios from "axios";
 export default ({
     name: "RootUserPage",
     components: {
-        // id: '',
-        // role: '',
-        // approve: '',
         ApproveList,
     },
     data() {
         return {
-
+            id: '',
+            role: '',
+            approve: '',
         };
       },
       methods: {
@@ -82,6 +81,7 @@ export default ({
                 }
               }    
           ).then((response) => {
+              this.$router.push({path:'/rootuserpage'});
               console.log(response);
               //axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
           });
