@@ -26,13 +26,10 @@
                <label>Role</label>
                <input type="text" class="form-control" v-model="role"/>
            </div>
-           <div class="form-group">
-               <label>Approve</label>
-               <input type="checkbox" v-model="approve"/>
-           </div>
 
            <div class="my-3">
-               <button type="submit" class="btn btn-primary">Register</button>
+               <button type="submit" class="btn btn-primary">Approve</button>
+               <button type="button" class="btn btn-primary" style="border: red; background-color:red; margin-left: 10px" @click="onDeny()">Deny</button>
            </div>
        </form>
         </div>
@@ -70,23 +67,44 @@ export default ({
     onApprove() { //why does this work?
     //const test = localStorage.getItem('token');
         var url = ''
-    if (process.env.NODE_ENV === 'development') {
-      url = 'http://localhost:3333'
-    } 
-    else {
-      url = 'https://test-adoni.herokuapp.com'
-    }
-          axios.post(`${url}/api/v0/approval/${this.id}`,
-              {id: this.id, role: this.role, approve: this.approve},{
-                    headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`
-                },
-              }    
-          ).then((response) => {
-             window.location.reload();
-              console.log(response);
-          });
+        if (process.env.NODE_ENV === 'development') {
+        url = 'http://localhost:3333'
+        } 
+        else {
+        url = 'https://test-adoni.herokuapp.com'
+        }
+        axios.post(`${url}/api/v0/approval/${this.id}`,
+            {id: this.id, role: this.role, approve: true},{
+                headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+            },
+            }    
+        ).then((response) => {
+            window.location.reload();
+            console.log(response);
+        });
       },
+      onDeny()
+      {
+        console.log('hi')
+        var url = ''
+        if (process.env.NODE_ENV === 'development') {
+        url = 'http://localhost:3333'
+        } 
+        else {
+        url = 'https://test-adoni.herokuapp.com'
+        }
+        axios.post(`${url}/api/v0/approval/${this.id}`,
+            {id: this.id, role: this.role, approve: false},{
+                headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+            },
+            }    
+        ).then((response) => {
+            window.location.reload();
+            console.log(response);
+        });
+      }
     }
       
     });
