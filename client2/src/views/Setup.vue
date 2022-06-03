@@ -59,11 +59,11 @@
     <form method="dialog" @submit="onAddInstructor()">
       <div class="form-group">
         <label for="add_last_name">Last Name</label>
-        <input type="text" class="form-control" name="add_last_name" v-model="add_last_name"/>
+        <input type="text" class="form-control" name="add_last_name" v-model="add_last_name" required/>
       </div>
       <div class="form-group">
         <label for="add_max_course_load">Max Course Load</label>
-        <input type="number" class="form-control" name="add_max_course_load" v-model="add_max_course_load" min="0" max="10"/>
+        <input type="number" class="form-control" name="add_max_course_load" v-model="add_max_course_load" min="0" max="10" required/>
       </div>
       <div class="form-group">
         <label for="add_instructor_discipline_area1">Discipline Area 1</label>
@@ -173,11 +173,11 @@
     <form method="dialog" @submit="onModifyInstructor()">
       <div class="form-group">
         <label for="modify_last_name">Last Name</label>
-        <input type="text" class="form-control" name="modify_last_name" id ="modify_last_name"/>
+        <input type="text" class="form-control" name="modify_last_name" id ="modify_last_name" required/>
       </div>
       <div class="form-group">
         <label for="modify_max_course_load">Max Course Load</label>
-        <input type="number" class="form-control" name="modify_max_course_load" id="modify_max_course_load" min="0" max="10"/>
+        <input type="number" class="form-control" name="modify_max_course_load" id="modify_max_course_load" min="0" max="10" required/>
       </div>
       <div class="form-group">
         <label for="modify_instructor_discipline_area1">Discipline Area 1</label>
@@ -294,19 +294,19 @@
     <form method="dialog" @submit="onAddCourse()">
       <div class="form-group">
         <label for="add_course_reference_number">Course Reference Number</label>
-        <input type="number" class="form-control" name="add_course_reference_number" v-model="add_course_reference_number" min="100" max="500"/>
+        <input type="number" class="form-control" name="add_course_reference_number" v-model="add_course_reference_number" min="100" max="500" required/>
       </div>
       <div class="form-group">
         <label for="add_department_code">Department Code</label>
-        <input type="text" class="form-control" name="add_department_code" v-model="add_department_code"/>
+        <input type="text" class="form-control" name="add_department_code" v-model="add_department_code" required/>
       </div>
       <div class="form-group">
         <label for="add_course_number">Course Number</label>
-        <input type="number" class="form-control" name="add_course_number" v-model="add_course_number" min="1000" max="9999"/>
+        <input type="number" class="form-control" name="add_course_number" v-model="add_course_number" min="1000" max="9999" required/>
       </div>
       <div>
         <label for="add_course_title">Course Title</label>
-        <input type="text" class="form-control" name="add_course_title" v-model="add_course_title"/>
+        <input type="text" class="form-control" name="add_course_title" v-model="add_course_title" required/>
       </div>
       <div class="form-group">
         <label for="add_course_discipline_area1">Discipline Area 1</label>
@@ -416,19 +416,19 @@
     <form method="dialog" @submit="onModifyCourse()">
       <div class="form-group">
         <label for="modify_course_reference_number">Course Reference Number</label>
-        <input type="number" class="form-control" name="modify_course_reference_number" id="modify_course_reference_number" min="100" max="500"/>
+        <input type="number" class="form-control" name="modify_course_reference_number" id="modify_course_reference_number" min="100" max="500" required/>
       </div>
       <div class="form-group">
         <label for="modify_department_code">Department Code</label>
-        <input type="text" class="form-control" name="modify_department_code" id="modify_department_code"/>
+        <input type="text" class="form-control" name="modify_department_code" id="modify_department_code" required/>
       </div>
       <div class="form-group">
         <label for="modify_course_number">Course Number</label>
-        <input type="number" class="form-control" name="modify_course_number" id="modify_course_number" min="1000" max="9999"/>
+        <input type="number" class="form-control" name="modify_course_number" id="modify_course_number" min="1000" max="9999" required/>
       </div>
       <div>
         <label for="modify_course_title">Course Title</label>
-        <input type="text" class="form-control" name="modify_course_title" id="modify_course_title"/>
+        <input type="text" class="form-control" name="modify_course_title" id="modify_course_title" required/>
       </div>
       <div class="form-group">
         <label for="modify_course_discipline_area1">Discipline Area 1</label>
@@ -546,11 +546,11 @@
     <form method="dialog" @submit="onAddSection()">
       <div class="form-group">
         <label for="add_section_CRN">Course Reference Number</label>
-        <input type="number" class="form-control" name="add_section_CRN" v-model="add_section_CRN" min="100" max="500"/>
+        <input type="number" class="form-control" name="add_section_CRN" v-model="add_section_CRN" min="100" max="500" required/>
       </div>
       <div class="form-group">
         <label for="add_section_number">Section Number</label>
-        <input type="number" class="form-control" name="add_section_number" v-model="add_section_number" min="1" max="10"/>
+        <input type="number" class="form-control" name="add_section_number" v-model="add_section_number" min="1" max="10" required/>
       </div>
       <div class="form-group">
           <label for="add_section_period_1_days">Period 1 Days</label>
@@ -657,11 +657,11 @@
     <form method="dialog" @submit="onModifySection()">
       <div class="form-group">
         <label for="modify_section_CRN">Course Reference Number</label>
-        <input type="number" class="form-control" name="modify_section_CRN" id="modify_section_CRN" min="100" max="500"/>
+        <input type="number" class="form-control" name="modify_section_CRN" id="modify_section_CRN" min="100" max="500" required/>
       </div>
       <div class="form-group">
         <label for="modify_section_number">Section Number</label>
-        <input type="number" class="form-control" name="modify_section_number" id="modify_section_number" min="1" max="10"/>
+        <input type="number" class="form-control" name="modify_section_number" id="modify_section_number" min="1" max="10" required/>
       </div>
       <div class="form-group">
           <label for="modify_section_period_1_days">Period 1 Days</label>
