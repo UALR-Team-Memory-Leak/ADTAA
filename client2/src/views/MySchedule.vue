@@ -87,7 +87,7 @@ const getSchedules = () => {
     } else {
       url = 'https://test-adoni.herokuapp.com'
     }
-  fetch(`${url}/api/v0/assistant/scheduler`)
+  fetch(`${url}/api/v0/assistant/scheduler`, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
   .then(res => res.json())
   .then(sections => {
     createScheduleTable()

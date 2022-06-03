@@ -246,7 +246,7 @@
   <br>
 </div>
 
-<div id="CoursesTab" class="tabcontent" style="display: none">
+<div id="CoursesTab" class="tabcontent" style="display: none; padding-bottom: 50px;">
   <dialog id="addCourseDialogBox">
     <p>
       Input the data for the new course:
@@ -497,7 +497,7 @@
   <div class="courses"></div>
 </div>
 
-<div id="SectionsTab" class="tabcontent" style="display: none">
+<div id="SectionsTab" class="tabcontent" style="display: none; padding-bottom: 50px;">
 
   <dialog id="addSectionDialogBox">
     <p>
@@ -1047,7 +1047,7 @@ export default ({
           Discipline_ID_2: disciplineID2, 
           Discipline_ID_3: disciplineID3, 
           Discipline_ID_4: disciplineID4
-        })
+        }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
         .then((response) => 
         {
           console.log(response)
@@ -1085,7 +1085,7 @@ export default ({
           Discipline_ID_2: disciplineID2, 
           Discipline_ID_3: disciplineID3, 
           Discipline_ID_4: disciplineID4
-        })
+        }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
         .then((response) =>
         {
           console.log(response)
@@ -1240,7 +1240,7 @@ export default ({
         deleteInstructorButton.style.border = "red"
         deleteInstructorButton.onclick = function () {
           alert("Instructor " + singleInstructor.id + " deleted")
-          axios.delete(`${url}/api/v0/setup/delete-instructor/` + singleInstructor.id)
+          axios.delete(`${url}/api/v0/setup/delete-instructor/` + singleInstructor.id, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
         }
 
         instructorTableByBodyRow.append(instructorID, instructorLastName, instructorMaxLoad, instructorDisciplineArea1, instructorDisciplineArea2, instructorDisciplineArea3, instructorDisciplineArea4, modifyInstructorButton, deleteInstructorButton)
@@ -1248,7 +1248,14 @@ export default ({
       },
 
       getInstructors() {
-        fetch('http://localhost:3333/api/v0/setup/instructors')
+        var url = ''
+        if (process.env.NODE_ENV === 'development') {
+          url = 'http://localhost:3333'
+        } 
+        else {
+          url = 'https://test-adoni.herokuapp.com'
+        }
+        fetch(`${url}/api/v0/setup/instructors`, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
         .then(res => res.json())
         .then(instructors => {
           this.createInstructorTable()
@@ -1287,7 +1294,7 @@ export default ({
           Discipline_ID_2: disciplineID2, 
           Discipline_ID_3: disciplineID3, 
           Discipline_ID_4: disciplineID4
-        })
+        }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
         .then((response) => 
         {
           console.log(response)
@@ -1328,7 +1335,7 @@ export default ({
           Discipline_ID_2: disciplineID2, 
           Discipline_ID_3: disciplineID3, 
           Discipline_ID_4: disciplineID4
-        })
+        }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
         .then((response) =>
         {
           console.log(response)
@@ -1495,7 +1502,7 @@ export default ({
         deleteCourseButton.style.border = "red"
         deleteCourseButton.onclick = function () {
           alert("Course " + singleCourse.Course_Reference_Number + " deleted")
-          axios.delete(`${url}/api/v0/setup/delete-course/` + singleCourse.Course_Reference_Number)
+          axios.delete(`${url}/api/v0/setup/delete-course/` + singleCourse.Course_Reference_Number, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
         }
 
         courseTableByBodyRow.append(courseCRN, courseDepartmentCode, courseNumber, courseTitle, courseDisciplineArea1, courseDisciplineArea2, courseDisciplineArea3, courseDisciplineArea4, modifyCourseButton, deleteCourseButton)
@@ -1510,7 +1517,7 @@ export default ({
         else {
           url = 'https://test-adoni.herokuapp.com'
         }
-        fetch(`${url}/api/v0/setup/courses`)
+        fetch(`${url}/api/v0/setup/courses`, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
         .then(res => res.json())
         .then(courses => {
           this.createCourseTable()
@@ -1569,7 +1576,7 @@ export default ({
           Meeting_Period_3_Start: period3StartTime,
           Meeting_Period_3_End: period3EndTime
 
-        })
+        }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
         .then((response) => 
         {
           console.log(response)
@@ -1623,7 +1630,7 @@ export default ({
           Meeting_Period_3_Start: startTime3,
           Meeting_Period_3_End: endTime3
 
-        })
+        }, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
         .then((response) => 
         {
           console.log(response)
@@ -1802,7 +1809,7 @@ export default ({
         deleteSectionButton.style.border = "red"
         deleteSectionButton.onclick = function () {
           alert("Section " + singleSection.id + " deleted")
-          axios.delete(`${url}/api/v0/setup/delete-section/` + singleSection.id)
+          axios.delete(`${url}/api/v0/setup/delete-section/` + singleSection.id, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
         }
 
         sectionTableByBodyRow.append(sectionID, sectionCRN, sectionNumber, period1, period2, period3, modifySectionButton, deleteSectionButton)
@@ -1817,7 +1824,7 @@ export default ({
         else {
           url = 'https://test-adoni.herokuapp.com'
         }
-        fetch(`${url}/api/v0/setup/sections`)
+        fetch(`${url}/api/v0/setup/sections`, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
         .then(res => res.json())
         .then(sections => {
           this.createSectionTable()
