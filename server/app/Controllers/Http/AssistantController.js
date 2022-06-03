@@ -46,7 +46,12 @@ function convertToTime(time)
 {
     let tempHour;
     let tempMinute;
-    if (time.toString().length == 3)
+    if (time.toString().length == 1 || time.toString().length == 2)
+    {
+        tempHour = 0;
+        tempMinute = time.toString();
+    }
+    else if (time.toString().length == 3)
     {
         tempHour = time.toString().substr(0, 1);
         tempMinute = time.toString().substr(1, 2);

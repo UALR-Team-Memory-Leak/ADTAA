@@ -240,7 +240,7 @@
     </form>
   </dialog>
   <div style="padding-bottom: 25px;">
-  <button id="addInstructorButton" class="btn btn-primary">Add Instructor</button>
+    <button id="addInstructorButton" class="btn btn-primary">Add Instructor</button>
   </div>
   <div class="instructors"></div>
   <br>
@@ -491,12 +491,128 @@
     </form>
   </dialog>
 
-  <button id="addCourseButton" class="btn btn-primary">Add Course</button>
+  <div style="padding-bottom: 25px;">
+    <button id="addCourseButton" class="btn btn-primary">Add Course</button>
+  </div>
   <div class="courses"></div>
-
 </div>
+
 <div id="SectionsTab" class="tabcontent" style="display: none">
-  <button id="addSectionButton">Add Section</button>
+
+  <dialog id="addSectionDialogBox">
+    <p>
+      Input the data for the new section:
+    </p>
+    <form method="dialog" @submit="onAddSection()">
+      <div class="form-group">
+        <label for="add_section_CRN">Course Reference Number</label>
+        <input type="number" class="form-control" name="add_section_CRN" v-model="add_section_CRN" min="100" max="500"/>
+      </div>
+      <div class="form-group">
+        <label for="add_section_number">Section Number</label>
+        <input type="number" class="form-control" name="add_section_number" v-model="add_section_number" min="1" max="10"/>
+      </div>
+      <div class="form-group">
+          <label for="add_section_period_1_days">Period 1 Days</label>
+          <br>
+          <select v-model="add_section_period_1_days" name="add_section_period_1_days" style="width: 100%;">
+            <option value="None">None</option>
+            <option value="Mon">Mon</option>
+            <option value="Mon/Tues">Mon/Tues</option>
+            <option value="Mon/Wed">Mon/Wed</option>
+            <option value="Mon/Thurs">Mon/Thurs</option>
+            <option value="Mon/Fri">Mon/Fri</option>
+            <option value="Tues">Tues</option>
+            <option value="Tues/Wed">Tues/Wed</option>
+            <option value="Tues/Thurs">Tues/Thurs</option>
+            <option value="Tues/Fri">Tues/Fri</option>
+            <option value="Wed">Wed</option>
+            <option value="Wed/Thurs">Wed/Thurs</option>
+            <option value="Wed/Fri">Wed/Fri</option>
+            <option value="Thurs">Thurs</option>
+            <option value="Thurs/Fri">Thurs/Fri</option>
+            <option value="Fri">Fri</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="add_section_period_1_start_time">Period 1 Start Time</label>
+        <input type="time" class="form-control" name="add_section_period_1_start_time" v-model="add_section_period_1_start_time"/>
+      </div>
+      <div class="form-group">
+        <label for="add_section_period_1_end_time">Period 1 End Time</label>
+        <input type="time" class="form-control" name="add_section_period_1_end_time" v-model="add_section_period_1_end_time"/>
+      </div>
+
+      <div class="form-group">
+          <label for="add_section_period_2_days">Period 2 Days</label>
+          <br>
+          <select v-model="add_section_period_2_days" name="add_section_period_2_days" style="width: 100%;">
+            <option value="None">None</option>
+            <option value="Mon">Mon</option>
+            <option value="Mon/Tues">Mon/Tues</option>
+            <option value="Mon/Wed">Mon/Wed</option>
+            <option value="Mon/Thurs">Mon/Thurs</option>
+            <option value="Mon/Fri">Mon/Fri</option>
+            <option value="Tues">Tues</option>
+            <option value="Tues/Wed">Tues/Wed</option>
+            <option value="Tues/Thurs">Tues/Thurs</option>
+            <option value="Tues/Fri">Tues/Fri</option>
+            <option value="Wed">Wed</option>
+            <option value="Wed/Thurs">Wed/Thurs</option>
+            <option value="Wed/Fri">Wed/Fri</option>
+            <option value="Thurs">Thurs</option>
+            <option value="Thurs/Fri">Thurs/Fri</option>
+            <option value="Fri">Fri</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="add_section_period_2_start_time">Period 2 Start Time</label>
+        <input type="time" class="form-control" name="add_section_period_2_start_time" v-model="add_section_period_2_start_time"/>
+      </div>
+      <div class="form-group">
+        <label for="add_section_period_2_end_time">Period 2 End Time</label>
+        <input type="time" class="form-control" name="add_section_period_2_end_time" v-model="add_section_period_2_end_time"/>
+      </div>
+
+      <div class="form-group">
+          <label for="add_section_period_3_days">Period 3 Days</label>
+          <br>
+          <select v-model="add_section_period_3_days" name="add_section_period_3_days" style="width: 100%;">
+            <option value="None">None</option>
+            <option value="Mon">Mon</option>
+            <option value="Mon/Tues">Mon/Tues</option>
+            <option value="Mon/Wed">Mon/Wed</option>
+            <option value="Mon/Thurs">Mon/Thurs</option>
+            <option value="Mon/Fri">Mon/Fri</option>
+            <option value="Tues">Tues</option>
+            <option value="Tues/Wed">Tues/Wed</option>
+            <option value="Tues/Thurs">Tues/Thurs</option>
+            <option value="Tues/Fri">Tues/Fri</option>
+            <option value="Wed">Wed</option>
+            <option value="Wed/Thurs">Wed/Thurs</option>
+            <option value="Wed/Fri">Wed/Fri</option>
+            <option value="Thurs">Thurs</option>
+            <option value="Thurs/Fri">Thurs/Fri</option>
+            <option value="Fri">Fri</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="add_section_period_3_start_time">Period 3 Start Time</label>
+        <input type="time" class="form-control" name="add_section_period_3_start_time" v-model="add_section_period_3_start_time"/>
+      </div>
+      <div class="form-group">
+        <label for="add_section_period_3_end_time">Period 3 End Time</label>
+        <input type="time" class="form-control" name="add_section_period_3_end_time" v-model="add_section_period_3_end_time"/>
+      </div>
+      
+      <button type="submit" class="btn btn-primary" style="margin: 10px;" value="submit">Submit</button>
+      <button type="button" class="btn btn-primary" style="background-color: red; border-color: red" onclick="let dialogBox = document.getElementById('addSectionDialogBox'); dialogBox.close()">Cancel</button>
+    </form>
+  </dialog>
+
+  <div style="padding-bottom: 25px;">
+    <button id="addSectionButton" class="btn btn-primary">Add Section</button>
+  </div>
   <div class="sections"></div>
 
 </div>
@@ -535,11 +651,21 @@ export default ({
         addCourseDialogBox.showModal()
       }
 
+      //Add Section
+      const addSectionButton = document.getElementById('addSectionButton')
+      const addSectionDialogBox = document.getElementById('addSectionDialogBox')
+
+      addSectionButton.onclick = function()
+      {
+        addSectionDialogBox.showModal()
+      }
+
       //List data and set default tab
       this.$nextTick(function ()
       {
         this.getInstructors()
         this.getCourses()
+        this.getSections()
         this.openTab(event, 'InstructorsTab')
       })
     },
@@ -548,7 +674,6 @@ export default ({
       //Tab Management
       openTab(evt, dataName)
       {
-        console.log("wow")
         var i, tabcontent, tablinks
         tabcontent = document.getElementsByClassName("tabcontent")
         for (i = 0; i < tabcontent.length; i++)
@@ -608,6 +733,148 @@ export default ({
           default:
             return undefined;
         }
+      },
+
+      convertToDaysString(daysInteger)
+      {
+          switch(daysInteger)
+          {
+            case 16:
+                return "Mon";
+            case 24:
+                return "Mon/Tues";
+            case 20:
+                return "Mon/Wed";
+            case 18:
+                return "Mon/Thurs";
+            case 17:
+                return "Mon/Fri";
+            case 8:
+                return "Tues";
+            case 12:
+                return "Tues/Wed";
+            case 10:
+                return "Tues/Thurs";
+            case 9:
+                return "Tues/Fri";
+            case 4:
+                return "Wed";
+            case 6:
+                return "Wed/Thurs";
+            case 5:
+                return "Wed/Fri";
+            case 2:
+                return "Thurs";
+            case 3:
+                return "Thurs/Fri";
+            case 1:
+                return "Fri";
+            default:
+              return "None";
+          }
+      },
+
+      convertToDaysInteger(daysString)
+      {
+        switch(daysString)
+        {
+          case "None":
+            return undefined;
+          case "Mon":
+            return 16;
+          case "Mon/Tues":
+            return 24;
+          case "Mon/Wed":
+            return 20;
+          case "Mon/Thurs":
+            return 18;
+          case "Mon/Fri":
+            return 17;
+          case "Tues":
+            return 8;
+          case "Tues/Wed":
+            return 12;
+          case "Tues/Thurs":
+            return 10;
+          case "Wed":
+            return 4;
+          case "Wed/Thurs":
+            return 6;
+          case "Wed/Fri":
+            return 5;
+          case "Thurs":
+            return 2;
+          case "Thurs/Fri":
+            return 3;
+          case "Fri":
+            return 1;
+          default:
+            return undefined;
+        }
+      },
+
+      convertToPrintedTime(time)
+      {
+          let tempHour;
+          let tempMinute;
+          let pmOrAm
+          if (time == undefined)
+          {
+              return ("12:00am")
+          }
+          if (time.toString().length == 1)
+          {
+              tempHour = 0;
+              tempMinute = "0" + time.toString();
+          }
+          else if (time.toString().length == 2)
+          {
+              tempHour = 0;
+              tempMinute = time.toString();
+          }
+          else if (time.toString().length == 3)
+          {
+              tempHour = time.toString().substr(0, 1);
+              tempMinute = time.toString().substr(1, 2);
+          }
+          else if (time.toString().length == 4)
+          {
+              tempHour = time.toString().substr(0, 2);
+              tempMinute= time.toString().substr(2, 2);
+                  
+          }
+
+          if (tempHour > 12)
+          {
+              pmOrAm = "pm";
+              tempHour -= 12;
+          }
+          else if (tempHour == 12)
+          {
+              pmOrAm = "pm"
+          }
+          else if(tempHour == 0)
+          {
+              pmOrAm = "am"
+              tempHour += 12
+          }
+          else
+          {
+            pmOrAm = "am"
+          }
+
+          return (tempHour +":" + tempMinute + pmOrAm);
+      },
+
+      convertToDatabaseTime(time)
+      {
+        if (time == undefined)
+        {
+          return undefined;
+        }
+        let tempHour = time.toString().substr(0, 2);
+        let tempMinute = time.toString().substr(3, 2);
+        return (parseInt(tempHour.toString() + tempMinute.toString()));
       },
 
       //Instructor Functions
@@ -1039,7 +1306,7 @@ export default ({
         }
 
         let modifyCourseButton = document.createElement("button")
-        modifyCourseButton.innerText = "Modify Course " + singleCourse.id
+        modifyCourseButton.innerText = "Modify Course " + singleCourse.Course_Reference_Number
         modifyCourseButton.style.margin = "10px"
         modifyCourseButton.className = "btn btn-primary"
         modifyCourseButton.onclick = function () 
@@ -1082,7 +1349,7 @@ export default ({
         deleteCourseButton.style.backgroundColor = "red"
         deleteCourseButton.style.border = "red"
         deleteCourseButton.onclick = function () {
-          alert("Course " + singleCourse.id + " deleted")
+          alert("Course " + singleCourse.Course_Reference_Number + " deleted")
           axios.delete(`${url}/api/v0/setup/delete-course/` + singleCourse.Course_Reference_Number)
         }
 
@@ -1110,6 +1377,244 @@ export default ({
           }
         })
       },
+
+      //Section Functions
+      onAddSection()
+      {
+        var url = ''
+        if (process.env.NODE_ENV === 'development') {
+          url = 'http://localhost:3333'
+        } 
+        else {
+          url = 'https://test-adoni.herokuapp.com'
+        }
+        console.log(
+            this.add_section_CRN, 
+            this.add_section_number, 
+            this.add_section_period_1_days, this.add_section_period_1_start_time, this.add_section_period_1_end_time,
+            this.add_section_period_2_days, this.add_section_period_2_start_time, this.add_section_period_2_end_time,
+            this.add_section_period_3_days, this.add_section_period_3_start_time, this.add_section_period_3_end_time
+        )
+        let period1Days = this.convertToDaysInteger(this.add_section_period_1_days)
+        let period1StartTime = this.convertToDatabaseTime(this.add_section_period_1_start_time)
+        let period1EndTime = this.convertToDatabaseTime(this.add_section_period_1_end_time)
+
+        let period2Days = this.convertToDaysInteger(this.add_section_period_2_days)
+        let period2StartTime = this.convertToDatabaseTime(this.add_section_period_2_start_time)
+        let period2EndTime = this.convertToDatabaseTime(this.add_section_period_2_end_time)
+
+        let period3Days = this.convertToDaysInteger(this.add_section_period_3_days)
+        let period3StartTime = this.convertToDatabaseTime(this.add_section_period_3_start_time)
+        let period3EndTime = this.convertToDatabaseTime(this.add_section_period_3_end_time)
+       
+        axios.post(`${url}/api/v0/setup/addSection`, 
+        {
+          Course_Reference_Number: this.add_section_CRN, 
+          Section_Number: this.add_section_number,
+
+          Meeting_Period_1_Days: period1Days,
+          Meeting_Period_1_Start: period1StartTime,
+          Meeting_Period_1_End: period1EndTime,
+
+          Meeting_Period_2_Days: period2Days,
+          Meeting_Period_2_Start: period2StartTime,
+          Meeting_Period_2_End: period2EndTime,
+
+          Meeting_Period_3_Days: period3Days,
+          Meeting_Period_3_Start: period3StartTime,
+          Meeting_Period_3_End: period3EndTime
+
+        })
+        .then((response) => 
+        {
+          console.log(response)
+        })     
+      },
+
+
+      //Section Importing
+      createSectionTable() {
+        const sectionDiv = document.querySelector('div.sections')
+        let tableHeaders = ["ID", "CRN","Section Number", "Period 1", "Period 2", "Period 3",]
+        while (sectionDiv.firstChild)
+        {
+          sectionDiv.removeChild(sectionDiv.firstChild);
+        }
+
+          let sectionTable = document.createElement('table')
+          sectionTable.className = 'sectionTable'
+
+          let sectionTableHead = document.createElement('thead')
+          sectionTableHead.className = 'sectionTableHead'
+
+          let sectionTableHeaderRow = document.createElement('tr')
+          sectionTableHeaderRow.className = 'sectionTableHeaderRow'
+
+        tableHeaders.forEach(header => {
+          let sectionHeader = document.createElement('th')
+          sectionHeader.innerText = header
+          sectionHeader.style.textAlign = 'center'
+          sectionHeader.style.padding = '10px'
+          sectionTableHeaderRow.append(sectionHeader)
+        })
+        
+        sectionTableHead.append(sectionTableHeaderRow)
+        sectionTable.append(sectionTableHead)
+
+        let sectionTableBody = document.createElement('tbody')
+        sectionTableBody.className = 'sectionTable-Body'
+        sectionTable.append(sectionTableBody)
+
+        sectionDiv.append(sectionTable)
+      },
+
+      appendSections(singleSection) {
+        var url = ''
+        if (process.env.NODE_ENV === 'development') {
+          url = 'http://localhost:3333'
+        } 
+        else {
+          url = 'https://test-adoni.herokuapp.com'
+        }
+
+        const sectionTable = document.querySelector('.sectionTable')
+
+        let sectionTableByBodyRow = document.createElement('tr')
+        sectionTableByBodyRow.className = 'sectionTableByBodyRow'
+
+        let sectionID = document.createElement('td')
+        sectionID.innerText = singleSection.id
+        sectionID.style.textAlign = 'center'
+
+        let sectionCRN = document.createElement('td')
+        sectionCRN.innerText = singleSection.Course_Reference_Number
+        sectionCRN.style.textAlign = 'center'
+
+        let sectionNumber = document.createElement('td')
+        sectionNumber.innerText = singleSection.Section_Number
+        sectionNumber.style.textAlign = 'center'
+
+        let period1 = document.createElement('td')
+        period1.style.textAlign = 'center'
+        period1.style.width = '15em'
+        if (singleSection.Meeting_Period_1_Days == undefined && singleSection.Meeting_Period_1_Start == undefined && singleSection.Meeting_Period_1_End == undefined)
+        {
+            period1.innerText = ""
+        }
+        else
+        {
+            period1.innerText = this.convertToDaysString(singleSection.Meeting_Period_1_Days) + ": " + this.convertToPrintedTime(singleSection.Meeting_Period_1_Start) + "-" + this.convertToPrintedTime(singleSection.Meeting_Period_1_End)
+        }
+
+        let period2 = document.createElement('td')
+        period2.style.textAlign = 'center'
+        period2.style.width = '15em'
+        if (singleSection.Meeting_Period_2_Days == undefined && singleSection.Meeting_Period_2_Start == undefined && singleSection.Meeting_Period_2_End == undefined)
+        {
+            period2.innerText = ""
+        }
+        else
+        {
+            period2.innerText = this.convertToDaysString(singleSection.Meeting_Period_2_Days) + ": " + this.convertToPrintedTime(singleSection.Meeting_Period_2_Start) + "-" + this.convertToPrintedTime(singleSection.Meeting_Period_2_End)
+        }
+
+        let period3 = document.createElement('td')
+        period3.style.textAlign = 'center'
+        period3.style.width = '15em'
+        if (singleSection.Meeting_Period_3_Days == undefined && singleSection.Meeting_Period_3_Start == undefined && singleSection.Meeting_Period_3_End == undefined)
+        {
+            period3.innerText = ""
+        }
+        else
+        {
+            period3.innerText = this.convertToDaysString(singleSection.Meeting_Period_3_Days) + ": " + this.convertToPrintedTime(singleSection.Meeting_Period_3_Start) + "-" + this.convertToPrintedTime(singleSection.Meeting_Period_3_End)
+        }
+        
+
+        let modifySectionButton = document.createElement("button")
+        modifySectionButton.innerText = "Modify Section " + singleSection.id
+        modifySectionButton.style.margin = "10px"
+        modifySectionButton.className = "btn btn-primary"
+        modifySectionButton.onclick = function () 
+        {
+          /*
+          const modifySectionDialogBox = document.getElementById('modifySectionDialogBox')
+
+          const CRNField = document.getElementById("modify_section_CRN")
+          CRNField.value = singleSection.Course_Reference_Number
+
+          const sectionNumberField = document.getElementById("modify_section_number")
+          sectionNumberField.value = singleSection.Section_Number
+
+          const daysField1 = document.getElementById("modify_section_period_1_days")
+          daysField1.value = singleSection.Meeting_Period_1_Days
+
+          const startTimeField1 = document.getElementById("modify_section_period_1_start_time")
+          startTimeField1 = singleSection.Meeting_Period_1_Start
+
+          const endTimeField1 = document.getElementById("modify_section_period_1_end_time")
+          endTimeField1 = singleSection.Meeting_Period_1_End
+
+          const daysField2 = document.getElementById("modify_section_period_2_days")
+          daysField2.value = singleSection.Meeting_Period_1_Days
+
+          const startTimeField2 = document.getElementById("modify_section_period_2_start_time")
+          startTimeField2 = singleSection.Meeting_Period_1_Start
+
+          const endTimeField2 = document.getElementById("modify_section_period_2_end_time")
+          endTimeField2 = singleSection.Meeting_Period_1_End
+
+          const daysField3 = document.getElementById("modify_section_period_3_days")
+          daysField3.value = singleSection.Meeting_Period_1_Days
+
+          const startTimeField3 = document.getElementById("modify_section_period_3_start_time")
+          startTimeField3 = singleSection.Meeting_Period_1_Start
+
+          const endTimeField3 = document.getElementById("modify_section_period_3_end_time")
+          endTimeField3 = singleSection.Meeting_Period_1_End
+
+          currentSectionID = singleSection.id
+          console.log(currentSectionID)
+
+          modifySectionDialogBox.showModal()
+          */
+        }
+
+        let deleteSectionButton = document.createElement("button")
+        deleteSectionButton.innerText = "Delete Section " + singleSection.id
+        deleteSectionButton.className = "btn btn-primary"
+        deleteSectionButton.style.backgroundColor = "red"
+        deleteSectionButton.style.border = "red"
+        deleteSectionButton.onclick = function () {
+          alert("Section " + singleSection.id + " deleted")
+          axios.delete(`${url}/api/v0/setup/delete-section/` + singleSection.id)
+        }
+
+        sectionTableByBodyRow.append(sectionID, sectionCRN, sectionNumber, period1, period2, period3, modifySectionButton, deleteSectionButton)
+        sectionTable.append(sectionTableByBodyRow)
+      },
+
+      getSections() {
+        var url = ''
+        if (process.env.NODE_ENV === 'development') {
+          url = 'http://localhost:3333'
+        } 
+        else {
+          url = 'https://test-adoni.herokuapp.com'
+        }
+        fetch(`${url}/api/v0/setup/sections`)
+        .then(res => res.json())
+        .then(sections => {
+          this.createSectionTable()
+
+          for (const section of sections) {
+            let sectionIndex = sections.indexOf(section) + 1
+            console.log(section)
+            this.appendSections(section, sectionIndex)
+          }
+        })
+      },
+
     }
 })
 
