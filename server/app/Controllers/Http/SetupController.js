@@ -494,7 +494,7 @@ class SetupController {
         return{message: "Course_id: "+ params.CRN + " has been updated."}
     }
 
-    async deleteSection({request, params}) {
+    async deleteSection({request, params, response}) {
         await Database
             .query()
             .from('sections')

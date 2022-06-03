@@ -732,7 +732,7 @@
 </template>
 
 <script>
-  import axios from "axios";  
+  import axios from "axios";
 
   //Global Variables
   var currentInstructorID
@@ -1051,6 +1051,7 @@ export default ({
         .then((response) => 
         {
           console.log(response)
+          this.getInstructors()
         })
        
       },
@@ -1089,6 +1090,7 @@ export default ({
         .then((response) =>
         {
           console.log(response)
+          this.getInstructors()
         })
       },
 
@@ -1232,15 +1234,20 @@ export default ({
 
           modifyInstructorDialogBox.showModal()
         }
-
+        
+        let setup = this
         let deleteInstructorButton = document.createElement("button")
         deleteInstructorButton.innerText = "Delete Instructor " + singleInstructor.id
         deleteInstructorButton.className = "btn btn-primary"
         deleteInstructorButton.style.backgroundColor = "red"
         deleteInstructorButton.style.border = "red"
         deleteInstructorButton.onclick = function () {
-          alert("Instructor " + singleInstructor.id + " deleted")
           axios.delete(`${url}/api/v0/setup/delete-instructor/` + singleInstructor.id, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
+          .then((response) =>
+          {
+            console.log(response)
+            setup.getInstructors()
+          })
         }
 
         instructorTableByBodyRow.append(instructorID, instructorLastName, instructorMaxLoad, instructorDisciplineArea1, instructorDisciplineArea2, instructorDisciplineArea3, instructorDisciplineArea4, modifyInstructorButton, deleteInstructorButton)
@@ -1298,6 +1305,7 @@ export default ({
         .then((response) => 
         {
           console.log(response)
+          this.getCourses()
         })       
       },
 
@@ -1339,6 +1347,7 @@ export default ({
         .then((response) =>
         {
           console.log(response)
+          this.getCourses()
         })
       },
 
@@ -1495,14 +1504,19 @@ export default ({
           modifyCourseDialogBox.showModal()
         }
 
+        let setup = this
         let deleteCourseButton = document.createElement("button")
         deleteCourseButton.innerText = "Delete Course " + singleCourse.Course_Reference_Number
         deleteCourseButton.className = "btn btn-primary"
         deleteCourseButton.style.backgroundColor = "red"
         deleteCourseButton.style.border = "red"
         deleteCourseButton.onclick = function () {
-          alert("Course " + singleCourse.Course_Reference_Number + " deleted")
           axios.delete(`${url}/api/v0/setup/delete-course/` + singleCourse.Course_Reference_Number, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
+          .then((response) =>
+          {
+            console.log(response)
+            setup.getCourses()
+          })
         }
 
         courseTableByBodyRow.append(courseCRN, courseDepartmentCode, courseNumber, courseTitle, courseDisciplineArea1, courseDisciplineArea2, courseDisciplineArea3, courseDisciplineArea4, modifyCourseButton, deleteCourseButton)
@@ -1580,6 +1594,7 @@ export default ({
         .then((response) => 
         {
           console.log(response)
+          this.getSections()
         })     
       },
 
@@ -1634,6 +1649,7 @@ export default ({
         .then((response) => 
         {
           console.log(response)
+          this.getSections()
         })     
       },
 
@@ -1802,14 +1818,19 @@ export default ({
           modifySectionDialogBox.showModal()
         }
 
+        let setup = this
         let deleteSectionButton = document.createElement("button")
         deleteSectionButton.innerText = "Delete Section " + singleSection.id
         deleteSectionButton.className = "btn btn-primary"
         deleteSectionButton.style.backgroundColor = "red"
         deleteSectionButton.style.border = "red"
         deleteSectionButton.onclick = function () {
-          alert("Section " + singleSection.id + " deleted")
           axios.delete(`${url}/api/v0/setup/delete-section/` + singleSection.id, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}`}})
+          .then((response) =>
+          {
+            console.log(response)
+            setup.getSections()
+          })
         }
 
         sectionTableByBodyRow.append(sectionID, sectionCRN, sectionNumber, period1, period2, period3, modifySectionButton, deleteSectionButton)
