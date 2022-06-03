@@ -11,7 +11,6 @@
   </thead>
   <tbody>
     <tr v-for="user in list" v-bind:key="user.id" >
-      <!-- <th scope="row"></th> -->
       <td scope="row">{{user.id}}</td>
       <td scope="row">{{user.username}}</td>
       <td scope="row">{{user.email}}</td>
@@ -19,18 +18,6 @@
     </tbody>
     </table>
        </form>
-      <!-- <table border= 1>
-          <tr border= 1>
-                <th>ID</th>
-                <th>Username</th>
-                <th>Email</th>
-          </tr>
-          <tr v-for="user in list" v-bind:key="user.id" border= 1>
-                <td>{{user.id}}</td>
-                <td>{{user.username}}</td>
-                <td>{{user.email}}</td>
-          </tr>
-      </table> -->
   </div>
 </template>
 

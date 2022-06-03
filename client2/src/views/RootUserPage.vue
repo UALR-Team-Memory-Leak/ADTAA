@@ -63,17 +63,7 @@ export default ({
         };
       },
       methods: {
-    //       next() {
-    // axios.get('http://localhost:3333/api/v0/requests')
-    //   .then(response => {
-    //      this.rows = response.data
-    //   }) 
-    //   .catch(error => console.log(error))
-    //     },
-
-
-    onApprove() { //why does this work?
-    //const test = localStorage.getItem('token');
+    onApprove() {
         var url = ''
         if (process.env.NODE_ENV === 'development') {
         url = 'http://localhost:3333'

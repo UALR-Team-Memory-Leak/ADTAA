@@ -1,5 +1,4 @@
 <template>
-<!-- <body style="background-color:#640309;"> -->
   <div>
       <div style="background-color:#640309;">
         <img alt="UALRlogo" src="../assets/ualr.png">
@@ -38,7 +37,6 @@
       </div>
   </div>
   </div>
-  <!-- </body> -->
 </template>
 
 <script>
@@ -71,7 +69,6 @@ export default ({
                `${url}/api/v0/auth/login`,
               {email: this.email, password: this.password}
           ).then((response) => {
-              //console.log(response.data.token.token)
                 if (response.data.token) {
                     localStorage.setItem('user', JSON.stringify(response.data));
                     localStorage.setItem('token', response.data.token.token);
@@ -80,7 +77,6 @@ export default ({
                     axios.defaults.headers.common.Authorization = response.data.token.token
                        this.$router.push({path:'/homepage'});
                 } 
-                //return response.data;
           }
           ).catch(function(error) {
             console.log(error)
