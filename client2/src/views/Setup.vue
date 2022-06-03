@@ -610,6 +610,117 @@
     </form>
   </dialog>
 
+  <dialog id="modifySectionDialogBox">
+    <p>
+      Input the new data for the section:
+    </p>
+    <form method="dialog" @submit="onModifySection()">
+      <div class="form-group">
+        <label for="modify_section_CRN">Course Reference Number</label>
+        <input type="number" class="form-control" name="modify_section_CRN" id="modify_section_CRN" min="100" max="500"/>
+      </div>
+      <div class="form-group">
+        <label for="modify_section_number">Section Number</label>
+        <input type="number" class="form-control" name="modify_section_number" id="modify_section_number" min="1" max="10"/>
+      </div>
+      <div class="form-group">
+          <label for="modify_section_period_1_days">Period 1 Days</label>
+          <br>
+          <select id="modify_section_period_1_days" name="modify_section_period_1_days" style="width: 100%;">
+            <option value="None">None</option>
+            <option value="Mon">Mon</option>
+            <option value="Mon/Tues">Mon/Tues</option>
+            <option value="Mon/Wed">Mon/Wed</option>
+            <option value="Mon/Thurs">Mon/Thurs</option>
+            <option value="Mon/Fri">Mon/Fri</option>
+            <option value="Tues">Tues</option>
+            <option value="Tues/Wed">Tues/Wed</option>
+            <option value="Tues/Thurs">Tues/Thurs</option>
+            <option value="Tues/Fri">Tues/Fri</option>
+            <option value="Wed">Wed</option>
+            <option value="Wed/Thurs">Wed/Thurs</option>
+            <option value="Wed/Fri">Wed/Fri</option>
+            <option value="Thurs">Thurs</option>
+            <option value="Thurs/Fri">Thurs/Fri</option>
+            <option value="Fri">Fri</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="modify_section_period_1_start_time">Period 1 Start Time</label>
+        <input type="time" class="form-control" name="modify_section_period_1_start_time" id="modify_section_period_1_start_time"/>
+      </div>
+      <div class="form-group">
+        <label for="modify_section_period_1_end_time">Period 1 End Time</label>
+        <input type="time" class="form-control" name="modify_section_period_1_end_time" id="modify_section_period_1_end_time"/>
+      </div>
+
+      <div class="form-group">
+          <label for="modify_section_period_2_days">Period 2 Days</label>
+          <br>
+          <select id="modify_section_period_2_days" name="modify_section_period_2_days" style="width: 100%;">
+            <option value="None">None</option>
+            <option value="Mon">Mon</option>
+            <option value="Mon/Tues">Mon/Tues</option>
+            <option value="Mon/Wed">Mon/Wed</option>
+            <option value="Mon/Thurs">Mon/Thurs</option>
+            <option value="Mon/Fri">Mon/Fri</option>
+            <option value="Tues">Tues</option>
+            <option value="Tues/Wed">Tues/Wed</option>
+            <option value="Tues/Thurs">Tues/Thurs</option>
+            <option value="Tues/Fri">Tues/Fri</option>
+            <option value="Wed">Wed</option>
+            <option value="Wed/Thurs">Wed/Thurs</option>
+            <option value="Wed/Fri">Wed/Fri</option>
+            <option value="Thurs">Thurs</option>
+            <option value="Thurs/Fri">Thurs/Fri</option>
+            <option value="Fri">Fri</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="modify_section_period_2_start_time">Period 2 Start Time</label>
+        <input type="time" class="form-control" name="modify_section_period_2_start_time" id="modify_section_period_2_start_time"/>
+      </div>
+      <div class="form-group">
+        <label for="modify_section_period_2_end_time">Period 2 End Time</label>
+        <input type="time" class="form-control" name="modify_section_period_2_end_time" id="modify_section_period_2_end_time"/>
+      </div>
+
+      <div class="form-group">
+          <label for="modify_section_period_3_days">Period 3 Days</label>
+          <br>
+          <select id="modify_section_period_3_days" name="modify_section_period_3_days" style="width: 100%;">
+            <option value="None">None</option>
+            <option value="Mon">Mon</option>
+            <option value="Mon/Tues">Mon/Tues</option>
+            <option value="Mon/Wed">Mon/Wed</option>
+            <option value="Mon/Thurs">Mon/Thurs</option>
+            <option value="Mon/Fri">Mon/Fri</option>
+            <option value="Tues">Tues</option>
+            <option value="Tues/Wed">Tues/Wed</option>
+            <option value="Tues/Thurs">Tues/Thurs</option>
+            <option value="Tues/Fri">Tues/Fri</option>
+            <option value="Wed">Wed</option>
+            <option value="Wed/Thurs">Wed/Thurs</option>
+            <option value="Wed/Fri">Wed/Fri</option>
+            <option value="Thurs">Thurs</option>
+            <option value="Thurs/Fri">Thurs/Fri</option>
+            <option value="Fri">Fri</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="modify_section_period_3_start_time">Period 3 Start Time</label>
+        <input type="time" class="form-control" name="modify_section_period_3_start_time" id="modify_section_period_3_start_time"/>
+      </div>
+      <div class="form-group">
+        <label for="modify_section_period_3_end_time">Period 3 End Time</label>
+        <input type="time" class="form-control" name="modify_section_period_3_end_time" id="modify_section_period_3_end_time"/>
+      </div>
+      
+      <button type="submit" class="btn btn-primary" style="margin: 10px;" value="submit">Submit</button>
+      <button type="button" class="btn btn-primary" style="background-color: red; border-color: red" onclick="let dialogBox = document.getElementById('modifySectionDialogBox'); dialogBox.close()">Cancel</button>
+    </form>
+  </dialog>
+
   <div style="padding-bottom: 25px;">
     <button id="addSectionButton" class="btn btn-primary">Add Section</button>
   </div>
@@ -626,6 +737,7 @@
   //Global Variables
   var currentInstructorID
   var currentCourseCRN
+  var currentSectionID
 
 export default ({
     name: "Setup-Page",
@@ -820,7 +932,7 @@ export default ({
           let pmOrAm
           if (time == undefined)
           {
-              return ("12:00am")
+              return ("???")
           }
           if (time.toString().length == 1)
           {
@@ -846,24 +958,57 @@ export default ({
 
           if (tempHour > 12)
           {
-              pmOrAm = "pm";
+              pmOrAm = "PM";
               tempHour -= 12;
           }
           else if (tempHour == 12)
           {
-              pmOrAm = "pm"
+              pmOrAm = "PM"
           }
           else if(tempHour == 0)
           {
-              pmOrAm = "am"
+              pmOrAm = "AM"
               tempHour += 12
           }
           else
           {
-            pmOrAm = "am"
+            pmOrAm = "AM"
           }
 
           return (tempHour +":" + tempMinute + pmOrAm);
+      },
+
+      convertTo24HourTime(time)
+      {
+          let tempHour;
+          let tempMinute;
+          if (time == undefined)
+          {
+              return undefined;
+          }
+          if (time.toString().length == 1)
+          {
+              tempHour = "00";
+              tempMinute = "0" + time.toString();
+          }
+          else if (time.toString().length == 2)
+          {
+              tempHour = "00";
+              tempMinute = time.toString();
+          }
+          else if (time.toString().length == 3)
+          {
+              tempHour = "0" + time.toString().substr(0, 1);
+              tempMinute = time.toString().substr(1, 2);
+          }
+          else if (time.toString().length == 4)
+          {
+              tempHour = time.toString().substr(0, 2);
+              tempMinute= time.toString().substr(2, 2);
+                  
+          }
+
+          return (tempHour +":" + tempMinute);
       },
 
       convertToDatabaseTime(time)
@@ -1344,7 +1489,7 @@ export default ({
         }
 
         let deleteCourseButton = document.createElement("button")
-        deleteCourseButton.innerText = "Delete Course " + singleCourse.id
+        deleteCourseButton.innerText = "Delete Course " + singleCourse.Course_Reference_Number
         deleteCourseButton.className = "btn btn-primary"
         deleteCourseButton.style.backgroundColor = "red"
         deleteCourseButton.style.border = "red"
@@ -1431,6 +1576,59 @@ export default ({
         })     
       },
 
+      onModifySection()
+      {
+        var url = ''
+        if (process.env.NODE_ENV === 'development') {
+          url = 'http://localhost:3333'
+        } 
+        else {
+          url = 'https://test-adoni.herokuapp.com'
+        }
+
+        const CRN = document.getElementById("modify_section_CRN").value
+        const sectionNumber = document.getElementById("modify_section_number").value
+        const days1 = this.convertToDaysInteger(document.getElementById("modify_section_period_1_days").value)
+        const startTime1 = this.convertToDatabaseTime(document.getElementById("modify_section_period_1_start_time").value)
+        const endTime1 = this.convertToDatabaseTime(document.getElementById("modify_section_period_1_end_time").value)
+        const days2 = this.convertToDaysInteger(document.getElementById("modify_section_period_2_days").value)
+        const startTime2 = this.convertToDatabaseTime(document.getElementById("modify_section_period_2_start_time").value)
+        const endTime2 = this.convertToDatabaseTime(document.getElementById("modify_section_period_2_end_time").value)
+        const days3 = this.convertToDaysInteger(document.getElementById("modify_section_period_3_days").value)
+        const startTime3 = this.convertToDatabaseTime(document.getElementById("modify_section_period_3_start_time").value)
+        const endTime3 = this.convertToDatabaseTime(document.getElementById("modify_section_period_3_end_time").value)
+
+        console.log(
+            CRN, 
+            sectionNumber, 
+            days1, startTime1, endTime1,
+            days2, startTime2, endTime2,
+            days3, startTime3, endTime3
+        )
+       
+        axios.post(`${url}/api/v0/setup/modify-section/` + currentSectionID, 
+        {
+          Course_Reference_Number: CRN, 
+          Section_Number: sectionNumber,
+
+          Meeting_Period_1_Days: days1,
+          Meeting_Period_1_Start: startTime1,
+          Meeting_Period_1_End: endTime1,
+
+          Meeting_Period_2_Days: days2,
+          Meeting_Period_2_Start: startTime2,
+          Meeting_Period_2_End: endTime2,
+
+          Meeting_Period_3_Days: days3,
+          Meeting_Period_3_Start: startTime3,
+          Meeting_Period_3_End: endTime3
+
+        })
+        .then((response) => 
+        {
+          console.log(response)
+        })     
+      },
 
       //Section Importing
       createSectionTable() {
@@ -1497,39 +1695,58 @@ export default ({
         let period1 = document.createElement('td')
         period1.style.textAlign = 'center'
         period1.style.width = '15em'
+
+        let days1 = this.convertToDaysString(singleSection.Meeting_Period_1_Days)
+        let startTime1 = this.convertToPrintedTime(singleSection.Meeting_Period_1_Start)
+        let endTime1 = this.convertToPrintedTime(singleSection.Meeting_Period_1_End)
         if (singleSection.Meeting_Period_1_Days == undefined && singleSection.Meeting_Period_1_Start == undefined && singleSection.Meeting_Period_1_End == undefined)
         {
             period1.innerText = ""
         }
         else
         {
-            period1.innerText = this.convertToDaysString(singleSection.Meeting_Period_1_Days) + ": " + this.convertToPrintedTime(singleSection.Meeting_Period_1_Start) + "-" + this.convertToPrintedTime(singleSection.Meeting_Period_1_End)
+            period1.innerText = days1 + ": " + startTime1 + "-" + endTime1
         }
 
         let period2 = document.createElement('td')
         period2.style.textAlign = 'center'
         period2.style.width = '15em'
+
+        let days2 = this.convertToDaysString(singleSection.Meeting_Period_2_Days)
+        let startTime2 = this.convertToPrintedTime(singleSection.Meeting_Period_2_Start)
+        let endTime2 = this.convertToPrintedTime(singleSection.Meeting_Period_2_End)
         if (singleSection.Meeting_Period_2_Days == undefined && singleSection.Meeting_Period_2_Start == undefined && singleSection.Meeting_Period_2_End == undefined)
         {
             period2.innerText = ""
         }
         else
         {
-            period2.innerText = this.convertToDaysString(singleSection.Meeting_Period_2_Days) + ": " + this.convertToPrintedTime(singleSection.Meeting_Period_2_Start) + "-" + this.convertToPrintedTime(singleSection.Meeting_Period_2_End)
+            period2.innerText = days2 + ": " + startTime2 + "-" + endTime2
         }
 
         let period3 = document.createElement('td')
         period3.style.textAlign = 'center'
         period3.style.width = '15em'
+
+        let days3 = this.convertToDaysString(singleSection.Meeting_Period_3_Days)
+        let startTime3 = this.convertToPrintedTime(singleSection.Meeting_Period_3_Start)
+        let endTime3 = this.convertToPrintedTime(singleSection.Meeting_Period_3_End)
         if (singleSection.Meeting_Period_3_Days == undefined && singleSection.Meeting_Period_3_Start == undefined && singleSection.Meeting_Period_3_End == undefined)
         {
             period3.innerText = ""
         }
         else
         {
-            period3.innerText = this.convertToDaysString(singleSection.Meeting_Period_3_Days) + ": " + this.convertToPrintedTime(singleSection.Meeting_Period_3_Start) + "-" + this.convertToPrintedTime(singleSection.Meeting_Period_3_End)
+            period3.innerText = days3 + ": " + startTime3 + "-" + endTime3
         }
+
         
+        let startTIme1_24hour = this.convertTo24HourTime(singleSection.Meeting_Period_1_Start)
+        let endTime1_24hour = this.convertTo24HourTime(singleSection.Meeting_Period_1_End)
+        let startTIme2_24hour = this.convertTo24HourTime(singleSection.Meeting_Period_2_Start)
+        let endTime2_24hour = this.convertTo24HourTime(singleSection.Meeting_Period_2_End)
+        let startTIme3_24hour = this.convertTo24HourTime(singleSection.Meeting_Period_3_Start)
+        let endTime3_24hour = this.convertTo24HourTime(singleSection.Meeting_Period_3_End)
 
         let modifySectionButton = document.createElement("button")
         modifySectionButton.innerText = "Modify Section " + singleSection.id
@@ -1537,7 +1754,6 @@ export default ({
         modifySectionButton.className = "btn btn-primary"
         modifySectionButton.onclick = function () 
         {
-          /*
           const modifySectionDialogBox = document.getElementById('modifySectionDialogBox')
 
           const CRNField = document.getElementById("modify_section_CRN")
@@ -1547,37 +1763,36 @@ export default ({
           sectionNumberField.value = singleSection.Section_Number
 
           const daysField1 = document.getElementById("modify_section_period_1_days")
-          daysField1.value = singleSection.Meeting_Period_1_Days
+          daysField1.value = days1
 
           const startTimeField1 = document.getElementById("modify_section_period_1_start_time")
-          startTimeField1 = singleSection.Meeting_Period_1_Start
+          startTimeField1.value = startTIme1_24hour
 
           const endTimeField1 = document.getElementById("modify_section_period_1_end_time")
-          endTimeField1 = singleSection.Meeting_Period_1_End
+          endTimeField1.value = endTime1_24hour
 
           const daysField2 = document.getElementById("modify_section_period_2_days")
-          daysField2.value = singleSection.Meeting_Period_1_Days
+          daysField2.value = days2
 
           const startTimeField2 = document.getElementById("modify_section_period_2_start_time")
-          startTimeField2 = singleSection.Meeting_Period_1_Start
+          startTimeField2.value = startTIme2_24hour
 
           const endTimeField2 = document.getElementById("modify_section_period_2_end_time")
-          endTimeField2 = singleSection.Meeting_Period_1_End
+          endTimeField2.value = endTime2_24hour
 
           const daysField3 = document.getElementById("modify_section_period_3_days")
-          daysField3.value = singleSection.Meeting_Period_1_Days
+          daysField3.value = days3
 
           const startTimeField3 = document.getElementById("modify_section_period_3_start_time")
-          startTimeField3 = singleSection.Meeting_Period_1_Start
+          startTimeField3.value = startTIme3_24hour
 
           const endTimeField3 = document.getElementById("modify_section_period_3_end_time")
-          endTimeField3 = singleSection.Meeting_Period_1_End
+          endTimeField3.value = endTime3_24hour
 
           currentSectionID = singleSection.id
           console.log(currentSectionID)
 
           modifySectionDialogBox.showModal()
-          */
         }
 
         let deleteSectionButton = document.createElement("button")
