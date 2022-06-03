@@ -1,9 +1,9 @@
 <style>
   .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
+  border: 1px solid #ccc none;
   background-color: #f1f1f1;
-  width: 100%;
+  display: inline-block;
 }
 
 /* Style the buttons inside the tab */

@@ -1,3 +1,19 @@
+<style>
+  .nav-link {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.nav-link:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.nav-link.router-link-active {
+  background-color: #ccc;
+}
+</style>
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -113,7 +129,7 @@ export default ({
       this.processLogout()
       localStorage.clear();
       this.$router.push("/login")
-    }
+    },
   }
 })
 </script>
