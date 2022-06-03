@@ -22,66 +22,6 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <!-- <ul class="navbar-nav" v-if="user1">
-        <li class="nav-item">
-          <router-link class="nav-link" to="/app">Home</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/login">Login</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/register">Register</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/homepage">Home Page</router-link>
-        </li>
-        <li class="nav-item" v-if="showLogout">
-          <button class="nav-link" @click="logout">Logout</button>
-        </li>
-      </ul>
-      <ul class="navbar-nav" v-if="user2">
-        <li class="nav-item">
-          <router-link class="nav-link" to="/app">Home</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/login">Login</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/register">Register</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/homepage">Home Page</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/myschedule">View Schedule</router-link>
-        </li>
-        <li class="nav-item" v-if="showLogout">
-          <button class="nav-link" @click="logout">Logout</button>
-        </li>
-      </ul>
-      <ul class="navbar-nav" v-if="user3">
-        <li class="nav-item">
-          <router-link class="nav-link" to="/app">Home</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/login">Login</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/register">Register</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/homepage">Home Page</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/myschedule">View Schedule</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link class="nav-link" to="/setup">Setup</router-link>
-        </li>
-        <li class="nav-item" v-if="showLogout">
-          <button class="nav-link" @click="logout">Logout</button>
-        </li>
-      </ul> -->
       <ul class="navbar-nav">
         <li class="nav-item" v-if="!isLoggedIn">
           <router-link class="nav-link" to="/homepage">Home</router-link>
