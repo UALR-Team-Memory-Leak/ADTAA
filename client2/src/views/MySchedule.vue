@@ -7,6 +7,10 @@
     <div class="col-md-6 offset-md-3">
     </div>
 </div>
+  <div class="title" style="padding: 25px; padding-left: 35px; width: 30%;">  
+    <h3 style="">Schedule</h3>
+    <hr>
+  </div>
 <center>
 <div style="padding-top: 50px;" class='schedule'></div>
 <br>

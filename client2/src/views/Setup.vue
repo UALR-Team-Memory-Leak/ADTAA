@@ -1,17 +1,57 @@
+<style>
+  .tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding-bottom: 50px;
+}
+</style>
 <template>
 <body>
   <div style="background-color:#640309;">
         <img alt="UALRlogo" src="../assets/ualr.png">
     </div>
+  <div class="title" style="padding: 25px; padding-left: 35px; width: 30%;">  
+    <h3 style="">Setup</h3>
+    <hr>
+  </div>
  <center>  
-<div class="tab" style="padding-top: 25px;">
-    <button style="margin: 15px" id="openInstructors" class="tablinks" @click="openTab(event, 'InstructorsTab')">Instructors</button>
-    <button style="margin: 15px" id="openCourses" class="tablinks" @click="openTab(event, 'CoursesTab')">Courses</button>
-    <button style="margin: 15px" id="openSection" class="tablinks" @click="openTab(event, 'SectionsTab')">Sections</button>
+
+<div class="tab">
+    <button style="border-left: 1px solid #ccc;" id="openInstructors" class="tablinks" @click="openTab('openInstructors', 'InstructorsTab')">Instructors</button>
+    <button style="border-left: 1px solid #ccc; border-right: 1px solid #ccc;;" id="openCourses" class="tablinks" @click="openTab('openCourses', 'CoursesTab')">Courses</button>
+    <button style="border-right: 1px solid #ccc;;" id="openSection" class="tablinks" @click="openTab('openSection', 'SectionsTab')">Sections</button>
 </div>
 <br>
 
-<div id="InstructorsTab" class="tabcontent" style="display: none; padding-bottom: 50px;">
+<div id="InstructorsTab" class="tabcontent">
   <dialog id="addInstructorDialogBox">
     <p>
       Input the data for the new instructor:
@@ -246,7 +286,7 @@
   <br>
 </div>
 
-<div id="CoursesTab" class="tabcontent" style="display: none; padding-bottom: 50px;">
+<div id="CoursesTab" class="tabcontent">
   <dialog id="addCourseDialogBox">
     <p>
       Input the data for the new course:
@@ -497,7 +537,7 @@
   <div class="courses"></div>
 </div>
 
-<div id="SectionsTab" class="tabcontent" style="display: none; padding-bottom: 50px;">
+<div id="SectionsTab" class="tabcontent">
 
   <dialog id="addSectionDialogBox">
     <p>
@@ -741,6 +781,12 @@
 
 export default ({
     name: "Setup-Page",
+    data()
+    {
+      return {
+        
+      };
+    },
 
     //Methods to call at page creation
     mounted: function() {
@@ -778,13 +824,13 @@ export default ({
         this.getInstructors()
         this.getCourses()
         this.getSections()
-        this.openTab(event, 'InstructorsTab')
+        this.openTab('openInstructors', 'InstructorsTab')
       })
     },
     methods:
     {
       //Tab Management
-      openTab(evt, dataName)
+      openTab(buttonName, tabName)
       {
         var i, tabcontent, tablinks
         tabcontent = document.getElementsByClassName("tabcontent")
@@ -797,8 +843,8 @@ export default ({
         {
           tablinks[i].className = tablinks[i].className.replace(" active", "")
         }
-        document.getElementById(dataName).style.display = "block"
-        evt.currentTarget.className += "active"
+        document.getElementById(tabName).style.display = "block"
+        document.getElementById(buttonName).className += " active"
       },
 
       //Functions to convert data to database format
