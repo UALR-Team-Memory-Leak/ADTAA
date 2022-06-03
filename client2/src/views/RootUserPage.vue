@@ -12,7 +12,15 @@
             </div> 
        </table>
     </center>
-    </div>                     
+    </div>
+    
+    <dialog id="errorMessage">
+        <p>Your input is invalid. Please input a valid ID and a role.</p>
+        <form>
+            <button type="submit">OK</button>
+        </form>
+    </dialog>
+
     <div id="right" style="float:right; width:50%;">
         <div> 
             <h3>Registration Approval</h3>
@@ -82,7 +90,12 @@ export default ({
         ).then((response) => {
             window.location.reload();
             console.log(response);
-        });
+        }
+        ).catch(function(error) {
+            console.log(error)
+            const errorMessage = document.getElementById('errorMessage')
+            errorMessage.showModal()
+          });
       },
       onDeny()
       {
@@ -103,7 +116,12 @@ export default ({
         ).then((response) => {
             window.location.reload();
             console.log(response);
-        });
+        }
+        ).catch(function(error) {
+            console.log(error)
+            const errorMessage = document.getElementById('errorMessage')
+            errorMessage.showModal()
+          });
       }
     }
       
