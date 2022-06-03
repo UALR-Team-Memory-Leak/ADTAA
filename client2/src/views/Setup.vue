@@ -784,7 +784,34 @@ export default ({
     data()
     {
       return {
-        
+        add_last_name: "",
+        add_max_course_load: "",
+        add_instructor_discipline_area1: "",
+        add_instructor_discipline_area2: "",
+        add_instructor_discipline_area3: "",
+        add_instructor_discipline_area4: "",
+
+        add_course_reference_number: "",
+        add_department_code: "",
+        add_course_number: "",
+        add_course_title: "",
+        add_course_discipline_area1: "",
+        add_course_discipline_area2: "",
+        add_course_discipline_area3: "",
+        add_course_discipline_area4: "",
+
+        add_section_CRN: "",
+        add_section_number: "",
+        add_section_period_1_days: "",
+        add_section_period_1_start_time: "",
+        add_section_period_1_end_time: "",
+        add_section_period_2_days: "",
+        add_section_period_2_start_time: "",
+        add_section_period_2_end_time: "",
+        add_section_period_3_days: "",
+        add_section_period_3_start_time: "",
+        add_section_period_3_end_time: "",
+
       };
     },
 
