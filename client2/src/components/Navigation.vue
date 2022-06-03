@@ -33,7 +33,7 @@
           <router-link class="nav-link" to="/register">Register</router-link>
         </li>
         <li class="nav-item" v-if="isLoggedIn"> <!--Is this what's messing us up?-->
-          <router-link class="nav-link" to="/homepage">Home Page</router-link>
+          <router-link class="nav-link" to="/homepage">Home</router-link>
         </li>
         <li class="nav-item">
           <router-link class="nav-link" to="/rootuserpage" v-if="role === 4">Register Approval</router-link>

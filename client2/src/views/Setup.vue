@@ -1277,6 +1277,7 @@ export default ({
           instructorDisciplineArea4.innerText = singleInstructor.Discipline_Area4
         }
 
+        //Modify Instructor Button
         let modifyInstructorButton = document.createElement("button")
         modifyInstructorButton.innerText = "Modify Instructor " + singleInstructor.id
         modifyInstructorButton.style.margin = "10px"
@@ -1308,6 +1309,7 @@ export default ({
           modifyInstructorDialogBox.showModal()
         }
         
+        //Delete Instructor Button
         let setup = this
         let deleteInstructorButton = document.createElement("button")
         deleteInstructorButton.innerText = "Delete Instructor " + singleInstructor.id
@@ -1539,6 +1541,7 @@ export default ({
           courseDisciplineArea4.innerText = singleCourse.Discipline_Area4
         }
 
+        //Modify Course Button
         let modifyCourseButton = document.createElement("button")
         modifyCourseButton.innerText = "Modify Course " + singleCourse.Course_Reference_Number
         modifyCourseButton.style.margin = "10px"
@@ -1577,6 +1580,7 @@ export default ({
           modifyCourseDialogBox.showModal()
         }
 
+        //Delete Course Button
         let setup = this
         let deleteCourseButton = document.createElement("button")
         deleteCourseButton.innerText = "Delete Course " + singleCourse.Course_Reference_Number
@@ -1844,6 +1848,7 @@ export default ({
         let startTIme3_24hour = this.convertTo24HourTime(singleSection.Meeting_Period_3_Start)
         let endTime3_24hour = this.convertTo24HourTime(singleSection.Meeting_Period_3_End)
 
+        //Modify Section Button
         let modifySectionButton = document.createElement("button")
         modifySectionButton.innerText = "Modify Section " + singleSection.id
         modifySectionButton.style.margin = "10px"
@@ -1891,6 +1896,7 @@ export default ({
           modifySectionDialogBox.showModal()
         }
 
+        //Delete Section Button
         let setup = this
         let deleteSectionButton = document.createElement("button")
         deleteSectionButton.innerText = "Delete Section " + singleSection.id

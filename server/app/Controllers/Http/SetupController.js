@@ -75,7 +75,6 @@ class SetupController {
                     Max_Course_Load,
                 });
             }
-        //return{ userInstructor, message: 'Added ' + userInstructor.Last_Name + ' to the database'};
 
         let userDisciplineArea1;
         let userDisciplineArea2;
