@@ -56,7 +56,7 @@ const createScheduleTable = ()  => {
   scheduleDiv.append(scheduleTable)
 }
 
- const appendSections = (singleSection) => {//singleSectionIndex
+ const appendSections = (singleSection) => {
   const scheduleTable = document.querySelector('.scheduleTable')
 
   let scheduleTableByBodyRow = document.createElement('tr')
@@ -112,13 +112,6 @@ export default ({
   mounted: function() {
       this.$nextTick(function () 
       {
-        /*
-        const token = localStorage.getItem('user')
-        if (!token)
-        {
-          this.$router.push({path:'./login'})
-        }
-        */
         console.log("HI")
         getSchedules()
       })
